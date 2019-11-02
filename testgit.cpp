@@ -8,5 +8,4 @@ using namespace std;
 int main()
 {
     cout << "git" << endl;
-    return 0;
 }
