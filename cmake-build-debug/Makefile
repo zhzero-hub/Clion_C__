@@ -292,6 +292,19 @@ Binary_tree/fast:
 .PHONY : 201909_4/fast
 
 #=============================================================================
+# Target rules for targets named testgit
+
+# Build rule for target.
+testgit: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 testgit
+.PHONY : testgit
+
+# fast build rule for target.
+testgit/fast:
+	$(MAKE) -f CMakeFiles\testgit.dir\build.make CMakeFiles/testgit.dir/build
+.PHONY : testgit/fast
+
+#=============================================================================
 # Target rules for targets named 201909_2
 
 # Build rule for target.
@@ -882,6 +895,33 @@ test.cpp.s:
 	$(MAKE) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/test.cpp.s
 .PHONY : test.cpp.s
 
+testgit.obj: testgit.cpp.obj
+
+.PHONY : testgit.obj
+
+# target to build an object file
+testgit.cpp.obj:
+	$(MAKE) -f CMakeFiles\testgit.dir\build.make CMakeFiles/testgit.dir/testgit.cpp.obj
+.PHONY : testgit.cpp.obj
+
+testgit.i: testgit.cpp.i
+
+.PHONY : testgit.i
+
+# target to preprocess a source file
+testgit.cpp.i:
+	$(MAKE) -f CMakeFiles\testgit.dir\build.make CMakeFiles/testgit.dir/testgit.cpp.i
+.PHONY : testgit.cpp.i
+
+testgit.s: testgit.cpp.s
+
+.PHONY : testgit.s
+
+# target to generate assembly for a file
+testgit.cpp.s:
+	$(MAKE) -f CMakeFiles\testgit.dir\build.make CMakeFiles/testgit.dir/testgit.cpp.s
+.PHONY : testgit.cpp.s
+
 testtest.obj: testtest.cpp.obj
 
 .PHONY : testtest.obj
@@ -930,6 +970,7 @@ help:
 	@echo ... 6
 	@echo ... rebuild_cache
 	@echo ... 201909_4
+	@echo ... testgit
 	@echo ... 201909_2
 	@echo ... 201312_4
 	@echo ... 201909_5
@@ -994,6 +1035,9 @@ help:
 	@echo ... test.obj
 	@echo ... test.i
 	@echo ... test.s
+	@echo ... testgit.obj
+	@echo ... testgit.i
+	@echo ... testgit.s
 	@echo ... testtest.obj
 	@echo ... testtest.i
 	@echo ... testtest.s

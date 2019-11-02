@@ -66,6 +66,7 @@ all: CMakeFiles/matrix.dir/all
 all: CMakeFiles/Binary_tree.dir/all
 all: CMakeFiles/6.dir/all
 all: CMakeFiles/201909_4.dir/all
+all: CMakeFiles/testgit.dir/all
 all: CMakeFiles/201909_2.dir/all
 all: CMakeFiles/201312_4.dir/all
 all: CMakeFiles/201909_5.dir/all
@@ -90,6 +91,7 @@ clean: CMakeFiles/matrix.dir/clean
 clean: CMakeFiles/Binary_tree.dir/clean
 clean: CMakeFiles/6.dir/clean
 clean: CMakeFiles/201909_4.dir/clean
+clean: CMakeFiles/testgit.dir/clean
 clean: CMakeFiles/201909_2.dir/clean
 clean: CMakeFiles/201312_4.dir/clean
 clean: CMakeFiles/201909_5.dir/clean
@@ -192,7 +194,7 @@ CMakeFiles/2.dir/clean:
 CMakeFiles/testtest.dir/all:
 	$(MAKE) -f CMakeFiles\testtest.dir\build.make CMakeFiles/testtest.dir/depend
 	$(MAKE) -f CMakeFiles\testtest.dir\build.make CMakeFiles/testtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\Clion C++\cmake-build-debug\CMakeFiles" --progress-num=39,40 "Built target testtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\Clion C++\cmake-build-debug\CMakeFiles" --progress-num=41,42 "Built target testtest"
 .PHONY : CMakeFiles/testtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -481,6 +483,33 @@ CMakeFiles/201909_4.dir/rule: cmake_check_build_system
 CMakeFiles/201909_4.dir/clean:
 	$(MAKE) -f CMakeFiles\201909_4.dir\build.make CMakeFiles/201909_4.dir/clean
 .PHONY : CMakeFiles/201909_4.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/testgit.dir
+
+# All Build rule for target.
+CMakeFiles/testgit.dir/all:
+	$(MAKE) -f CMakeFiles\testgit.dir\build.make CMakeFiles/testgit.dir/depend
+	$(MAKE) -f CMakeFiles\testgit.dir\build.make CMakeFiles/testgit.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\Clion C++\cmake-build-debug\CMakeFiles" --progress-num=39,40 "Built target testgit"
+.PHONY : CMakeFiles/testgit.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/testgit.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Clion C++\cmake-build-debug\CMakeFiles" 2
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/testgit.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Clion C++\cmake-build-debug\CMakeFiles" 0
+.PHONY : CMakeFiles/testgit.dir/rule
+
+# Convenience name for target.
+testgit: CMakeFiles/testgit.dir/rule
+
+.PHONY : testgit
+
+# clean rule for target.
+CMakeFiles/testgit.dir/clean:
+	$(MAKE) -f CMakeFiles\testgit.dir\build.make CMakeFiles/testgit.dir/clean
+.PHONY : CMakeFiles/testgit.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/201909_2.dir

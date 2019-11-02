@@ -67,6 +67,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/Binary_tree.dir/DependInfo.cmake"
   "CMakeFiles/6.dir/DependInfo.cmake"
   "CMakeFiles/201909_4.dir/DependInfo.cmake"
+  "CMakeFiles/testgit.dir/DependInfo.cmake"
   "CMakeFiles/201909_2.dir/DependInfo.cmake"
   "CMakeFiles/201312_4.dir/DependInfo.cmake"
   "CMakeFiles/201909_5.dir/DependInfo.cmake"

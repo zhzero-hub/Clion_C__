@@ -13,6 +13,7 @@ D:/Clion C++/cmake-build-debug/CMakeFiles/Binary_tree.dir
 D:/Clion C++/cmake-build-debug/CMakeFiles/6.dir
 D:/Clion C++/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 D:/Clion C++/cmake-build-debug/CMakeFiles/201909_4.dir
+D:/Clion C++/cmake-build-debug/CMakeFiles/testgit.dir
 D:/Clion C++/cmake-build-debug/CMakeFiles/201909_2.dir
 D:/Clion C++/cmake-build-debug/CMakeFiles/201312_4.dir
 D:/Clion C++/cmake-build-debug/CMakeFiles/201909_5.dir
