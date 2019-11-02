@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Clion C++/6.cpp
+iostream
+-
+fstream
+-
+vector
+-
+queue
+-
+map
+-
+string
+-
+cstring
+-
+unordered_map
+-
+
