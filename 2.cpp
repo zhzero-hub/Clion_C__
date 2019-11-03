@@ -105,14 +105,13 @@ double res_double(string &t)
     }
     else
     {
-        int size = t.size();
         for(int p = 0;p < pos;p ++)
         {
             double temp = t[p] - '0';
             ans *= 10;
             ans += temp;
         }
-        for(int p = t.size() - 1;p > pos;p --)
+        for(unsigned int p = t.size() - 1;p > pos;p --)
         {
             double temp = t[p] - '0';
             temp /= 10;
