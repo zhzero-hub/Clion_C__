@@ -69,4 +69,5 @@ int main()
         ans.push(c);
     }
     printf("%.6f" , ans.top());
+    return 0;
 }
