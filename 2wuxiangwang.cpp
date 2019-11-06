@@ -11,17 +11,20 @@
 
 
 
-#include "stdio.h"
-#include "stdlib.h"
-#include "string.h"
-#define maxx 9999999//定义的无穷大值
+#include <iostream>
+#include <fstream>
+#include <cstring>
+#include <string>
+#include <vector>
+using namespace std;
+const int maxx = 9999999;//定义的无穷大值
 
 typedef struct MyGraph
 {
     int type;//0，表示无向网，1表示有向网
-    int arcnum,vexnum;//图中边的个数以及顶点个数
-    char **vexname;//存放顶点名的二维数组
-    int **A;//邻接矩阵，A[i][j]表示i号顶点与j号顶点之间边的权值，若i,j之间没有边，则A[i][j]取值无穷大
+    int arcnum = 0,vexnum = 0;//图中边的个数以及顶点个数
+    char vexname[20][20];//存放顶点名的二维数组
+    int A[20][20];//邻接矩阵，A[i][j]表示i号顶点与j号顶点之间边的权值，若i,j之间没有边，则A[i][j]取值无穷大
 }GH;
 int menu_select();
 int findvex(char *s,GH *G);//确定顶点s对应的序号
@@ -47,7 +50,7 @@ int menu_select()
     return (i-'0');
 }
 
-main()
+int main()
 {
     GH G;
     char c1[20],c2[20];
@@ -105,16 +108,33 @@ int findvex(char *s,GH *G)
         if(strcmp(s,G->vexname[i])==0)
             return i;
     }
-    printf("read file erro\n");
+    printf("read file error\n");
     exit(-1);
 }
 
 void creatgraph(GH *G)
 {
-///////////////////////////完成该函数////////////////////////////////
     char filename[]="graph2.txt";
-
-
+    ifstream file(filename);
+    if(file.fail())
+    {
+        cout << "文件打开失败" << endl;
+        exit(0);
+    }
+    file >> G->vexnum;
+    for(int i = 0;i < G->vexnum;i ++)file >> G->vexname[i];
+    for(int i = 0;i < G->vexnum;i ++)for(int j = 0;j < G->vexnum;j ++)G->A[i][j] = maxx;
+    while(!file.eof())
+    {
+        char p[20] , q[20];
+        int data;
+        file >> p >> q >> data;
+        int p_pos = findvex(p , G);
+        int q_pos = findvex(q , G);
+        G->A[p_pos][q_pos] = G->A[q_pos][p_pos] = data;
+        G->arcnum ++;
+    }
+    file.close();
 }
 
 
@@ -136,22 +156,78 @@ void showgraph(GH *G)
 
 
 
-
+void Find(GH *G , char *end , int j , int *visit , vector<char *> &path)
+{
+    if(strcmp(G->vexname[j] , end) == 0)
+    {
+        for(const auto &x: path)cout << x << "    ";
+        cout << endl;
+        return;
+    }
+    int pos = 0;
+    while(pos < G->vexnum)
+    {
+        if(G->A[j][pos] != maxx && visit[pos] == 0)
+        {
+            visit[pos] = 1;
+            path.push_back(G->vexname[pos]);
+            Find(G , end , pos , visit , path);
+            path.pop_back();
+            visit[pos] = 0;
+            pos ++;
+        }
+        else pos ++;
+    }
+}
 
 void findpath(GH *G,char *start,char *end)//寻找简单路径函数
 {
-///////////////////////////完成该函数////////////////////////////////
-
-
-
+    int pos = findvex(start , G);
+    int visit[20] = {};
+    visit[pos] = 1;
+    vector<char *>path;
+    path.push_back(start);
+    Find(G , end , pos , visit , path);
 }
 
 
 int iscycle(GH *G)//判断图中是否有回路，有返回1，否则返回0
 {
-///////////////////////////完成该函数////////////////////////////////
-
-
+    int t[20][20];
+    int visit[20] = {};
+    int top = G->vexnum;
+    vector<int> ans;
+    int num = 0;
+    for(int i = 0;i < top;i ++)for(int j = 0;j < top;j ++)t[i][j] = G->A[i][j];
+    for(int i = 0;i < top;i ++)
+    {
+        int sum = 0;
+        for(int j = 0;j < top;j ++)if(t[i][j] != maxx)sum ++;
+        if(sum <= 1)
+        {
+            ans.push_back(i);
+            visit[i] = 1;
+            for(int j = 0;j < top;j ++)if(t[i][j] != maxx)t[i][j] = t[j][i] = maxx;
+        }
+    }
+    while(!ans.empty())
+    {
+        num ++;
+        ans.pop_back();
+        for(int i = 0;i < top;i ++)
+        {
+            if(visit[i])continue;
+            int sum = 0;
+            for(int j = 0;j < top;j ++)if(t[i][j] != maxx)sum ++;
+            if(sum <= 1)
+            {
+                ans.push_back(i);
+                visit[i] = 1;
+                for(int j = 0;j < top;j ++)if(t[i][j] != maxx)t[i][j] = t[j][i] = maxx;
+            }
+        }
+    }
+    return num != top;
 }
 
 
