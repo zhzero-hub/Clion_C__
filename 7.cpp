@@ -43,6 +43,13 @@ T Max(const T &a , const T &b)
     return b;
 }
 
+template <typename T>
+T Min(const T &a , const T &b)
+{
+    if(a > b)return b;
+    return a;
+}
+
 class Graph
 {
 private:
@@ -50,14 +57,17 @@ private:
     Adj_list g[100];
     Adj_list ans[100];
     vector<CPath> path;
+    vector<int> TP;
     int sum = 0;//边总数
     int n = 0;//邻接表个数
 public:
     Graph(){;};
     int Find_pos(const string &name){auto x = head.find(name);return x->second;};//O(1)的查找
+    int Find(const int &t){for(int i = 0;i < TP.size();i ++)if(TP[i] == t)return i;};
     void Create();
     bool TPsort();
-    float dfs(Node *x , float len);
+    void Ans();
+    float dfs(int i);
     friend void Show(Adj_list *g , int n);
 };
 
@@ -131,6 +141,7 @@ bool Graph::TPsort() {
         if(!In[i])
         {
             s.push(i);
+            TP.push_back(i);
             CPath temp;
             temp.pos = i;
             g[i].w = 0;
@@ -152,12 +163,42 @@ bool Graph::TPsort() {
             if(!In[pos])
             {
                 s.push(pos);
-                count ++;
+                TP.push_back(pos);
+                CPath temp;
+                temp.pos = pos;
+                temp.max = g[pos].w;
+                path.push_back(temp);
             }
             p = p->next;
         }
     }
     return count == n;
+}
+
+float Graph::dfs(int i) {//i表示的是拓扑排序中点的位置，即T[i]才是点
+    if(i == TP.size() - 1)
+    {
+        path[i].min = path[i].max;
+        return path[i].max;
+    }
+    Node *p = g[TP[i]].list->next;
+    while(p != nullptr)
+    {
+        int pos = Find_pos(p->adj);
+        float temp = dfs(Find(pos)) - p->weight;
+        path[i].min = Min<float>(temp , path[i].min);
+        p = p->next;
+    }
+    return path[i].min;
+}
+
+void Graph::Ans() {
+    dfs(TP , 0 , 0);
+    for(auto &x: path)
+    {
+        x.a = x.max - x.min;
+        if(x.a == 0)cout << x.pos << ' ';
+    }
 }
 
 
@@ -167,6 +208,7 @@ int main()
     graph.Create();
     if(graph.TPsort())cout << "拓扑排序成功" << endl;
     else cout << "拓扑排序失败" << endl;
+    graph.Ans();
 }
 
 
