@@ -11,6 +11,7 @@
 #include <cstring>
 #include <unordered_map>
 using namespace std;
+const float D_max = 100000;
 
 struct Node//邻接表节点
 {
@@ -34,6 +35,13 @@ struct node
     friend bool operator>(const node &a , const node &b){return a.weight > b.weight;};
 };
 
+struct Prim_node
+{
+    string name;
+    string add;
+    float distance = D_max;
+};
+
 class Graph
 {
 private:
@@ -47,9 +55,27 @@ public:
         Graph(){;};
         int Find_pos(const string &name){auto x = head.find(name);return x->second;};//O(1)的查找
         void Create();
+        void Prim();
         void Kruscal();
-        void Show();
+        void Clear_ans();
+        friend void Show(Adj_list *g , int n);
 };
+
+
+void Show(Adj_list *g , int n) {
+    for(int i = 1;i <= n;i ++)
+    {
+        cout << g[i].head << ' ';
+        Node *p = g[i].list;
+        p = p->next;
+        while(p != nullptr)
+        {
+            cout << "----" << p->adj << "(" << p->weight << ") ";
+            p = p->next;
+        }
+        cout << endl;
+    }
+}
 
 void Graph::Create()
 {
@@ -65,6 +91,7 @@ void Graph::Create()
         string temp;
         file >> temp;
         g[i].head = temp;
+        ans[i].head = temp;
         head.insert(make_pair(temp , i));
     }
     while(!file.eof())
@@ -92,21 +119,8 @@ void Graph::Create()
         min_e.push(t);
     }
     file.close();
-}
-
-void Graph::Show() {
-    for(int i = 1;i <= n;i ++)
-    {
-        cout << g[i].head << ' ';
-        Node *p = g[i].list;
-        p = p->next;
-        while(p != nullptr)
-        {
-            cout << "-" << p->weight << "->" << p->adj << ' ';
-            p = p->next;
-        }
-        cout << endl;
-    }
+    cout << "创建的图为: " << endl;
+    Show(g , n);
 }
 
 void Graph::Kruscal() {
@@ -144,26 +158,80 @@ void Graph::Kruscal() {
             count ++;
         }
     }
-    for(int i = 1;i <= n;i ++)
-    {
-        cout << g[i].head << ' ';
-        Node *p = ans[i].list;
-        p = p->next;
-        while(p != nullptr)
-        {
-            cout << "--" << p->weight << "-->" << p->adj;
-            p = p->next;
-        }
-        cout << endl;
-    }
+    cout << "Kruscal算法的结果为: " << endl;
+    Show(ans , n);
 }
 
+void Graph::Prim() {
+    Prim_node node[100];
+    int count = 1;
+    int pos = 1;
+    int visit[100] = {};
+    while(count < n)
+    {
+        Node *p = g[pos].list->next;
+        visit[pos] = 1;
+        while(p != nullptr)
+        {
+            int t = Find_pos(p->adj);
+            if(!visit[t] && node[t].distance > p->weight)
+            {
+                node[t].name = g[pos].head;
+                node[t].add = p->adj;
+                node[t].distance = p->weight;
+            }
+            p = p->next;
+        }
+        float dis = D_max;
+        for(int i = 1;i <= n;i ++)
+        {
+            if(!visit[i] && node[i].distance < dis)
+            {
+                dis = node[i].distance;
+                pos = i;
+            }
+        }
+        int m = Find_pos(node[pos].name);
+        int m2 = Find_pos(node[pos].add);
+        Node *temp = (Node *)malloc(sizeof(Node));
+        Node *temp2 = (Node *)malloc(sizeof(Node));
+        strcpy(temp->adj , node[pos].add.c_str());
+        strcpy(temp2->adj , node[pos].name.c_str());
+        temp->weight = temp2->weight = dis;
+        temp->next = temp2->next = nullptr;
+        ans[m].end->next = temp;
+        ans[m].end = ans[m].end->next;
+        ans[m2].end->next = temp2;
+        ans[m2].end = ans[m2].end->next;
+        count ++;
+    }
+    cout << "Prim算法的结果为: " << endl;
+    Show(ans , n);
+}
+
+Node *Clear(Node *x) {
+    if(x == nullptr)return nullptr;
+    x->next = Clear(x->next);
+    free(x);
+    x = nullptr;
+    return x;
+}
+
+void Graph::Clear_ans() {
+    for(int i = 1;i <= n;i ++)
+    {
+        ans[i].list->next = Clear(ans[i].list->next);
+        ans[i].end = ans[i].list;
+    }
+}
 
 int main()
 {
     Graph graph;
     graph.Create();
     graph.Kruscal();
+    graph.Clear_ans();
+    graph.Prim();
 }
 
 
