@@ -193,7 +193,7 @@ float Graph::dfs(int i) {//i表示的是拓扑排序中点的位置，即T[i]才是点
 }
 
 void Graph::Ans() {
-    dfs(TP , 0 , 0);
+    dfs(0);
     for(auto &x: path)
     {
         x.a = x.max - x.min;
