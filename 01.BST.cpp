@@ -6,7 +6,9 @@
 //          
 ////////////////////////////////////////////////////////////////////////////////////////////
 #include <iostream>
-#include "math.h"
+#include <cstdlib>
+#include <ctime>
+#include <queue>
 using namespace std;
 const int N = 100;
 
@@ -79,16 +81,66 @@ BST *delbst(BST *T)//销毁BST
 
 BST *insnode(BST *T,int x)//在BST中做插入，并返回根节点指向
 {
-/////////////////////////////complete this////////////////////////////////
+    if(T == nullptr)
+    {
+        BST *temp = (BST *)malloc(sizeof(BST));
+        temp->data = x;
+        temp->left = temp->right = nullptr;
+        return temp;
+    }
+    if(x < T->data)T->left = insnode(T->left , x);
+    else if(x > T->data)T->right = insnode(T->right , x);
+	return T;
+}
 
-
-	
+BST *Find_min(BST *T)
+{
+    BST *temp = T;
+    while(temp->left != nullptr)temp = temp->left;
+    return temp;
 }
 
 BST *delnode(BST *T,int x)//在BST中做删除并返回根节点指向。如果x不存在，给出提示信息“该数据不存在”
 {
-/////////////////////////////complete this////////////////////////////////
-	
+    if(T == nullptr)
+    {
+        cout << "该数据不存在" << endl;
+        return T;
+    }
+    if(T->data == x && T->left == nullptr && T->right == nullptr)
+    {
+        free(T);
+        T = nullptr;
+        return T;
+    }
+    if(T->data == x)
+    {
+        BST *temp;
+        if(T->left == nullptr)
+        {
+            temp = T->right;
+            free(T);
+            T = nullptr;
+            return temp;
+        }
+        else if(T->right == nullptr)
+        {
+            temp = T->left;
+            free(T);
+            T = nullptr;
+            return temp;
+        }
+        else
+        {
+            temp = Find_min(T->right);
+            T->data = temp->data;
+            delnode(T->right , temp->data);
+            return T;
+        }
+    }
+    else if(x < T->data)T->left = delnode(T->left , x);
+    else T->right = delnode(T->right , x);
+    return T;
 }
 
 void showbst(BST *T)//显示BST
@@ -109,8 +161,42 @@ void showbst(BST *T)//显示BST
 
 float comasl(BST *T)//计算BST的平均查找长度
 {
-/////////////////////////////complete this////////////////////////////////
-
-
+    float sum = 0;
+    queue<BST *> q;
+    BST *end = T;
+    float time = 1;
+    int count = 0;
+    q.push(T);
+    while(!q.empty())
+    {
+        BST *temp = q.front();
+        q.pop();
+        if(temp == nullptr)continue;
+        q.push(temp->left);
+        q.push(temp->right);
+        sum += float(time);
+        count ++;
+        while(temp != end)
+        {
+            temp = q.front();
+            q.pop();
+            if(temp == nullptr)continue;
+            q.push(temp->left);
+            q.push(temp->right);
+            sum += float(time);
+            count ++;
+        }
+        end = q.back();
+        time ++;
+    }
+    return sum / float(count);
 }
+
+
+
+
+
+
+
+
 
