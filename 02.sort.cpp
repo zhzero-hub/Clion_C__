@@ -6,16 +6,35 @@
 //          3、随机生成的数据，数值不要超过100，方便调试和观察结果，不要以此为条件设计算法        
 //          
 ////////////////////////////////////////////////////////////////////////////////////////////
-#include "stdio.h"
-#include "stdlib.h"
-#include "math.h"
+#include <iostream>
+const int N = 100;
+using namespace std;
 
+struct Node
+{
+    int data = 0;
+    Node *l = nullptr;
+    Node *r = nullptr;
+};
 
+Node *Insert(Node *T,int x)//在BST中做插入，并返回根节点指向
+{
+    if(T == nullptr)
+    {
+        Node *temp = (Node *)malloc(sizeof(Node));
+        temp->data = x;
+        temp->l = temp->r = nullptr;
+        return temp;
+    }
+    if(x < T->data)T->l = Insert(T->l , x);
+    else if(x > T->data)T->r = Insert(T->r , x);
+    return T;
+}
 
 void output(int n,int k);//在n个随机数中，利用BST，按降序有序的顺序输出所有大于等于k的数据
 
 
-main()
+int main()
 {
 	int n,k;
 	printf("请输入数据规模n以及需要查找的有序序列的最小值k:\n");
@@ -29,10 +48,25 @@ main()
 	}
 }
 
+void in_order(Node *node , int k)
+{
+    if(node != nullptr)
+    {
+        if(node->data < k)return;
+        in_order(node->l , k);
+        cout << node->data << ' ';
+        in_order(node->r , k);
+    }
+}
 
 void output(int n,int k)
 {
-///////////////完成该函数////////////////////////////////////
-
-
+    Node *base = nullptr;
+    for(int i = 0;i < n;i ++)
+    {
+        int t = rand() % N;
+        base = Insert(base , t);
+    }
+    in_order(base , k);
+    cout << endl;
 }
