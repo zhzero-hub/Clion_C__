@@ -72,7 +72,7 @@ BST *createbst(int n)
 	srand(time(0));
 	for(i=0;i<n;i++)
 	{
-		x=rand()%1000;
+	    x = rand() % 1000;
 		T=insnode(T,x);
 	}
 	return T;
@@ -125,34 +125,8 @@ int max(int a , int b)
 
 void Getban(node *x)
 {
-    if(x == nullptr)
-    {
-        return;
-    }
-    else if(x->left == nullptr && x->right == nullptr)
-    {
-        x->h = 1;
-        x->ban = 0;
-    }
-    else if(x->left == nullptr)
-    {
-        Getban(x->right);
-        x->h = x->right->h + 1;
-        x->ban = x->right->ban + 1;
-    }
-    else if(x->right == nullptr)
-    {
-        Getban(x->left);
-        x->h = x->left->h + 1;
-        x->ban = x->left->ban + 1;
-    }
-    else
-    {
-        Getban(x->left);
-        Getban(x->right);
-        x->h = max(x->right->h , x->left->h) + 1;
-        x->ban = x->right->h - x->left->h;
-    }
+    if(x == nullptr)return;
+    else x->ban = heightbst(x->right) - heightbst(x->left);
 }
 
 int isbalance(BST *T,BST *newnode,BST **a,BST **b,BST **c)
@@ -161,8 +135,7 @@ int isbalance(BST *T,BST *newnode,BST **a,BST **b,BST **c)
     node *q = newnode;
     while(q != T)
     {
-        if(p->left == q)p->ban --;
-        else p->ban ++;
+        Getban(p);
         if(p->ban < -1)//×ó¸ß
         {
             if(newnode->data < q->data)//LL
@@ -201,71 +174,76 @@ int isbalance(BST *T,BST *newnode,BST **a,BST **b,BST **c)
     return 1;
 }
 
-BST *adjust(BST *T,BST *a,BST *b,BST *c)
+BST *LL_Rotation(BST *T,BST *a,BST *b,BST *c)
 {
     int isRoot = 0;
     if(T == a)isRoot = 1;
+    int dir = 0;
+    node *temp_pa = a->pa;
+    if(temp_pa != nullptr && temp_pa->right == a)dir = 1;
+    node *p = b->right;
+    b->right = a;
+    a->pa = b;
+    a->left = p;
+    b->pa = temp_pa;
+    if(temp_pa != nullptr)
+    {
+        if(dir)temp_pa->right = b;
+        else temp_pa->left = b;
+    }
+    if(p != nullptr)p->pa = a;
+    if(isRoot)T = b;
+    return T;
+}
+
+BST *RR_Rotation(BST *T,BST *a,BST *b,BST *c)
+{
+    int isRoot = 0;
+    if(T == a)isRoot = 1;
+    int dir = 0;
+    node *temp_pa = a->pa;
+    if(temp_pa != nullptr && temp_pa->right == a)dir = 1;
+    node *p = b->left;
+    b->left = a;
+    a->pa = b;
+    a->right = p;
+    b->pa = temp_pa;
+    if(temp_pa != nullptr)
+    {
+        if(dir)temp_pa->right = b;
+        else temp_pa->left = b;
+    }
+    if(p != nullptr)p->pa = a;
+    if(isRoot)T = b;
+    return T;
+}
+
+BST *adjust(BST *T,BST *a,BST *b,BST *c)
+{
     if(c == nullptr)//LL||RR
     {
         if(a->left == b)//LL
         {
-            node *temp_pa = a->pa;
-            node *p = b->right;
-            b->right = a;
-            a->pa = b;
-            a->left = p;
-            b->pa = temp_pa;
-            if(temp_pa != nullptr)temp_pa->left = b;
-            if(p != nullptr)p->pa = a;
+            T = LL_Rotation(T , a , b , c);
         }
         else//RR
         {
-            node *temp_pa = a->pa;
-            node *p = b->left;
-            b->left = a;
-            a->pa = b;
-            a->right = p;
-            b->pa = temp_pa;
-            if(temp_pa != nullptr)temp_pa->right = b;
-            if(p != nullptr)p->pa = a;
+            T = RR_Rotation(T , a , b , c);
         }
-        if(isRoot)T = b;
-        Getban(b);
     }
     else//LR||RL
     {
-        int dir = 0;
-        node *temp_pa = a->pa;
-        if(temp_pa != nullptr && temp_pa->right == a)dir = 1;
-        node *l = c->left;
-        node *r = c->right;
         if(b->right == c)//LR
         {
-            c->left = b;
-            c->right = a;
-            b->right = l;
-            a->left = r;
+            T = RR_Rotation(T , b , c , a);
+            T = LL_Rotation(T , a , c , b);
         }
         else//RL
         {
-            c->left = a;
-            c->right = b;
-            b->left = r;
-            a->right = l;
+            T = LL_Rotation(T , b , c , a);
+            T = RR_Rotation(T , a , c , b);
         }
-        if(temp_pa != nullptr)
-        {
-            if(dir)temp_pa->right = c;
-            else temp_pa->left = c;
-        }
-        b->pa = a->pa = c;
-        c->pa = temp_pa;
-        if(l != nullptr)l->pa = b;
-        if(r != nullptr)r->pa = a;
-        if(isRoot)T = c;
-        Getban(c);
     }
-    //Getban(T);
     return T;
 }
 
