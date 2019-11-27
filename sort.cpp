@@ -14,10 +14,11 @@
 
 
 
-#include "stdio.h"
-#include "stdlib.h"
-#include "math.h"
-#include "time.h"
+#include <iostream>
+#include <cmath>
+#include <ctime>
+using namespace std;
+
 typedef struct node
 {
 	int data;
@@ -33,13 +34,13 @@ void bubblesort(LI *head);//冒泡排序
 void dellist(LI *head);//销毁链表
 
 
-main()
+int main()
 {
 	int *a,n;
 	LI *A,*B;
 	A=(LI *)malloc(sizeof(LI));
 	B=(LI *)malloc(sizeof(LI));
-	A->next=B->next=NULL;//创建两个空的带头链表
+	A->next=B->next=nullptr;//创建两个空的带头链表
 	printf("\n请输入数据规模:\n");
 	scanf("%d",&n);
 	while(n>0)
@@ -65,7 +66,7 @@ void getdata(LI *A,LI *B,int *a,int n)//获取n个随机数创建无序链表与数组
 	srand(time(0));
 	for(i=1;i<=n;i++)
 	{
-		x=rand();
+		x=rand() % 100;
 		p=(LI *)malloc(sizeof(LI));
 		p->data=x;
 		p->next=A->next;
@@ -125,20 +126,76 @@ void dellist(LI *head)//销毁链表
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
+void Merge(int *a , int *t , int l , int r , int mid)
+{
+    if(l == r)return;
+    else
+    {
+        int pos = l;
+        int x = l;
+        int y = mid + 1;
+        while(x <= mid && y <= r)
+        {
+            if(a[x] < a[y])
+            {
+                t[pos] = a[x];
+                x ++;
+                pos ++;
+            }
+            else if(a[x] > a[y])
+            {
+                t[pos] = a[y];
+                y ++;
+                pos ++;
+            }
+            else
+            {
+                t[pos] = a[x];
+                pos ++;
+                t[pos] = a[y];
+                pos ++;
+                x ++;
+                y ++;
+            }
+        }
+        while(x <= mid)
+        {
+            t[pos] = a[x];
+            pos ++;
+            x ++;
+        }
+        while(y <= r)
+        {
+            t[pos] = a[y];
+            pos ++;
+            y ++;
+        }
+        for(int i = l;i <= r;i ++)a[i] = t[i];
+    }
+}
 
 void mergesort(int *a,int n)//归并排序
 {
+    cout << endl;
 	int *t;
 	t=(int *)malloc((n+1)*sizeof(int));//辅助数组
-	
-////////////////////////完成该函数////////////////////////////////
-	
-
-
-
-
-////////////////////////完成该函数////////////////////////////////
+    int len = 2;
+    while(len < n)
+    {
+        int l = 1 , r = n;
+        int pos = 1;
+        while(pos < n)
+        {
+            pos = l + len - 1;
+            if(pos > n)r = n;
+            else r = pos;
+            int mid = (l + r) / 2;
+            if(a[mid + 1] < a[mid])Merge(a , t , l , r , mid);
+            l = pos + 1;
+        }
+        len *= 2;
+    }
+    Merge(a , t , 1 , n , len / 2);
 	printf("\n归并排序的结果：\n");
 	showarray(a,n);
 	free(t);
@@ -148,12 +205,35 @@ void mergesort(int *a,int n)//归并排序
 
 void bubblesort(LI *head)//冒泡排序
 {
-////////////////////////完成该函数////////////////////////////////
-	
-
-
-
-////////////////////////完成该函数////////////////////////////////
+    LI *end = head->next;
+    LI *f = head;
+    while(end != nullptr)
+    {
+        f = f->next;
+        end = end->next;
+    }
+    while(f != head)
+    {
+        LI *r = head->next;
+        LI *l = head;
+        while(r->next != end && r != end)
+        {
+            LI *p = r->next;
+            if(p->data < r->data)
+            {
+                LI *temp = p->next;
+                l->next = p;
+                p->next = r;
+                r->next = temp;
+                l = l->next;
+                continue;
+            }
+            l = l->next;
+            r = r->next;
+        }
+        end = r;
+        f = l;
+    }
 	printf("\n冒泡排序的结果：\n");
 	showlist(head);
 }
@@ -164,12 +244,59 @@ void bubblesort(LI *head)//冒泡排序
 
 void radixsort(LI *head)//基数排序
 {
-////////////////////////完成该函数////////////////////////////////
-	
-
-
-
-////////////////////////完成该函数////////////////////////////////
+    LI *x = (LI *)malloc(sizeof(LI));//0
+    LI *y = (LI *)malloc(sizeof(LI));//1
+    LI *x_pos = x;
+    LI *y_pos = y;
+    int max = 0;
+    LI *p = head->next;
+    while(p != nullptr)
+    {
+        if(max < p->data)max = p->data;
+        p = p->next;
+    }
+    int size = 0;//最大的数有size位
+    while(max > 0)
+    {
+        max /= 10;
+        size ++;
+    }
+    for(int i = 0;i < size;i ++)
+    {
+        p = head->next;
+        int t = p->data;
+        t /= pow(10 , i);
+        while(p != nullptr)
+        {
+            if(t % 2)
+            {
+                y_pos->next = p;
+                y_pos = y_pos->next;
+            }
+            else
+            {
+                x_pos->next = p;
+                x_pos = x_pos->next;
+            }
+            p = p->next;
+        }
+        x_pos = x->next;
+        y_pos = y->next;
+        p = head;
+        while(x_pos != nullptr)
+        {
+            p->next = x_pos;
+            p = p->next;
+            x_pos = x_pos->next;
+        }
+        while(y_pos != nullptr)
+        {
+            p->next = y_pos;
+            p = p->next;
+            y_pos = y_pos->next;
+        }
+        p->next = nullptr;
+    }
 	printf("\n基数排序的结果：\n");
 	showlist(head);
 }
