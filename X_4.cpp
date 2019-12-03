@@ -6,7 +6,10 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <queue>
+#include <set>
 #include <unordered_map>
+#include <algorithm>
 using namespace std;
 
 int Find(const vector<pair<string , string>> &x , const string& t , int pos = 0)//从pos开始找t
@@ -29,48 +32,61 @@ int to_int(const string &x)
     return ans;
 }
 
-void dfs(vector<pair<string , vector<pair<string , string>>>> &stop , unordered_map<string , int> &number , string &x , string& name , string &end , int *visit , vector<pair<string , string>> &path)
+void Find_union(set<string> a , set<string> b , set<string> &c , vector<string> &ch)
 {
-    if(x == end) {
-        for (const auto &y: path)cout << "(" << y.first << ")" << y.second << ' ';
-        cout << endl;
-        cout << path.size() << endl;
+    set_intersection(a.begin() , a.end() , b.begin() , b.end() , insert_iterator<set<string>>(c , c.end()));
+    if(c.empty())
+    {
+        
+    }
+}
+
+void bfs(vector<pair<string , vector<pair<string , string>>>> &stop , unordered_map<string , int> &number , queue<pair<string , string>> &q , string &end , int *visit , unordered_map<string , pair<string , string>> &ret)
+{
+    auto x = q.front();
+    q.pop();
+    cout << x.second << endl;
+    if(x.second == end) {
+        string t = x.second;
+        vector<pair<string , string>> path;
+        while(ret.find(t) != ret.end())
+        {
+            auto y = ret.find(t)->second;
+            path.insert(path.begin() , y);
+            t = y.second;
+        }
+        for(const auto &y: path)cout << "(" << y.first << ")" << y.second << ' ';
+        cout << "(" << x.first << ")" << end << endl;
         return;
     }
-    if(path.size() > 30)
-        return;
-    int pos = number.find(x)->second;
-    int p = Find(stop[pos].second , name);
-        while(p != stop[pos].second.size())
+    int pos = number.find(x.second)->second;
+    int p = Find(stop[pos].second , x.first);
+    while(p != stop[pos].second.size())
+    {
+        string temp = stop[pos].second[p].second;
+        if(!visit[number.find(temp)->second])
         {
-            string temp = stop[pos].second[p].second;//同一路的下一站
-            if(!visit[number.find(temp)->second])
-            {
-                visit[number.find(temp)->second] = 1;
-                path.emplace_back(make_pair(name , temp));
-                dfs(stop , number , stop[pos].second[p].second , name , end , visit , path);
-                visit[number.find(temp)->second] = 0;
-                path.pop_back();
-            }
-            p = Find(stop[pos].second , name , p + 1);
+            visit[number.find(temp)->second] = 1;
+            q.push(stop[pos].second[p]);
+            ret.insert(make_pair(temp , x));
         }
+        p = Find(stop[pos].second , x.first , p + 1);
+    }
     for(const auto &y: stop[pos].second) {
         string temp = y.second;
         if (!visit[number.find(temp)->second]) {
             visit[number.find(temp)->second] = 1;
-            path.emplace_back(y.first, temp);
-            name = y.first;
-            x = temp;
-            dfs(stop , number , x , name , end , visit , path);
-            visit[number.find(temp)->second] = 0;
-            path.pop_back();
+            q.push(y);
+            ret.insert(make_pair(y.second , x));
         }
     }
+    bfs(stop , number , q , end , visit , ret);
 }
 
 int main()
 {
     unordered_map<string , int> number;
+    unordered_map<string , set<string>> bus;
     vector<pair<string , vector<pair<string , string>>>> stop(5130);//5127????
     ifstream file("Bus.txt");
     if(file.fail())
@@ -133,13 +149,36 @@ int main()
             pos1 = pos2;
         }
     }
+    /*for(const auto &x: stop)
+    {
+        string name = x.first;
+        for(const auto &y: x.second)
+        {
+            string next = y.first;
+            if(bus.find(name) == bus.end())
+            {
+                set<string> temp;
+                temp.insert(next);
+                bus.insert(make_pair(name , temp));
+            }
+            else bus.find(name)->second.insert(next);
+        }
+    }*/
+    /*for(const auto &x: bus)
+    {
+        cout << x.first << ": ";
+        for(const auto &y: x.second)
+        {
+            cout << y << ' ';
+        }
+        cout << endl;
+    }*/
     int visit[10010] = {};
-    vector<pair<string , string>> path;
     cout << "请输入起点和终点站:" << endl;
     string z = "站";
     string start , end;
     start = "南航北门";
-    end = "南航江宁校区北门";
+    end = "南京南站";
     //cin >> start >> end;
     start += z;
     end += z;
@@ -152,6 +191,8 @@ int main()
     temp = number.find(start)->second;
     visit[temp] = 1;
     string l;
-    path.emplace_back(l , start);
-    dfs(stop , number , start , l , end , visit , path);
+    queue<pair<string , string>> q;
+    q.push(make_pair(l , start));
+    unordered_map<string , pair<string , string>> ret;
+    bfs(stop , number , q , end , visit  , ret);
 }
