@@ -1,48 +1,60 @@
 //
-// Created by haoha on 2019/11/27.
+// Created by Z_HAO on 2019/11/27.
 //
 
 #include <iostream>
 #include <vector>
 using namespace std;
 
-struct Node
-{
-    int data = 0;
-    Node *next = nullptr;
-};
-
-void dfs(vector<pair<int , Node *>> &vec , Node *x , int *visit , int &ans)
-{
-    Node *p = vec[x->data].second->next;
-    while(p != nullptr && !visit[p->data])
-    {
-        visit[p->data] = 1;
-        ans ++;
-        dfs(vec , p , visit , ans);
-        visit[p->data] = 0;
-        ans --;
-    }
-}
-
 int main()
 {
     int m , n;
+    int ret = 30001;
     cin >> n >> m;
-    vector<pair<int , Node *>> vec(m);
-    for(int i = 0;i < m;i ++)
+    vector<int> ans(n);
+    for(int i = 1;i <= n;i ++)ans[i] = -1;
+    for(int i = 1;i <= m;i ++)
     {
-        int num;
+        int num , min = 30001;
         cin >> num;
-        vec[i].second = (Node *)malloc(sizeof(Node));
-        vec[i].first = i;
-        for(int j = 0;j < num;j ++)
+        vector<int> vec;
+        for(int j = 1;j <= num;j ++)
         {
-            Node *temp = (Node *)malloc(sizeof(Node));
-            cin >> temp->data;
-            temp->next = nullptr;
-            temp->next = vec[i].second->next->next;
-            vec[i].second->next = temp;
+            int data;
+            cin >> data;
+            if(min > data)min = data;
+            vec.push_back(data);
+        }
+        for(int x = 0;x < vec.size();x ++)
+        {
+            if(vec[x] == min)continue;
+            if(ans[vec[x]] == -1)
+            {
+                ans[vec[x]] = min;
+                ans[min] --;
+            }
+            else if(ans[vec[x]] >= 0)
+            {
+                int t = ans[vec[x]];
+                if(t < min)
+                {
+                    for(auto &y: ans)if(y == min)y = t;
+                    ans[t] -= ans[min];
+                    ans[min] = t;
+                }
+                else {
+                    for(auto &y: ans)if(y == t)y = min;
+                    ans[min] -= ans[t];
+                    ans[t] = min;
+                }
+            }
+            else
+            {
+                ans[min] -= vec[x];
+                for(auto &y: ans)if(y == x)y = min;
+            }
         }
     }
+    for(const auto &x: ans)if(ret > x)ret = x;
+    cout << -ret << endl;
 }
