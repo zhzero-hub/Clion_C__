@@ -7,10 +7,8 @@
 #IncludeRegexTransform: 
 
 D:/Clion C++/testtest.cpp
-stdio.h
+iostream
 -
-stdlib.h
--
-malloc.h
+unordered_map
 -
 

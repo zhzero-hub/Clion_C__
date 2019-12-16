@@ -27,7 +27,7 @@ typedef struct MyGraph
 {
     int type = -1;//0，表示无向图，1表示有向图
     int arcnum = 0,vexnum = 0;//图中边的个数以及顶点个数
-    char *vexname[20];//存放顶点名的二维数组
+    char **vexname;//存放顶点名的二维数组
     AR *N;//存放邻接表头结点的数组
 }GH;
 
@@ -127,11 +127,14 @@ void creatgraph(GH *G)
     }
     G->type = 0;
     file >> G->vexnum;
+    G->vexname = (char **)malloc(sizeof(char *) * G->vexnum);
     G->N = (AR *)malloc(G->vexnum * sizeof(AR));
     for(int i = 0;i < G->vexnum;i ++)
     {
-        G->vexname[i] = (char *)malloc(20 * sizeof(char));
-        file >> G->vexname[i];
+        char temp[20];
+        file >> temp;
+        G->vexname[i] = (char *)malloc((strlen(temp) + 1) * sizeof(char));
+        strcpy(G->vexname[i] , temp);
         G->N[i].index = i;
         G->N[i].next = nullptr;
     }
@@ -204,7 +207,7 @@ void findpath(GH *G,char *start)//寻找所有经过顶点start的简单回路
     AR *x = &G->N[pos];
     x = x->next;
     if(x == nullptr)cout << "该点为孤立点" << endl;
-    Find(G , start , x , visit , path);
+    else Find(G , start , x , visit , path);
 }
 
 void indegree(GH *G)//计算并显示输出图中每个顶点的入度

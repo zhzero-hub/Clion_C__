@@ -26,8 +26,8 @@ Node *Insert(Node *T,int x)//在BST中做插入，并返回根节点指向
         temp->l = temp->r = nullptr;
         return temp;
     }
-    if(x < T->data)T->l = Insert(T->l , x);
-    else if(x > T->data)T->r = Insert(T->r , x);
+    if(x >= T->data)T->l = Insert(T->l , x);
+    else if(x < T->data)T->r = Insert(T->r , x);
     return T;
 }
 
@@ -59,14 +59,30 @@ void in_order(Node *node , int k)
     }
 }
 
+Node *del(Node *T)
+{
+    if(T == nullptr)
+        return nullptr;
+    else
+    {
+        T->l = del(T->l);
+        T->r = del(T->r);
+        free(T);
+        return nullptr;
+    }
+}
+
 void output(int n,int k)
 {
     Node *base = nullptr;
     for(int i = 0;i < n;i ++)
     {
         int t = rand() % N;
+        cout << t << ' ';
         base = Insert(base , t);
     }
+    cout << endl;
     in_order(base , k);
     cout << endl;
+    base = del(base);
 }

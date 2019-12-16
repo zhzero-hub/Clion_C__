@@ -1,5 +1,10 @@
-struct Tree
+#include <iostream>
+#include <stack>
+#include <vector>
+using namespace std;
+
+int main()
 {
-    int data;
-    TR next;
-};
+    vector<float> vec;
+
+}

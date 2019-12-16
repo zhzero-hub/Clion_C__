@@ -331,6 +331,19 @@ testgit/fast:
 .PHONY : 201312_4/fast
 
 #=============================================================================
+# Target rules for targets named 5.4
+
+# Build rule for target.
+5.4: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 5.4
+.PHONY : 5.4
+
+# fast build rule for target.
+5.4/fast:
+	$(MAKE) -f CMakeFiles\5.4.dir\build.make CMakeFiles/5.4.dir/build
+.PHONY : 5.4/fast
+
+#=============================================================================
 # Target rules for targets named 201909_5
 
 # Build rule for target.
@@ -382,6 +395,254 @@ Tree/fast:
 	$(MAKE) -f CMakeFiles\201812_4.dir\build.make CMakeFiles/201812_4.dir/build
 .PHONY : 201812_4/fast
 
+#=============================================================================
+# Target rules for targets named X_4
+
+# Build rule for target.
+X_4: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 X_4
+.PHONY : X_4
+
+# fast build rule for target.
+X_4/fast:
+	$(MAKE) -f CMakeFiles\X_4.dir\build.make CMakeFiles/X_4.dir/build
+.PHONY : X_4/fast
+
+#=============================================================================
+# Target rules for targets named another
+
+# Build rule for target.
+another: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 another
+.PHONY : another
+
+# fast build rule for target.
+another/fast:
+	$(MAKE) -f CMakeFiles\another.dir\build.make CMakeFiles/another.dir/build
+.PHONY : another/fast
+
+#=============================================================================
+# Target rules for targets named OJ1696
+
+# Build rule for target.
+OJ1696: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 OJ1696
+.PHONY : OJ1696
+
+# fast build rule for target.
+OJ1696/fast:
+	$(MAKE) -f CMakeFiles\OJ1696.dir\build.make CMakeFiles/OJ1696.dir/build
+.PHONY : OJ1696/fast
+
+#=============================================================================
+# Target rules for targets named S2Q3
+
+# Build rule for target.
+S2Q3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 S2Q3
+.PHONY : S2Q3
+
+# fast build rule for target.
+S2Q3/fast:
+	$(MAKE) -f CMakeFiles\S2Q3.dir\build.make CMakeFiles/S2Q3.dir/build
+.PHONY : S2Q3/fast
+
+#=============================================================================
+# Target rules for targets named 2wuxiangwang
+
+# Build rule for target.
+2wuxiangwang: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 2wuxiangwang
+.PHONY : 2wuxiangwang
+
+# fast build rule for target.
+2wuxiangwang/fast:
+	$(MAKE) -f CMakeFiles\2wuxiangwang.dir\build.make CMakeFiles/2wuxiangwang.dir/build
+.PHONY : 2wuxiangwang/fast
+
+#=============================================================================
+# Target rules for targets named X_5
+
+# Build rule for target.
+X_5: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 X_5
+.PHONY : X_5
+
+# fast build rule for target.
+X_5/fast:
+	$(MAKE) -f CMakeFiles\X_5.dir\build.make CMakeFiles/X_5.dir/build
+.PHONY : X_5/fast
+
+#=============================================================================
+# Target rules for targets named 8
+
+# Build rule for target.
+8 : cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 8
+.PHONY : 8
+
+# fast build rule for target.
+8/fast:
+	$(MAKE) -f CMakeFiles\8.dir\build.make CMakeFiles/8.dir/build
+.PHONY : 8/fast
+
+#=============================================================================
+# Target rules for targets named 1youxiangtu
+
+# Build rule for target.
+1youxiangtu: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 1youxiangtu
+.PHONY : 1youxiangtu
+
+# fast build rule for target.
+1youxiangtu/fast:
+	$(MAKE) -f CMakeFiles\1youxiangtu.dir\build.make CMakeFiles/1youxiangtu.dir/build
+.PHONY : 1youxiangtu/fast
+
+#=============================================================================
+# Target rules for targets named 7
+
+# Build rule for target.
+7 : cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 7
+.PHONY : 7
+
+# fast build rule for target.
+7/fast:
+	$(MAKE) -f CMakeFiles\7.dir\build.make CMakeFiles/7.dir/build
+.PHONY : 7/fast
+
+#=============================================================================
+# Target rules for targets named S3Q5
+
+# Build rule for target.
+S3Q5: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 S3Q5
+.PHONY : S3Q5
+
+# fast build rule for target.
+S3Q5/fast:
+	$(MAKE) -f CMakeFiles\S3Q5.dir\build.make CMakeFiles/S3Q5.dir/build
+.PHONY : S3Q5/fast
+
+#=============================================================================
+# Target rules for targets named 01.BST
+
+# Build rule for target.
+01.BST: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 01.BST
+.PHONY : 01.BST
+
+# fast build rule for target.
+01.BST/fast:
+	$(MAKE) -f CMakeFiles\01.BST.dir\build.make CMakeFiles/01.BST.dir/build
+.PHONY : 01.BST/fast
+
+#=============================================================================
+# Target rules for targets named 02.sort
+
+# Build rule for target.
+02.sort: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 02.sort
+.PHONY : 02.sort
+
+# fast build rule for target.
+02.sort/fast:
+	$(MAKE) -f CMakeFiles\02.sort.dir\build.make CMakeFiles/02.sort.dir/build
+.PHONY : 02.sort/fast
+
+#=============================================================================
+# Target rules for targets named BST
+
+# Build rule for target.
+BST: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 BST
+.PHONY : BST
+
+# fast build rule for target.
+BST/fast:
+	$(MAKE) -f CMakeFiles\BST.dir\build.make CMakeFiles/BST.dir/build
+.PHONY : BST/fast
+
+#=============================================================================
+# Target rules for targets named sort
+
+# Build rule for target.
+sort: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 sort
+.PHONY : sort
+
+# fast build rule for target.
+sort/fast:
+	$(MAKE) -f CMakeFiles\sort.dir\build.make CMakeFiles/sort.dir/build
+.PHONY : sort/fast
+
+#=============================================================================
+# Target rules for targets named X_1
+
+# Build rule for target.
+X_1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 X_1
+.PHONY : X_1
+
+# fast build rule for target.
+X_1/fast:
+	$(MAKE) -f CMakeFiles\X_1.dir\build.make CMakeFiles/X_1.dir/build
+.PHONY : X_1/fast
+
+#=============================================================================
+# Target rules for targets named X_2
+
+# Build rule for target.
+X_2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 X_2
+.PHONY : X_2
+
+# fast build rule for target.
+X_2/fast:
+	$(MAKE) -f CMakeFiles\X_2.dir\build.make CMakeFiles/X_2.dir/build
+.PHONY : X_2/fast
+
+#=============================================================================
+# Target rules for targets named PCA
+
+# Build rule for target.
+PCA: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 PCA
+.PHONY : PCA
+
+# fast build rule for target.
+PCA/fast:
+	$(MAKE) -f CMakeFiles\PCA.dir\build.make CMakeFiles/PCA.dir/build
+.PHONY : PCA/fast
+
+01.BST.obj: 01.BST.cpp.obj
+
+.PHONY : 01.BST.obj
+
+# target to build an object file
+01.BST.cpp.obj:
+	$(MAKE) -f CMakeFiles\01.BST.dir\build.make CMakeFiles/01.BST.dir/01.BST.cpp.obj
+.PHONY : 01.BST.cpp.obj
+
+01.BST.i: 01.BST.cpp.i
+
+.PHONY : 01.BST.i
+
+# target to preprocess a source file
+01.BST.cpp.i:
+	$(MAKE) -f CMakeFiles\01.BST.dir\build.make CMakeFiles/01.BST.dir/01.BST.cpp.i
+.PHONY : 01.BST.cpp.i
+
+01.BST.s: 01.BST.cpp.s
+
+.PHONY : 01.BST.s
+
+# target to generate assembly for a file
+01.BST.cpp.s:
+	$(MAKE) -f CMakeFiles\01.BST.dir\build.make CMakeFiles/01.BST.dir/01.BST.cpp.s
+.PHONY : 01.BST.cpp.s
+
 01.obj: 01.cpp.obj
 
 .PHONY : 01.obj
@@ -409,6 +670,33 @@ Tree/fast:
 	$(MAKE) -f CMakeFiles\01.dir\build.make CMakeFiles/01.dir/01.cpp.s
 .PHONY : 01.cpp.s
 
+02.sort.obj: 02.sort.cpp.obj
+
+.PHONY : 02.sort.obj
+
+# target to build an object file
+02.sort.cpp.obj:
+	$(MAKE) -f CMakeFiles\02.sort.dir\build.make CMakeFiles/02.sort.dir/02.sort.cpp.obj
+.PHONY : 02.sort.cpp.obj
+
+02.sort.i: 02.sort.cpp.i
+
+.PHONY : 02.sort.i
+
+# target to preprocess a source file
+02.sort.cpp.i:
+	$(MAKE) -f CMakeFiles\02.sort.dir\build.make CMakeFiles/02.sort.dir/02.sort.cpp.i
+.PHONY : 02.sort.cpp.i
+
+02.sort.s: 02.sort.cpp.s
+
+.PHONY : 02.sort.s
+
+# target to generate assembly for a file
+02.sort.cpp.s:
+	$(MAKE) -f CMakeFiles\02.sort.dir\build.make CMakeFiles/02.sort.dir/02.sort.cpp.s
+.PHONY : 02.sort.cpp.s
+
 1.obj: 1.cpp.obj
 
 .PHONY : 1.obj
@@ -435,6 +723,33 @@ Tree/fast:
 1.cpp.s:
 	$(MAKE) -f CMakeFiles\1.dir\build.make CMakeFiles/1.dir/1.cpp.s
 .PHONY : 1.cpp.s
+
+1youxiangtu.obj: 1youxiangtu.cpp.obj
+
+.PHONY : 1youxiangtu.obj
+
+# target to build an object file
+1youxiangtu.cpp.obj:
+	$(MAKE) -f CMakeFiles\1youxiangtu.dir\build.make CMakeFiles/1youxiangtu.dir/1youxiangtu.cpp.obj
+.PHONY : 1youxiangtu.cpp.obj
+
+1youxiangtu.i: 1youxiangtu.cpp.i
+
+.PHONY : 1youxiangtu.i
+
+# target to preprocess a source file
+1youxiangtu.cpp.i:
+	$(MAKE) -f CMakeFiles\1youxiangtu.dir\build.make CMakeFiles/1youxiangtu.dir/1youxiangtu.cpp.i
+.PHONY : 1youxiangtu.cpp.i
+
+1youxiangtu.s: 1youxiangtu.cpp.s
+
+.PHONY : 1youxiangtu.s
+
+# target to generate assembly for a file
+1youxiangtu.cpp.s:
+	$(MAKE) -f CMakeFiles\1youxiangtu.dir\build.make CMakeFiles/1youxiangtu.dir/1youxiangtu.cpp.s
+.PHONY : 1youxiangtu.cpp.s
 
 2.obj: 2.cpp.obj
 
@@ -625,6 +940,33 @@ Tree/fast:
 	$(MAKE) -f CMakeFiles\201909_5.dir\build.make CMakeFiles/201909_5.dir/201909_5.cpp.s
 .PHONY : 201909_5.cpp.s
 
+2wuxiangwang.obj: 2wuxiangwang.cpp.obj
+
+.PHONY : 2wuxiangwang.obj
+
+# target to build an object file
+2wuxiangwang.cpp.obj:
+	$(MAKE) -f CMakeFiles\2wuxiangwang.dir\build.make CMakeFiles/2wuxiangwang.dir/2wuxiangwang.cpp.obj
+.PHONY : 2wuxiangwang.cpp.obj
+
+2wuxiangwang.i: 2wuxiangwang.cpp.i
+
+.PHONY : 2wuxiangwang.i
+
+# target to preprocess a source file
+2wuxiangwang.cpp.i:
+	$(MAKE) -f CMakeFiles\2wuxiangwang.dir\build.make CMakeFiles/2wuxiangwang.dir/2wuxiangwang.cpp.i
+.PHONY : 2wuxiangwang.cpp.i
+
+2wuxiangwang.s: 2wuxiangwang.cpp.s
+
+.PHONY : 2wuxiangwang.s
+
+# target to generate assembly for a file
+2wuxiangwang.cpp.s:
+	$(MAKE) -f CMakeFiles\2wuxiangwang.dir\build.make CMakeFiles/2wuxiangwang.dir/2wuxiangwang.cpp.s
+.PHONY : 2wuxiangwang.cpp.s
+
 3.obj: 3.cpp.obj
 
 .PHONY : 3.obj
@@ -678,6 +1020,33 @@ Tree/fast:
 4.cpp.s:
 	$(MAKE) -f CMakeFiles\Curriculum.dir\build.make CMakeFiles/Curriculum.dir/4.cpp.s
 .PHONY : 4.cpp.s
+
+5.4.obj: 5.4.cpp.obj
+
+.PHONY : 5.4.obj
+
+# target to build an object file
+5.4.cpp.obj:
+	$(MAKE) -f CMakeFiles\5.4.dir\build.make CMakeFiles/5.4.dir/5.4.cpp.obj
+.PHONY : 5.4.cpp.obj
+
+5.4.i: 5.4.cpp.i
+
+.PHONY : 5.4.i
+
+# target to preprocess a source file
+5.4.cpp.i:
+	$(MAKE) -f CMakeFiles\5.4.dir\build.make CMakeFiles/5.4.dir/5.4.cpp.i
+.PHONY : 5.4.cpp.i
+
+5.4.s: 5.4.cpp.s
+
+.PHONY : 5.4.s
+
+# target to generate assembly for a file
+5.4.cpp.s:
+	$(MAKE) -f CMakeFiles\5.4.dir\build.make CMakeFiles/5.4.dir/5.4.cpp.s
+.PHONY : 5.4.cpp.s
 
 5.obj: 5.cpp.obj
 
@@ -733,6 +1102,87 @@ Tree/fast:
 	$(MAKE) -f CMakeFiles\6.dir\build.make CMakeFiles/6.dir/6.cpp.s
 .PHONY : 6.cpp.s
 
+7.obj: 7.cpp.obj
+
+.PHONY : 7.obj
+
+# target to build an object file
+7.cpp.obj:
+	$(MAKE) -f CMakeFiles\7.dir\build.make CMakeFiles/7.dir/7.cpp.obj
+.PHONY : 7.cpp.obj
+
+7.i: 7.cpp.i
+
+.PHONY : 7.i
+
+# target to preprocess a source file
+7.cpp.i:
+	$(MAKE) -f CMakeFiles\7.dir\build.make CMakeFiles/7.dir/7.cpp.i
+.PHONY : 7.cpp.i
+
+7.s: 7.cpp.s
+
+.PHONY : 7.s
+
+# target to generate assembly for a file
+7.cpp.s:
+	$(MAKE) -f CMakeFiles\7.dir\build.make CMakeFiles/7.dir/7.cpp.s
+.PHONY : 7.cpp.s
+
+8.obj: 8.cpp.obj
+
+.PHONY : 8.obj
+
+# target to build an object file
+8.cpp.obj:
+	$(MAKE) -f CMakeFiles\8.dir\build.make CMakeFiles/8.dir/8.cpp.obj
+.PHONY : 8.cpp.obj
+
+8.i: 8.cpp.i
+
+.PHONY : 8.i
+
+# target to preprocess a source file
+8.cpp.i:
+	$(MAKE) -f CMakeFiles\8.dir\build.make CMakeFiles/8.dir/8.cpp.i
+.PHONY : 8.cpp.i
+
+8.s: 8.cpp.s
+
+.PHONY : 8.s
+
+# target to generate assembly for a file
+8.cpp.s:
+	$(MAKE) -f CMakeFiles\8.dir\build.make CMakeFiles/8.dir/8.cpp.s
+.PHONY : 8.cpp.s
+
+BST.obj: BST.cpp.obj
+
+.PHONY : BST.obj
+
+# target to build an object file
+BST.cpp.obj:
+	$(MAKE) -f CMakeFiles\BST.dir\build.make CMakeFiles/BST.dir/BST.cpp.obj
+.PHONY : BST.cpp.obj
+
+BST.i: BST.cpp.i
+
+.PHONY : BST.i
+
+# target to preprocess a source file
+BST.cpp.i:
+	$(MAKE) -f CMakeFiles\BST.dir\build.make CMakeFiles/BST.dir/BST.cpp.i
+.PHONY : BST.cpp.i
+
+BST.s: BST.cpp.s
+
+.PHONY : BST.s
+
+# target to generate assembly for a file
+BST.cpp.s:
+	$(MAKE) -f CMakeFiles\BST.dir\build.make CMakeFiles/BST.dir/BST.cpp.s
+.PHONY : BST.cpp.s
+
 Binary_tree.obj: Binary_tree.cpp.obj
 
 .PHONY : Binary_tree.obj
@@ -760,6 +1210,114 @@ Binary_tree.cpp.s:
 	$(MAKE) -f CMakeFiles\Binary_tree.dir\build.make CMakeFiles/Binary_tree.dir/Binary_tree.cpp.s
 .PHONY : Binary_tree.cpp.s
 
+OJ1696.obj: OJ1696.cpp.obj
+
+.PHONY : OJ1696.obj
+
+# target to build an object file
+OJ1696.cpp.obj:
+	$(MAKE) -f CMakeFiles\OJ1696.dir\build.make CMakeFiles/OJ1696.dir/OJ1696.cpp.obj
+.PHONY : OJ1696.cpp.obj
+
+OJ1696.i: OJ1696.cpp.i
+
+.PHONY : OJ1696.i
+
+# target to preprocess a source file
+OJ1696.cpp.i:
+	$(MAKE) -f CMakeFiles\OJ1696.dir\build.make CMakeFiles/OJ1696.dir/OJ1696.cpp.i
+.PHONY : OJ1696.cpp.i
+
+OJ1696.s: OJ1696.cpp.s
+
+.PHONY : OJ1696.s
+
+# target to generate assembly for a file
+OJ1696.cpp.s:
+	$(MAKE) -f CMakeFiles\OJ1696.dir\build.make CMakeFiles/OJ1696.dir/OJ1696.cpp.s
+.PHONY : OJ1696.cpp.s
+
+PCA.obj: PCA.cpp.obj
+
+.PHONY : PCA.obj
+
+# target to build an object file
+PCA.cpp.obj:
+	$(MAKE) -f CMakeFiles\PCA.dir\build.make CMakeFiles/PCA.dir/PCA.cpp.obj
+.PHONY : PCA.cpp.obj
+
+PCA.i: PCA.cpp.i
+
+.PHONY : PCA.i
+
+# target to preprocess a source file
+PCA.cpp.i:
+	$(MAKE) -f CMakeFiles\PCA.dir\build.make CMakeFiles/PCA.dir/PCA.cpp.i
+.PHONY : PCA.cpp.i
+
+PCA.s: PCA.cpp.s
+
+.PHONY : PCA.s
+
+# target to generate assembly for a file
+PCA.cpp.s:
+	$(MAKE) -f CMakeFiles\PCA.dir\build.make CMakeFiles/PCA.dir/PCA.cpp.s
+.PHONY : PCA.cpp.s
+
+S2Q3.obj: S2Q3.cpp.obj
+
+.PHONY : S2Q3.obj
+
+# target to build an object file
+S2Q3.cpp.obj:
+	$(MAKE) -f CMakeFiles\S2Q3.dir\build.make CMakeFiles/S2Q3.dir/S2Q3.cpp.obj
+.PHONY : S2Q3.cpp.obj
+
+S2Q3.i: S2Q3.cpp.i
+
+.PHONY : S2Q3.i
+
+# target to preprocess a source file
+S2Q3.cpp.i:
+	$(MAKE) -f CMakeFiles\S2Q3.dir\build.make CMakeFiles/S2Q3.dir/S2Q3.cpp.i
+.PHONY : S2Q3.cpp.i
+
+S2Q3.s: S2Q3.cpp.s
+
+.PHONY : S2Q3.s
+
+# target to generate assembly for a file
+S2Q3.cpp.s:
+	$(MAKE) -f CMakeFiles\S2Q3.dir\build.make CMakeFiles/S2Q3.dir/S2Q3.cpp.s
+.PHONY : S2Q3.cpp.s
+
+S3Q5.obj: S3Q5.cpp.obj
+
+.PHONY : S3Q5.obj
+
+# target to build an object file
+S3Q5.cpp.obj:
+	$(MAKE) -f CMakeFiles\S3Q5.dir\build.make CMakeFiles/S3Q5.dir/S3Q5.cpp.obj
+.PHONY : S3Q5.cpp.obj
+
+S3Q5.i: S3Q5.cpp.i
+
+.PHONY : S3Q5.i
+
+# target to preprocess a source file
+S3Q5.cpp.i:
+	$(MAKE) -f CMakeFiles\S3Q5.dir\build.make CMakeFiles/S3Q5.dir/S3Q5.cpp.i
+.PHONY : S3Q5.cpp.i
+
+S3Q5.s: S3Q5.cpp.s
+
+.PHONY : S3Q5.s
+
+# target to generate assembly for a file
+S3Q5.cpp.s:
+	$(MAKE) -f CMakeFiles\S3Q5.dir\build.make CMakeFiles/S3Q5.dir/S3Q5.cpp.s
+.PHONY : S3Q5.cpp.s
+
 Tree.obj: Tree.cpp.obj
 
 .PHONY : Tree.obj
@@ -786,6 +1344,141 @@ Tree.s: Tree.cpp.s
 Tree.cpp.s:
 	$(MAKE) -f CMakeFiles\Tree.dir\build.make CMakeFiles/Tree.dir/Tree.cpp.s
 .PHONY : Tree.cpp.s
+
+X_1.obj: X_1.cpp.obj
+
+.PHONY : X_1.obj
+
+# target to build an object file
+X_1.cpp.obj:
+	$(MAKE) -f CMakeFiles\X_1.dir\build.make CMakeFiles/X_1.dir/X_1.cpp.obj
+.PHONY : X_1.cpp.obj
+
+X_1.i: X_1.cpp.i
+
+.PHONY : X_1.i
+
+# target to preprocess a source file
+X_1.cpp.i:
+	$(MAKE) -f CMakeFiles\X_1.dir\build.make CMakeFiles/X_1.dir/X_1.cpp.i
+.PHONY : X_1.cpp.i
+
+X_1.s: X_1.cpp.s
+
+.PHONY : X_1.s
+
+# target to generate assembly for a file
+X_1.cpp.s:
+	$(MAKE) -f CMakeFiles\X_1.dir\build.make CMakeFiles/X_1.dir/X_1.cpp.s
+.PHONY : X_1.cpp.s
+
+X_2.obj: X_2.cpp.obj
+
+.PHONY : X_2.obj
+
+# target to build an object file
+X_2.cpp.obj:
+	$(MAKE) -f CMakeFiles\X_2.dir\build.make CMakeFiles/X_2.dir/X_2.cpp.obj
+.PHONY : X_2.cpp.obj
+
+X_2.i: X_2.cpp.i
+
+.PHONY : X_2.i
+
+# target to preprocess a source file
+X_2.cpp.i:
+	$(MAKE) -f CMakeFiles\X_2.dir\build.make CMakeFiles/X_2.dir/X_2.cpp.i
+.PHONY : X_2.cpp.i
+
+X_2.s: X_2.cpp.s
+
+.PHONY : X_2.s
+
+# target to generate assembly for a file
+X_2.cpp.s:
+	$(MAKE) -f CMakeFiles\X_2.dir\build.make CMakeFiles/X_2.dir/X_2.cpp.s
+.PHONY : X_2.cpp.s
+
+X_4.obj: X_4.cpp.obj
+
+.PHONY : X_4.obj
+
+# target to build an object file
+X_4.cpp.obj:
+	$(MAKE) -f CMakeFiles\X_4.dir\build.make CMakeFiles/X_4.dir/X_4.cpp.obj
+.PHONY : X_4.cpp.obj
+
+X_4.i: X_4.cpp.i
+
+.PHONY : X_4.i
+
+# target to preprocess a source file
+X_4.cpp.i:
+	$(MAKE) -f CMakeFiles\X_4.dir\build.make CMakeFiles/X_4.dir/X_4.cpp.i
+.PHONY : X_4.cpp.i
+
+X_4.s: X_4.cpp.s
+
+.PHONY : X_4.s
+
+# target to generate assembly for a file
+X_4.cpp.s:
+	$(MAKE) -f CMakeFiles\X_4.dir\build.make CMakeFiles/X_4.dir/X_4.cpp.s
+.PHONY : X_4.cpp.s
+
+X_5.obj: X_5.cpp.obj
+
+.PHONY : X_5.obj
+
+# target to build an object file
+X_5.cpp.obj:
+	$(MAKE) -f CMakeFiles\X_5.dir\build.make CMakeFiles/X_5.dir/X_5.cpp.obj
+.PHONY : X_5.cpp.obj
+
+X_5.i: X_5.cpp.i
+
+.PHONY : X_5.i
+
+# target to preprocess a source file
+X_5.cpp.i:
+	$(MAKE) -f CMakeFiles\X_5.dir\build.make CMakeFiles/X_5.dir/X_5.cpp.i
+.PHONY : X_5.cpp.i
+
+X_5.s: X_5.cpp.s
+
+.PHONY : X_5.s
+
+# target to generate assembly for a file
+X_5.cpp.s:
+	$(MAKE) -f CMakeFiles\X_5.dir\build.make CMakeFiles/X_5.dir/X_5.cpp.s
+.PHONY : X_5.cpp.s
+
+another_test.obj: another_test.cpp.obj
+
+.PHONY : another_test.obj
+
+# target to build an object file
+another_test.cpp.obj:
+	$(MAKE) -f CMakeFiles\another.dir\build.make CMakeFiles/another.dir/another_test.cpp.obj
+.PHONY : another_test.cpp.obj
+
+another_test.i: another_test.cpp.i
+
+.PHONY : another_test.i
+
+# target to preprocess a source file
+another_test.cpp.i:
+	$(MAKE) -f CMakeFiles\another.dir\build.make CMakeFiles/another.dir/another_test.cpp.i
+.PHONY : another_test.cpp.i
+
+another_test.s: another_test.cpp.s
+
+.PHONY : another_test.s
+
+# target to generate assembly for a file
+another_test.cpp.s:
+	$(MAKE) -f CMakeFiles\another.dir\build.make CMakeFiles/another.dir/another_test.cpp.s
+.PHONY : another_test.cpp.s
 
 asd.obj: asd.cpp.obj
 
@@ -868,6 +1561,33 @@ matrix.cpp.s:
 	$(MAKE) -f CMakeFiles\matrix.dir\build.make CMakeFiles/matrix.dir/matrix.cpp.s
 .PHONY : matrix.cpp.s
 
+sort.obj: sort.cpp.obj
+
+.PHONY : sort.obj
+
+# target to build an object file
+sort.cpp.obj:
+	$(MAKE) -f CMakeFiles\sort.dir\build.make CMakeFiles/sort.dir/sort.cpp.obj
+.PHONY : sort.cpp.obj
+
+sort.i: sort.cpp.i
+
+.PHONY : sort.i
+
+# target to preprocess a source file
+sort.cpp.i:
+	$(MAKE) -f CMakeFiles\sort.dir\build.make CMakeFiles/sort.dir/sort.cpp.i
+.PHONY : sort.cpp.i
+
+sort.s: sort.cpp.s
+
+.PHONY : sort.s
+
+# target to generate assembly for a file
+sort.cpp.s:
+	$(MAKE) -f CMakeFiles\sort.dir\build.make CMakeFiles/sort.dir/sort.cpp.s
+.PHONY : sort.cpp.s
+
 test.obj: test.cpp.obj
 
 .PHONY : test.obj
@@ -875,6 +1595,7 @@ test.obj: test.cpp.obj
 # target to build an object file
 test.cpp.obj:
 	$(MAKE) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/test.cpp.obj
+	$(MAKE) -f CMakeFiles\another.dir\build.make CMakeFiles/another.dir/test.cpp.obj
 .PHONY : test.cpp.obj
 
 test.i: test.cpp.i
@@ -884,6 +1605,7 @@ test.i: test.cpp.i
 # target to preprocess a source file
 test.cpp.i:
 	$(MAKE) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/test.cpp.i
+	$(MAKE) -f CMakeFiles\another.dir\build.make CMakeFiles/another.dir/test.cpp.i
 .PHONY : test.cpp.i
 
 test.s: test.cpp.s
@@ -893,6 +1615,7 @@ test.s: test.cpp.s
 # target to generate assembly for a file
 test.cpp.s:
 	$(MAKE) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/test.cpp.s
+	$(MAKE) -f CMakeFiles\another.dir\build.make CMakeFiles/another.dir/test.cpp.s
 .PHONY : test.cpp.s
 
 testgit.obj: testgit.cpp.obj
@@ -973,17 +1696,44 @@ help:
 	@echo ... testgit
 	@echo ... 201909_2
 	@echo ... 201312_4
+	@echo ... 5.4
 	@echo ... 201909_5
 	@echo ... 201903_4
 	@echo ... Tree
 	@echo ... 201812_4
+	@echo ... X_4
+	@echo ... another
+	@echo ... OJ1696
+	@echo ... S2Q3
+	@echo ... 2wuxiangwang
+	@echo ... X_5
+	@echo ... 8
+	@echo ... 1youxiangtu
+	@echo ... 7
+	@echo ... S3Q5
+	@echo ... 01.BST
+	@echo ... 02.sort
+	@echo ... BST
+	@echo ... sort
+	@echo ... X_1
+	@echo ... X_2
+	@echo ... PCA
 	@echo ... edit_cache
+	@echo ... 01.BST.obj
+	@echo ... 01.BST.i
+	@echo ... 01.BST.s
 	@echo ... 01.obj
 	@echo ... 01.i
 	@echo ... 01.s
+	@echo ... 02.sort.obj
+	@echo ... 02.sort.i
+	@echo ... 02.sort.s
 	@echo ... 1.obj
 	@echo ... 1.i
 	@echo ... 1.s
+	@echo ... 1youxiangtu.obj
+	@echo ... 1youxiangtu.i
+	@echo ... 1youxiangtu.s
 	@echo ... 2.obj
 	@echo ... 2.i
 	@echo ... 2.s
@@ -1005,24 +1755,66 @@ help:
 	@echo ... 201909_5.obj
 	@echo ... 201909_5.i
 	@echo ... 201909_5.s
+	@echo ... 2wuxiangwang.obj
+	@echo ... 2wuxiangwang.i
+	@echo ... 2wuxiangwang.s
 	@echo ... 3.obj
 	@echo ... 3.i
 	@echo ... 3.s
 	@echo ... 4.obj
 	@echo ... 4.i
 	@echo ... 4.s
+	@echo ... 5.4.obj
+	@echo ... 5.4.i
+	@echo ... 5.4.s
 	@echo ... 5.obj
 	@echo ... 5.i
 	@echo ... 5.s
 	@echo ... 6.obj
 	@echo ... 6.i
 	@echo ... 6.s
+	@echo ... 7.obj
+	@echo ... 7.i
+	@echo ... 7.s
+	@echo ... 8.obj
+	@echo ... 8.i
+	@echo ... 8.s
+	@echo ... BST.obj
+	@echo ... BST.i
+	@echo ... BST.s
 	@echo ... Binary_tree.obj
 	@echo ... Binary_tree.i
 	@echo ... Binary_tree.s
+	@echo ... OJ1696.obj
+	@echo ... OJ1696.i
+	@echo ... OJ1696.s
+	@echo ... PCA.obj
+	@echo ... PCA.i
+	@echo ... PCA.s
+	@echo ... S2Q3.obj
+	@echo ... S2Q3.i
+	@echo ... S2Q3.s
+	@echo ... S3Q5.obj
+	@echo ... S3Q5.i
+	@echo ... S3Q5.s
 	@echo ... Tree.obj
 	@echo ... Tree.i
 	@echo ... Tree.s
+	@echo ... X_1.obj
+	@echo ... X_1.i
+	@echo ... X_1.s
+	@echo ... X_2.obj
+	@echo ... X_2.i
+	@echo ... X_2.s
+	@echo ... X_4.obj
+	@echo ... X_4.i
+	@echo ... X_4.s
+	@echo ... X_5.obj
+	@echo ... X_5.i
+	@echo ... X_5.s
+	@echo ... another_test.obj
+	@echo ... another_test.i
+	@echo ... another_test.s
 	@echo ... asd.obj
 	@echo ... asd.i
 	@echo ... asd.s
@@ -1032,6 +1824,9 @@ help:
 	@echo ... matrix.obj
 	@echo ... matrix.i
 	@echo ... matrix.s
+	@echo ... sort.obj
+	@echo ... sort.i
+	@echo ... sort.s
 	@echo ... test.obj
 	@echo ... test.i
 	@echo ... test.s
