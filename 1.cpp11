@@ -1,0 +1,42 @@
+// INFO BEGIN
+//
+// User = 201910013483(郑好) 
+// Group = C/C++ 
+// Problem = 小明种苹果 
+// Language = CPP11 
+// SubmitTime = 2019-09-15 13:44:56 
+//
+// INFO END
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int m , n;
+	cin >> n >> m;
+	int cut[1010] = {};
+	int pos = 1;
+	int ans = 0;
+	int num = 0;
+	for(int i = 1;i <= n;i ++)
+	{
+		int temp = 0;
+		int t;
+		cin >> t;
+		num += t;
+		for(int j = 1;j <= m;j ++)
+		{
+			cin >> cut[j];
+			temp += cut[j];
+		}
+		num += temp;
+		if(temp < ans)
+		{
+			ans = temp;
+			pos = i;
+		}
+	}
+	ans = -ans;
+	cout << num << ' ' << pos << ' ' << ans;
+	return 0;
+}

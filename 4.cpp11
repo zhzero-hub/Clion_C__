@@ -1,0 +1,179 @@
+// INFO BEGIN
+//
+// User = 201910013483(郑好) 
+// Group = C/C++ 
+// Problem = 推荐系统 
+// Language = CPP11 
+// SubmitTime = 2019-09-15 17:14:22 
+//
+// INFO END
+
+#include<iostream>
+#include<queue>
+#include<string>
+#include<algorithm>
+using namespace std;
+
+struct Node
+{
+	int type;
+	double id;
+	double score;
+	Node(){;};
+	Node(int &type , double &id , double &score){type = type;id = id;score = score;};
+};
+
+bool compare(Node a , Node b)
+{
+	if(a.score == b.score)return a.id < b.id;
+	else return a.score > b.score;
+}
+
+int main()
+{
+	vector<double> ans;
+	vector<Node> a;
+	int m , n;
+	cin >> m >> n;
+	for(int i = 1;i <= n;i ++)
+	{
+		double tempid , tempscore;
+		cin >> tempid >> tempscore;
+		for(int j = 0;j < m;j ++)
+		{
+			Node temp(j , tempid , tempscore);
+			a.push_back(temp);
+			sort(a.begin() , a.end() , compare);
+		}
+	}
+	int time;
+	cin >> time;
+if(m == 1)
+{
+	for(int i = 1;i <= time;i ++)
+	{
+		int choice;
+		cin >> choice;
+		if(choice == 1)
+		{
+			int type;
+			double tempid , tempscore;
+			cin >> type >> tempid >> tempscore;
+			Node temp(type , tempid , tempscore);
+			a.push_back(temp);
+			sort(a.begin() , a.end() , compare);
+		}
+		else if(choice == 2)
+		{
+			int type;
+			double tempid;
+			vector<Node>::iterator it = a.begin();
+			for(;it->id != tempid;it ++);
+			a.erase(it);
+		}
+		else if(choice == 3)
+		{
+			int k;
+			int total;
+			cin >> total >> k;
+			int min = 0;
+			if(min > k)min = k;
+			if(min > total)min = total;
+			if(min > a.size())min = a.size();
+			for(int t = 1;t <= min;t ++)
+			{
+				Node p = *a.begin();
+				ans.push_back(p.id);
+				a.erase(a.begin());
+			}
+		}
+	}
+	if(ans.empty())cout << "-1";
+	while(!ans.empty())
+	{
+		cout << *ans.begin();
+		ans.erase(ans.begin());
+	}
+	return 0;
+}
+	else
+{
+
+	for(int i = 1;i <= time;i ++)
+	{
+		int choice;
+		cin >> choice;
+		if(choice == 1)
+		{
+			int type;
+			double tempid , tempscore;
+			cin >> type >> tempid >> tempscore;
+			Node temp(type , tempid , tempscore);
+			a.push_back(temp);
+			sort(a.begin() , a.end() , compare);
+			continue;
+		}
+		else if(choice == 2)
+		{
+			int type;
+			double tempid;
+			vector<Node>::iterator it = a.begin();
+			for(;it->id != tempid;it ++);
+			a.erase(it);
+		}
+		else if(choice == 3)
+		{
+			int k[110];
+			int current_choose = 0;
+			vector<double> choice[110];
+			int total;
+			cin >> total;
+			for(int j = 0;j < m;j ++)
+			{
+				cin >> k[j];
+			}
+			while(1)
+			{
+				Node t = *a.begin();
+				a.erase(a.begin());
+				int type = t.type;
+				double tempid = t.id;
+				if(choice[type].size() < k[type])
+				{
+					current_choose ++;
+					choice[type].push_back(tempid);
+					sort(choice[type].begin() , choice[type].end());
+				}
+				if(current_choose >= total || a.empty())break;
+			}
+			for(int z = 0;z < m;z ++)
+			{
+				if(choice[z].empty())ans.push_back(-1.0);
+				else
+				{
+					while(!choice[z].empty())
+					{
+						ans.push_back(*choice[z].begin());
+						choice[z].erase(choice[z].begin());
+					}
+				}
+				ans.push_back(-2.0);
+			}
+		}
+	}
+	while(!ans.empty())
+	{
+		double temp = *ans.begin();
+		if(temp == -1.0)cout << "-1" << endl;
+		else if(temp == -2.0)cout << endl;
+		else cout << temp << ' ';
+	}
+}
+}
+
+
+
+
+
+
+
