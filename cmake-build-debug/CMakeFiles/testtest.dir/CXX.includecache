@@ -9,6 +9,12 @@
 D:/Clion C++/testtest.cpp
 iostream
 -
-unordered_map
+fstream
+-
+string
+-
+vector
+-
+list
 -
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$USER_HOME$/Desktop/csp4.cpp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/01.BST.cpp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/02.sort.cpp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/1.cpp" charset="GBK" />
@@ -19,10 +20,15 @@
     <file url="file://$PROJECT_DIR$/S2Q3.cpp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Tree.cpp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/X_4.cpp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/X_5.cpp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/cmake-build-debug/Bus.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cmake-build-debug/Family.txt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/cmake-build-debug/data.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/csp1.cpp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/csp4.cpp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/matrix.cpp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/sort.cpp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/test.cpp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/testtest.cpp" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />
   </component>

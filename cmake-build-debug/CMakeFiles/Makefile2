@@ -76,6 +76,7 @@ all: CMakeFiles/Tree.dir/all
 all: CMakeFiles/201812_4.dir/all
 all: CMakeFiles/X_4.dir/all
 all: CMakeFiles/another.dir/all
+all: CMakeFiles/csp1.dir/all
 all: CMakeFiles/OJ1696.dir/all
 all: CMakeFiles/S2Q3.dir/all
 all: CMakeFiles/2wuxiangwang.dir/all
@@ -91,6 +92,7 @@ all: CMakeFiles/sort.dir/all
 all: CMakeFiles/X_1.dir/all
 all: CMakeFiles/X_2.dir/all
 all: CMakeFiles/PCA.dir/all
+all: CMakeFiles/csp4.dir/all
 
 .PHONY : all
 
@@ -119,6 +121,7 @@ clean: CMakeFiles/Tree.dir/clean
 clean: CMakeFiles/201812_4.dir/clean
 clean: CMakeFiles/X_4.dir/clean
 clean: CMakeFiles/another.dir/clean
+clean: CMakeFiles/csp1.dir/clean
 clean: CMakeFiles/OJ1696.dir/clean
 clean: CMakeFiles/S2Q3.dir/clean
 clean: CMakeFiles/2wuxiangwang.dir/clean
@@ -134,6 +137,7 @@ clean: CMakeFiles/sort.dir/clean
 clean: CMakeFiles/X_1.dir/clean
 clean: CMakeFiles/X_2.dir/clean
 clean: CMakeFiles/PCA.dir/clean
+clean: CMakeFiles/csp4.dir/clean
 
 .PHONY : clean
 
@@ -230,7 +234,7 @@ CMakeFiles/2.dir/clean:
 CMakeFiles/testtest.dir/all:
 	$(MAKE) -f CMakeFiles\testtest.dir\build.make CMakeFiles/testtest.dir/depend
 	$(MAKE) -f CMakeFiles\testtest.dir\build.make CMakeFiles/testtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\Clion C++\cmake-build-debug\CMakeFiles" --progress-num=78,79 "Built target testtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\Clion C++\cmake-build-debug\CMakeFiles" --progress-num=82,83 "Built target testtest"
 .PHONY : CMakeFiles/testtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -257,7 +261,7 @@ CMakeFiles/testtest.dir/clean:
 CMakeFiles/test.dir/all:
 	$(MAKE) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/depend
 	$(MAKE) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\Clion C++\cmake-build-debug\CMakeFiles" --progress-num=74,75 "Built target test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\Clion C++\cmake-build-debug\CMakeFiles" --progress-num=78,79 "Built target test"
 .PHONY : CMakeFiles/test.dir/all
 
 # Build rule for subdir invocation for target.
@@ -419,7 +423,7 @@ CMakeFiles/5.dir/clean:
 CMakeFiles/matrix.dir/all:
 	$(MAKE) -f CMakeFiles\matrix.dir\build.make CMakeFiles/matrix.dir/depend
 	$(MAKE) -f CMakeFiles\matrix.dir\build.make CMakeFiles/matrix.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\Clion C++\cmake-build-debug\CMakeFiles" --progress-num=70,71 "Built target matrix"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\Clion C++\cmake-build-debug\CMakeFiles" --progress-num=74,75 "Built target matrix"
 .PHONY : CMakeFiles/matrix.dir/all
 
 # Build rule for subdir invocation for target.
@@ -527,7 +531,7 @@ CMakeFiles/201909_4.dir/clean:
 CMakeFiles/testgit.dir/all:
 	$(MAKE) -f CMakeFiles\testgit.dir\build.make CMakeFiles/testgit.dir/depend
 	$(MAKE) -f CMakeFiles\testgit.dir\build.make CMakeFiles/testgit.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\Clion C++\cmake-build-debug\CMakeFiles" --progress-num=76,77 "Built target testgit"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\Clion C++\cmake-build-debug\CMakeFiles" --progress-num=80,81 "Built target testgit"
 .PHONY : CMakeFiles/testgit.dir/all
 
 # Build rule for subdir invocation for target.
@@ -789,6 +793,33 @@ another: CMakeFiles/another.dir/rule
 CMakeFiles/another.dir/clean:
 	$(MAKE) -f CMakeFiles\another.dir\build.make CMakeFiles/another.dir/clean
 .PHONY : CMakeFiles/another.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/csp1.dir
+
+# All Build rule for target.
+CMakeFiles/csp1.dir/all:
+	$(MAKE) -f CMakeFiles\csp1.dir\build.make CMakeFiles/csp1.dir/depend
+	$(MAKE) -f CMakeFiles\csp1.dir\build.make CMakeFiles/csp1.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\Clion C++\cmake-build-debug\CMakeFiles" --progress-num=70,71 "Built target csp1"
+.PHONY : CMakeFiles/csp1.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/csp1.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Clion C++\cmake-build-debug\CMakeFiles" 2
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/csp1.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Clion C++\cmake-build-debug\CMakeFiles" 0
+.PHONY : CMakeFiles/csp1.dir/rule
+
+# Convenience name for target.
+csp1: CMakeFiles/csp1.dir/rule
+
+.PHONY : csp1
+
+# clean rule for target.
+CMakeFiles/csp1.dir/clean:
+	$(MAKE) -f CMakeFiles\csp1.dir\build.make CMakeFiles/csp1.dir/clean
+.PHONY : CMakeFiles/csp1.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/OJ1696.dir
@@ -1094,7 +1125,7 @@ CMakeFiles/BST.dir/clean:
 CMakeFiles/sort.dir/all:
 	$(MAKE) -f CMakeFiles\sort.dir\build.make CMakeFiles/sort.dir/depend
 	$(MAKE) -f CMakeFiles\sort.dir\build.make CMakeFiles/sort.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\Clion C++\cmake-build-debug\CMakeFiles" --progress-num=72,73 "Built target sort"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\Clion C++\cmake-build-debug\CMakeFiles" --progress-num=76,77 "Built target sort"
 .PHONY : CMakeFiles/sort.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1194,6 +1225,33 @@ PCA: CMakeFiles/PCA.dir/rule
 CMakeFiles/PCA.dir/clean:
 	$(MAKE) -f CMakeFiles\PCA.dir\build.make CMakeFiles/PCA.dir/clean
 .PHONY : CMakeFiles/PCA.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/csp4.dir
+
+# All Build rule for target.
+CMakeFiles/csp4.dir/all:
+	$(MAKE) -f CMakeFiles\csp4.dir\build.make CMakeFiles/csp4.dir/depend
+	$(MAKE) -f CMakeFiles\csp4.dir\build.make CMakeFiles/csp4.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\Clion C++\cmake-build-debug\CMakeFiles" --progress-num=72,73 "Built target csp4"
+.PHONY : CMakeFiles/csp4.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/csp4.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Clion C++\cmake-build-debug\CMakeFiles" 2
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/csp4.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Clion C++\cmake-build-debug\CMakeFiles" 0
+.PHONY : CMakeFiles/csp4.dir/rule
+
+# Convenience name for target.
+csp4: CMakeFiles/csp4.dir/rule
+
+.PHONY : csp4
+
+# clean rule for target.
+CMakeFiles/csp4.dir/clean:
+	$(MAKE) -f CMakeFiles\csp4.dir\build.make CMakeFiles/csp4.dir/clean
+.PHONY : CMakeFiles/csp4.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

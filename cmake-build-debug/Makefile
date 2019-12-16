@@ -422,6 +422,19 @@ another/fast:
 .PHONY : another/fast
 
 #=============================================================================
+# Target rules for targets named csp1
+
+# Build rule for target.
+csp1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 csp1
+.PHONY : csp1
+
+# fast build rule for target.
+csp1/fast:
+	$(MAKE) -f CMakeFiles\csp1.dir\build.make CMakeFiles/csp1.dir/build
+.PHONY : csp1/fast
+
+#=============================================================================
 # Target rules for targets named OJ1696
 
 # Build rule for target.
@@ -615,6 +628,19 @@ PCA: cmake_check_build_system
 PCA/fast:
 	$(MAKE) -f CMakeFiles\PCA.dir\build.make CMakeFiles/PCA.dir/build
 .PHONY : PCA/fast
+
+#=============================================================================
+# Target rules for targets named csp4
+
+# Build rule for target.
+csp4: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 csp4
+.PHONY : csp4
+
+# fast build rule for target.
+csp4/fast:
+	$(MAKE) -f CMakeFiles\csp4.dir\build.make CMakeFiles/csp4.dir/build
+.PHONY : csp4/fast
 
 01.BST.obj: 01.BST.cpp.obj
 
@@ -1507,6 +1533,60 @@ asd.cpp.s:
 	$(MAKE) -f CMakeFiles\asd.dir\build.make CMakeFiles/asd.dir/asd.cpp.s
 .PHONY : asd.cpp.s
 
+csp1.obj: csp1.cpp.obj
+
+.PHONY : csp1.obj
+
+# target to build an object file
+csp1.cpp.obj:
+	$(MAKE) -f CMakeFiles\csp1.dir\build.make CMakeFiles/csp1.dir/csp1.cpp.obj
+.PHONY : csp1.cpp.obj
+
+csp1.i: csp1.cpp.i
+
+.PHONY : csp1.i
+
+# target to preprocess a source file
+csp1.cpp.i:
+	$(MAKE) -f CMakeFiles\csp1.dir\build.make CMakeFiles/csp1.dir/csp1.cpp.i
+.PHONY : csp1.cpp.i
+
+csp1.s: csp1.cpp.s
+
+.PHONY : csp1.s
+
+# target to generate assembly for a file
+csp1.cpp.s:
+	$(MAKE) -f CMakeFiles\csp1.dir\build.make CMakeFiles/csp1.dir/csp1.cpp.s
+.PHONY : csp1.cpp.s
+
+csp4.obj: csp4.cpp.obj
+
+.PHONY : csp4.obj
+
+# target to build an object file
+csp4.cpp.obj:
+	$(MAKE) -f CMakeFiles\csp4.dir\build.make CMakeFiles/csp4.dir/csp4.cpp.obj
+.PHONY : csp4.cpp.obj
+
+csp4.i: csp4.cpp.i
+
+.PHONY : csp4.i
+
+# target to preprocess a source file
+csp4.cpp.i:
+	$(MAKE) -f CMakeFiles\csp4.dir\build.make CMakeFiles/csp4.dir/csp4.cpp.i
+.PHONY : csp4.cpp.i
+
+csp4.s: csp4.cpp.s
+
+.PHONY : csp4.s
+
+# target to generate assembly for a file
+csp4.cpp.s:
+	$(MAKE) -f CMakeFiles\csp4.dir\build.make CMakeFiles/csp4.dir/csp4.cpp.s
+.PHONY : csp4.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -1703,6 +1783,7 @@ help:
 	@echo ... 201812_4
 	@echo ... X_4
 	@echo ... another
+	@echo ... csp1
 	@echo ... OJ1696
 	@echo ... S2Q3
 	@echo ... 2wuxiangwang
@@ -1718,6 +1799,7 @@ help:
 	@echo ... X_1
 	@echo ... X_2
 	@echo ... PCA
+	@echo ... csp4
 	@echo ... edit_cache
 	@echo ... 01.BST.obj
 	@echo ... 01.BST.i
@@ -1818,6 +1900,12 @@ help:
 	@echo ... asd.obj
 	@echo ... asd.i
 	@echo ... asd.s
+	@echo ... csp1.obj
+	@echo ... csp1.i
+	@echo ... csp1.s
+	@echo ... csp4.obj
+	@echo ... csp4.i
+	@echo ... csp4.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

@@ -1,17 +1,39 @@
+//
+// Created by haoha on 2019/12/16.
+//
+
 #include <iostream>
-#include <map>
-#include <set>
-#include <unordered_set>
-#include <unordered_map>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <list>
 using namespace std;
+
+struct Node
+{
+    string name;
+    int sex;
+    int generation;
+    string place;
+    string date;
+    string live;
+    string culture;
+    string addition;
+    Node *sib;
+    Node *couple;
+    Node *fir;
+};
+vector<Node> family;
+
+void Create()
+{
+    Node temp;
+    cin >> temp.name;
+    family.push_back(temp);
+}
 
 int main()
 {
-    set<int> a;
-    unordered_set<int> b;
-    for(int i = 1;i <= 10;i ++)
-    {
-        a.insert(10 - i);
-        b.insert(10 - i);
-    }
+    string temp = "ÀîÔÆ·å³¤×Ó";
+    cout << temp << endl;
 }
