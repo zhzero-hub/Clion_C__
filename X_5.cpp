@@ -23,6 +23,27 @@ struct Node
 };
 vector<Node *> family(10);
 
+Node *find(Node *x , const string &t)
+{
+    if(x == nullptr)
+    {
+        return nullptr;
+    }
+    if(x->name == t)
+    {
+        return x;
+    }
+    else if(x->couple->name == t)
+    {
+        return x->couple;
+    }
+    Node *p = find(x->sib , t);
+    Node *q = find(x->fir , t);
+    if(p != nullptr)return p;
+    else if(q != nullptr)return q;
+    else return nullptr;
+}
+
 void Create()
 {
     ifstream file("Family.txt");
@@ -40,23 +61,23 @@ void Create()
         if(temp.size() == 10)
         {
             string name = temp.substr(0 , 6);
-            Node *pos = family[gen];
+            Node *pos = find(family[gen] , name);
             string relation = temp.substr(8 , 2);
             if(relation == "ÆÞ")
             {
-
+                pos->couple = t;
             }
             else if(relation == "×Ó")
             {
-
+                pos->fir = t;
             }
             else if(relation == "Å®")
             {
-
+                pos->fir = t;
             }
             else if(relation == "Ðö")
             {
-
+                
             }
         }
     }
