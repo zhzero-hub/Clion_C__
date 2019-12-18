@@ -6,14 +6,12 @@
 
 #IncludeRegexTransform: 
 
-D:/Clion C++/3.cpp
+C:/Users/Z_HAO/CLionProjects/Clion_C__/3.cpp
 iostream
 -
 string
 -
 iterator
--
-utility
 -
 vector
 -

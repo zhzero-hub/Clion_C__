@@ -8,9 +8,9 @@ using namespace std;
 
 typedef struct student
 {
-    char name[20];
-    char number[20];
-    int score;
+    char name[20]{};
+    char number[20]{};
+    int score{};
     struct student *next;
     struct student *pre;
     student(){next = pre = nullptr;};
@@ -77,26 +77,29 @@ void Create(student *a , student *b)
             q = q->next;
         }
     }
-    p->next = q->next = NULL;
+    p->next = q->next = nullptr;
 }
 
 student *Find(student *p , char name[])
 {
-    if(p == NULL)return NULL;
+    if(p == nullptr)
+    {
+        return nullptr;
+    }
     student *q = p;
-    while(q->next != NULL && strcmp(q->name , name) < 0)q = q->next;
+    while(q->next != nullptr && strcmp(q->name , name) < 0)q = q->next;
     return q;
 }
 
 student *Find(student *p , char num[] , bool &check)
 {
-    if(p == NULL)return NULL;
+    if(p == nullptr)return nullptr;
     student *q = p;
-    while(q != NULL && strcmp(q->number , num) != 0)q = q->next;
-    if(q == NULL)
+    while(q != nullptr && strcmp(q->number , num) != 0)q = q->next;
+    if(q == nullptr)
     {
         check = true;
-        return NULL;
+        return nullptr;
     }
     else
     {
@@ -114,7 +117,7 @@ void Show(student *p)
     cout << endl;
 }
 
-bool Check(char num[] , int size)
+bool Check(const char num[] , int size)
 {
     if(size != 9)return false;
     for(int i = 0;i < size;i ++)
@@ -133,7 +136,7 @@ void Insert(student *a , student *b)
     cin >> name;
     cout << "请输入学生学号: ";
     cin >> num;
-    while(1)
+    while(true)
     {
         int size = strlen(num);
         check = Check(num , size);
@@ -152,7 +155,7 @@ void Insert(student *a , student *b)
         cin >> score;
     }
     student *temp = Find(a->next , num , check);
-    if(temp != NULL)
+    if(temp != nullptr)
     {
         cout << "该学生已存在! " << endl;
         Show(temp);
@@ -179,7 +182,7 @@ void Insert(student *a , student *b)
             {
                 pos->next = t;
                 t->pre = pos;
-                t->next = NULL;
+                t->next = nullptr;
             }
             cout << "插入成功!" << endl;
             return;
@@ -199,7 +202,7 @@ void Insert(student *a , student *b)
             {
                 pos->next = t;
                 t->pre = pos;
-                t->next = NULL;
+                t->next = nullptr;
             }
             cout << "插入成功!" << endl;
             return;
@@ -214,7 +217,7 @@ void Query(student *a , student *b)
     cout << "请输入查询学生的姓名: ";
     cin >> name;
     student *p = Find(a->next , name);
-    while(p != NULL && strcmp(p->name , name) == 0)
+    while(p != nullptr && strcmp(p->name , name) == 0)
     {
         count ++;
         cout << "第" << count << "位学生的信息为: " << endl;
@@ -222,14 +225,13 @@ void Query(student *a , student *b)
         p = Find(p->next , name);
     }
     p = Find(b->next , name);
-    while(p != NULL && strcmp(p->name , name) == 0)
+    while(p != nullptr && strcmp(p->name , name) == 0)
     {
         count ++;
         cout << "第" << count << "位学生的信息为: " << endl;
         Show(p);
         p = Find(p->next , name);
     }
-    return;
 }
 
 void Del(student *a , student *b)
@@ -240,7 +242,7 @@ void Del(student *a , student *b)
     cout << "请输入查询学生的姓名: ";
     cin >> name;
     student *p = Find(a->next , name);
-    while(p != NULL && strcmp(p->name , name) == 0)
+    while(p != nullptr && strcmp(p->name , name) == 0)
     {
         count ++;
         cout << "第" << count << "位学生的信息为: " << endl;
@@ -249,7 +251,7 @@ void Del(student *a , student *b)
         p = Find(p->next , name);
     }
     p = Find(b->next , name);
-    while(p != NULL && strcmp(p->name , name) == 0)
+    while(p != nullptr && strcmp(p->name , name) == 0)
     {
         count ++;
         cout << "第" << count << "位学生的信息为: " << endl;
@@ -266,10 +268,10 @@ void Del(student *a , student *b)
         {
             student *temp = vec[i];
             student *l = temp->pre;
-            if(temp->next == NULL)
+            if(temp->next == nullptr)
             {
                 free(temp);
-                l->next = NULL;
+                l->next = nullptr;
             }
             else
             {
@@ -289,7 +291,7 @@ void Show_all(student *a , student *b)
     student *p = a->next;
     cout << "及格名单: " << endl;
     cout << endl;
-    while(p != NULL)
+    while(p != nullptr)
     {
         Show(p);
         count ++;
@@ -304,7 +306,7 @@ void Show_all(student *a , student *b)
     cout << endl;
     student *q = b->next;
     count = 0;
-    while(q != NULL)
+    while(q != nullptr)
     {
         Show(q);
         count ++;
@@ -327,7 +329,7 @@ void Retest(student *a , student *b)
     cin >> name;
     cout << "请输入学生学号: ";
     cin >> num;
-    while(1)
+    while(true)
     {
         int size = strlen(num);
         check = Check(num , size);
@@ -380,7 +382,7 @@ int main()
     ST *A,*B;
     A=(ST *)malloc(sizeof(ST));
     B=(ST *)malloc(sizeof(ST));
-    A->next=B->next=NULL;
+    A->next=B->next=nullptr;
     for(;;)
     {
         switch(menu_select())
@@ -421,5 +423,6 @@ int main()
                 exit(0);
 
         }
+        system("cls");
     }
 }

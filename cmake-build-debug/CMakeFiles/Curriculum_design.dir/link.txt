@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\Curriculum_design.dir/objects.a
-C:\PROGRA~2\CODEBL~1\MinGW\bin\ar.exe cr CMakeFiles\Curriculum_design.dir/objects.a @CMakeFiles\Curriculum_design.dir\objects1.rsp
-C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE -g   -Wl,--whole-archive CMakeFiles\Curriculum_design.dir/objects.a -Wl,--no-whole-archive  -o Curriculum_design.exe -Wl,--out-implib,libCurriculum_design.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Curriculum_design.dir\linklibs.rsp

@@ -11,7 +11,9 @@ bool res(string &name , stack<char> &p , queue<string> &q)
         if((*x >= '0' && *x <= '9') || *x == '.')
         {
             string num;
-            int time = 0;//time表示小数点出现的次数，因为一个数字不能包含两个小数点
+            int time;//time表示小数点出现的次数，因为一个数字不能包含两个小数点
+            if(*x == '.')time = 1;
+            else time = 0;
             while((*x >= '0' && *x <= '9') || *x == '.')
             {
                 num += *x;
@@ -88,6 +90,7 @@ double Cal(double &a , double &b , bool &ans , string &sig)
         if(b == 0)ans = false;
         return a / b;
     }
+    return 0;
 }
 
 double res_double(string &t)

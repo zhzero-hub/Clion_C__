@@ -6,11 +6,13 @@
 
 #IncludeRegexTransform: 
 
-D:/Clion C++/testtest.cpp
-stdio.h
+C:/Users/Z_HAO/CLionProjects/Clion_C__/testtest.cpp
+stack
 -
-stdlib.h
+queue
 -
-malloc.h
+map
+-
+iostream
 -
 

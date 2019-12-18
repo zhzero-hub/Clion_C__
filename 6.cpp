@@ -52,13 +52,13 @@ private:
     int sum = 0;//边总数
     int n = 0;//邻接表个数
 public:
-        Graph(){;};
-        int Find_pos(const string &name){auto x = head.find(name);return x->second;};//O(1)的查找
-        void Create();
-        void Prim();
-        void Kruscal();
-        void Clear_ans();
-        friend void Show(Adj_list *g , int n);
+    Graph(){;};
+    int Find_pos(const string &name){auto x = head.find(name);return x->second;};//O(1)的查找
+    void Create();
+    void Prim();
+    void Kruscal();
+    void Clear_ans();
+    friend void Show(Adj_list *g , int n);
 };
 
 

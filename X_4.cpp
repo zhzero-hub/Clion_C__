@@ -341,9 +341,9 @@ int main()
     cout << "请输入起点和终点站:" << endl;
     string z = "站";
     string start , end;
-    //cin >> start >> end;//输入编码有问题
-    start = "南航北门";
-    end = "南航江宁校区北门";
+    cin >> start >> end;//输入编码有问题
+    //start = "南航北门";
+    //end = "南航江宁校区北门";
     start += z;
     end += z;
     while(number.find(start) == number.end() || number.find(end) == number.end())//stop中找不到start或end站

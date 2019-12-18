@@ -1,7 +1,6 @@
 #include<iostream>
 #include<string>
 #include<iterator>
-#include <utility>
 #include<vector>
 using namespace std;
 
@@ -74,6 +73,7 @@ bool Check(const string& t , int n , int &flag , vector<string> &q , string &ext
     }
     string temp2 = t.substr(i , n);
     q.push_back(temp2);
+    return true;
 }
 
 int main()

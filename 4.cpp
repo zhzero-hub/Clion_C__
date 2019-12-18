@@ -6,8 +6,8 @@
 #include <iterator>
 #include <vector>
 #include <fstream>
-#include <algorithm>
 #include <string>
+#include <cmath>
 using namespace std;
 
 const int M = 3;

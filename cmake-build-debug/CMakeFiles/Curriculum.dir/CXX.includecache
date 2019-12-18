@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-D:/Clion C++/4.cpp
+C:/Users/Z_HAO/CLionProjects/Clion_C__/4.cpp
 iostream
 -
 iterator
@@ -15,8 +15,8 @@ vector
 -
 fstream
 -
-algorithm
--
 string
+-
+cmath
 -
 
