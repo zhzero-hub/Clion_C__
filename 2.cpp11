@@ -1,0 +1,57 @@
+// INFO BEGIN
+//
+// User = 201910013483(郑好) 
+// Group = C/C++ 
+// Problem = 小明种苹果（续） 
+// Language = CPP11 
+// SubmitTime = 2019-09-15 14:07:45 
+//
+// INFO END
+
+#include<iostream>
+using namespace std;
+#define max 1000010;
+
+int main()
+{
+	int a[100010] = {};
+	int n;
+	cin >> n;
+	int total = 0;
+	int count = 0;
+	int drop = 0;
+	for(int i = 1;i <= n;i ++)
+	{
+		int time;
+		cin >> time;
+		int num = max;
+		for(int j = 1;j <= time;j ++)
+		{
+			int temp;
+			cin >> temp;
+			if(temp < num && temp > 0 && j != 1)
+			{
+				num = temp;
+				a[i] = 1;
+				count ++;
+			}
+			else if(temp < 0)
+			{
+				num += temp;
+			}
+			else if(temp < num && temp > 0 && j == 1)
+			{
+				num = temp;
+			}
+		}
+		total += num;
+	}
+	a[0] = a[n];
+	a[n + 1] = a[1];
+	for(int i = 1;i <= n;i ++)
+	{
+		if(a[i - 1] + a[i] + a[i + 1] == 3)drop ++;
+	}
+	cout << total << ' ' << count << ' ' << drop;
+        return 0;
+}

@@ -1,12 +1,13 @@
-//
-// Created by haoha on 2019/11/2.
-//
-
 #include <iostream>
+#include <map>
+#include <set>
+#include <unordered_set>
+#include <unordered_map>
+#include <vector>
 using namespace std;
 
 int main()
 {
-    cout << "git" << endl;
-    return 0;
+    vector<int> a;
+    a.resize(10);
 }

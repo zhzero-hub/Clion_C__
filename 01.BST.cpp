@@ -139,7 +139,7 @@ BST *delnode(BST *T,int x)//在BST中做删除并返回根节点指向。如果x不存在，给出提示
         }
     }
     else if(x < T->data)T->left = delnode(T->left , x);
-    else T->right = delnode(T->right , x);
+    else if(x > T->data)T->right = delnode(T->right , x);
     return T;
 }
 

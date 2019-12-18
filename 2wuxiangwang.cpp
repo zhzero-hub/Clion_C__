@@ -16,6 +16,7 @@
 #include <cstring>
 #include <string>
 #include <vector>
+#include <stack>
 using namespace std;
 const int maxx = 9999999;//定义的无穷大值
 
@@ -23,8 +24,8 @@ typedef struct MyGraph
 {
     int type;//0，表示无向网，1表示有向网
     int arcnum = 0,vexnum = 0;//图中边的个数以及顶点个数
-    char vexname[20][20];//存放顶点名的二维数组
-    int A[20][20];//邻接矩阵，A[i][j]表示i号顶点与j号顶点之间边的权值，若i,j之间没有边，则A[i][j]取值无穷大
+    char **vexname;//存放顶点名的二维数组
+    int **A;//邻接矩阵，A[i][j]表示i号顶点与j号顶点之间边的权值，若i,j之间没有边，则A[i][j]取值无穷大
 }GH;
 int menu_select();
 int findvex(char *s,GH *G);//确定顶点s对应的序号
@@ -121,7 +122,15 @@ void creatgraph(GH *G)
         cout << "文件打开失败" << endl;
         exit(0);
     }
+    G->type = 0;
     file >> G->vexnum;
+    G->vexname = (char **)malloc(sizeof(char *) * G->vexnum);
+    G->A = (int **)malloc(sizeof(int *) * G->vexnum);
+    for(int i = 0;i < G->vexnum;i ++)
+    {
+        G->vexname[i] = (char *)malloc(sizeof(char) * 20);
+        G->A[i] = (int *)malloc(sizeof(int) * G->vexnum);
+    }
     for(int i = 0;i < G->vexnum;i ++)file >> G->vexname[i];
     for(int i = 0;i < G->vexnum;i ++)for(int j = 0;j < G->vexnum;j ++)G->A[i][j] = maxx;
     while(!file.eof())
@@ -156,12 +165,17 @@ void showgraph(GH *G)
 
 
 
-void Find(GH *G , char *end , int j , int *visit , vector<char *> &path)
+void Find(GH *G , char *end , int j , int *visit , vector<char *> &path , int weight)
 {
     if(strcmp(G->vexname[j] , end) == 0)
     {
+        if(path.empty())
+        {
+            cout << "两点间不存在路径" << endl;
+            return;
+        }
         for(const auto &x: path)cout << x << "    ";
-        cout << endl;
+        cout << "路径长度为: " << weight << endl;
         return;
     }
     int pos = 0;
@@ -171,7 +185,7 @@ void Find(GH *G , char *end , int j , int *visit , vector<char *> &path)
         {
             visit[pos] = 1;
             path.push_back(G->vexname[pos]);
-            Find(G , end , pos , visit , path);
+            Find(G , end , pos , visit , path , weight + G->A[j][pos]);
             path.pop_back();
             visit[pos] = 0;
             pos ++;
@@ -187,7 +201,7 @@ void findpath(GH *G,char *start,char *end)//寻找简单路径函数
     visit[pos] = 1;
     vector<char *>path;
     path.push_back(start);
-    Find(G , end , pos , visit , path);
+    Find(G , end , pos , visit , path , 0);
 }
 
 
@@ -233,9 +247,25 @@ int iscycle(GH *G)//判断图中是否有回路，有返回1，否则返回0
 
 int isconnect(GH *G)//判断图是否连通，是返回1，否则返回0
 {
-///////////////////////////完成该函数////////////////////////////////
-
-
+    int visit[100] = {};
+    visit[0] = 1;
+    stack<int> path;
+    path.push(0);
+    while(!path.empty())
+    {
+        int top = path.top();
+        path.pop();
+        for(int i = 0;i < G->vexnum;i ++)
+        {
+            if(!visit[i] && G->A[top][i] < maxx)
+            {
+                visit[i] = 1;
+                path.push(i);
+            }
+        }
+    }
+    for(int i = 0;i < G->vexnum;i ++)if(!visit[i])return 0;
+    return 1;
 }
 
 

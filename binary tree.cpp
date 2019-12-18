@@ -1,157 +1,22 @@
-#include<stdio.h>
-#include<stdlib.h>
-
+#include<iostream>
 struct Node
 {
     int data;
     Node *l;
     Node *r;
-    int h;
 };
-
 struct Tree
 {
-    Node *base = NULL;
+    Node *base;
 };
 
-int max(int a , int b)
+Tree Newtree()
 {
-    if(a > b)return a;
-    else return b;
-}
-
-int Gethight(Node *x)
-{
-    if(x == NULL || (x->l == NULL && x->r == NULL))return 0;
-    else
-    {
-        return max(Gethight(x->l) , Gethight(x->r)) + 1;
-    }
-}
-
-Node *RR_rotation(Node *x)
-{
-    Node *p = x->r;
-    x->r = p->l;
-    p->l = x;
-    x->h = max(Gethight(x->l) , Gethight(x->r)) + 1;
-    p->h = max(Gethight(p->l) , x->h) + 1;
-    return p;    
-}
-
-Node *LL_rotation(Node *x)
-{
-    Node *p = x->l;
-    x->l = p->r;
-    p->r = x;
-    x->h = max(Gethight(x->l) , Gethight(x->r)) + 1;
-    p->h = max(Gethight(p->l) , x->h) + 1;
-    return p;    
-}
-
-Node *LR_rotation(Node *x)
-{
-    x->l = RR_rotation(x->l);
-    return LL_rotation(x);
-}
-
-Node *RL_rotation(Node *x)
-{
-    x->r = LL_rotation(x->r);
-    return RR_rotation(x);
-}
-
-Node *Ballance_insert(Node *x , int t)
-{
-    if(x == NULL)
-    {
-        x = (Node *)malloc(sizeof(Node));
-        x->data = t;
-        x->l = x->r = NULL;
-        x->h = 0;
-        return x;
-    }
-    else
-    {
-        if(t < x->data)
-        {
-            x->l = Ballance_insert(x->l , t);
-            if(Gethight(x->l) - Gethight(x->r) == 2)
-            {
-                if(t < x->l->data)//LL
-                {
-                    x = LL_rotation(x);
-                }
-                else
-                {
-                    x = LR_rotation(x);
-                }
-            }
-        }
-        else
-        {
-            x->r = Ballance_insert(x->r , t);
-            if(Gethight(x->l) - Gethight(x->r) == -2)
-            {
-                if(t > x->r->data)//RR
-                {
-                    x = RR_rotation(x);
-                }
-                else
-                {
-                    x = RL_rotation(x);
-                }
-            }
-        }
-        
-    }
-    x->h = max(Gethight(x->l) , Gethight(x->r)) + 1;
-    return x;
-}
-
-void newnode(Tree &x , int t)
-{
-    x.base = (Node *)malloc(sizeof(Node));
-    x.base->data = t;
-    x.base->l = NULL;
-    x.base->r = NULL;
-}
-
-void Insert(Node *x , int t)//小于在左，大于在右
-{
-    Node *p = x;
-    if(t <= p->data)
-    {
-        if(p->l == NULL)
-        {
-            Node *q = (Node *)malloc(sizeof(Node));
-            q->data = t;
-            q->l = q->r = NULL;
-            p->l = q;
-            return;
-        }
-        else
-        {
-            Insert(p->l , t);
-            return;
-        }
-    }
-    else
-    {
-        if(p->r == NULL)
-        {
-            Node *q = (Node *)malloc(sizeof(Node));
-            q->data = t;
-            q->l = q->r = NULL;
-            p->r = q;
-            return;
-        }
-        else
-        {
-            Insert(p->r , t);
-            return;
-        }
-    }
+    Tree temp;
+    temp.base = (Node *)malloc(sizeof(Node));
+    temp.base->data = 0;
+    temp.base->l = temp.base->r = NULL;
+    return temp;
 }
 
 Node *Findmin(Node *x)
@@ -168,61 +33,62 @@ Node *Findmax(Node *x)
     return p;
 }
 
-Node *Delete(Node *x , int t)
+Node *Find(Node *x , int t)
 {
-    if(x == NULL)
+    if(t == x->data || x == NULL)
     {
         return x;
     }
-    if(t < x->data)x->l = Delete(x->l , t);
-    else if(t > x->data)x->r = Delete(x->r , t);
-    else
+    if(t < x->data)
     {
-        if(x->l != NULL && x->r != NULL)
-        {
-            Node *temp = Findmin(x->r);
-            x->data = temp->data;
-            x->r = Delete(x->r , x->data);
-        }
-        else if (x->l == NULL)
-        {
-            Node *temp = x;
-            x = x->r;
-            free(temp);
-        }
-        else if(x->r == NULL)
-        {
-            Node *temp = x;
-            x = x->l;
-            free(temp);
-        }
-        return x;        
+        return Find(x->l , t);
+    }
+    else if(t > x->data)
+    {
+        return Find(x->r , t);
     }
 }
 
-void in_order(Node *node)
+void Insert(Node *x , int t)
 {
-    if(node != NULL)
+    Node *temp = x;
+    while(temp != NULL)
     {
-        in_order(node->l);
-        printf("%d " , node->data);
-        in_order(node->r);
+        if(t <= temp->data)
+        {
+            temp = temp->l;
+        }
+        else
+        {
+            temp = temp->r;
+        }
     }
+    temp = (Node *)malloc(sizeof(Node));
     return;
 }
 
-
-
-int main()
+Node *Delete(Node *x , int t)
 {
-    Tree tree;
-    int a[] = {324,432,3,24,235,32,3242};
-    int size = sizeof(a) / sizeof(a[0]);
-    for(int i = 0;i < size;i ++)
+    if(t < x->data)x = Delete(x->l , t);
+    else if(t > x->data)x = Delete(x->r , t);
+    if(x->l != NULL && x->r !=- NULL)
     {
-        tree.base = Ballance_insert(tree.base , a[i]);
+        Node *q = Findmin(x->r);
+        x->data = q->data;
+        x->r = Delete(x , x->data);
     }
-    Delete(tree.base , 3);
-    in_order(tree.base);
-    system("pause");
+    else
+    {
+        Node *p = x;
+        if(x->l != NULL)
+        {
+            x = x->l;
+        }
+        else if(x->r != NULL)
+        {
+            x = x->r;
+        }
+        free(p);
+    }
+    return x;
 }

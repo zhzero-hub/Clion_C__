@@ -91,6 +91,7 @@ void Graph::Create()
         string temp;
         file >> temp;
         g[i].head = temp;
+        g[i].list->next = nullptr;
         ans[i].head = temp;
         head.insert(make_pair(temp , i));
     }
