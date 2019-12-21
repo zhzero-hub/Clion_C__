@@ -9,6 +9,7 @@ C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/CMakeFiles/Curriculum.d
 C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/CMakeFiles/asd.dir
 C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/CMakeFiles/5.dir
 C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/CMakeFiles/matrix.dir
+C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/CMakeFiles/new.dir
 C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/CMakeFiles/Binary_tree.dir
 C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/CMakeFiles/6.dir
 C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/CMakeFiles/rebuild_cache.dir

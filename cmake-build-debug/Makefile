@@ -253,6 +253,19 @@ matrix/fast:
 .PHONY : matrix/fast
 
 #=============================================================================
+# Target rules for targets named new
+
+# Build rule for target.
+new: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 new
+.PHONY : new
+
+# fast build rule for target.
+new/fast:
+	$(MAKE) -f CMakeFiles\new.dir\build.make CMakeFiles/new.dir/build
+.PHONY : new/fast
+
+#=============================================================================
 # Target rules for targets named Binary_tree
 
 # Build rule for target.
@@ -1161,6 +1174,33 @@ matrix.cpp.s:
 	$(MAKE) -f CMakeFiles\matrix.dir\build.make CMakeFiles/matrix.dir/matrix.cpp.s
 .PHONY : matrix.cpp.s
 
+new.obj: new.cpp.obj
+
+.PHONY : new.obj
+
+# target to build an object file
+new.cpp.obj:
+	$(MAKE) -f CMakeFiles\new.dir\build.make CMakeFiles/new.dir/new.cpp.obj
+.PHONY : new.cpp.obj
+
+new.i: new.cpp.i
+
+.PHONY : new.i
+
+# target to preprocess a source file
+new.cpp.i:
+	$(MAKE) -f CMakeFiles\new.dir\build.make CMakeFiles/new.dir/new.cpp.i
+.PHONY : new.cpp.i
+
+new.s: new.cpp.s
+
+.PHONY : new.s
+
+# target to generate assembly for a file
+new.cpp.s:
+	$(MAKE) -f CMakeFiles\new.dir\build.make CMakeFiles/new.dir/new.cpp.s
+.PHONY : new.cpp.s
+
 qsort.obj: qsort.cpp.obj
 
 .PHONY : qsort.obj
@@ -1286,6 +1326,7 @@ help:
 	@echo ... asd
 	@echo ... 5
 	@echo ... matrix
+	@echo ... new
 	@echo ... Binary_tree
 	@echo ... 6
 	@echo ... rebuild_cache
@@ -1381,6 +1422,9 @@ help:
 	@echo ... matrix.obj
 	@echo ... matrix.i
 	@echo ... matrix.s
+	@echo ... new.obj
+	@echo ... new.i
+	@echo ... new.s
 	@echo ... qsort.obj
 	@echo ... qsort.i
 	@echo ... qsort.s
