@@ -20,7 +20,7 @@ struct Node//邻接表节点
     Node *next = nullptr;
 };
 
-struct Adj_list
+struct Adj_list//邻接表头节点
 {
     string head;
     float w = 0;
@@ -36,14 +36,14 @@ struct CPath
     float a = maxx;
 };
 
-template <typename T>
+template <typename T>//模板最大值
 T Max(const T &a , const T &b)
 {
     if(a > b)return a;
     return b;
 }
 
-template <typename T>
+template <typename T>//模板最小值
 T Min(const T &a , const T &b)
 {
     if(a > b)return b;
@@ -53,22 +53,22 @@ T Min(const T &a , const T &b)
 class Graph
 {
 private:
-    unordered_map<string , int> head;
-    Adj_list g[100];
+    unordered_map<string , int> head;//节点名称和节点序号的映射集合
+    Adj_list g[100];//原始图
     Adj_list ans[100];
-    vector<CPath> path;
-    vector<int> TP;
+    vector<CPath> path;//每个点最晚开始时间和最早结束时间
+    vector<int> TP;//拓扑排序的顺序
     int sum = 0;//边总数
     int n = 0;//邻接表个数
 public:
     Graph(){;};
     int Find_pos(const string &name){auto x = head.find(name);return x->second;};//O(1)的查找
-    int Find(const int &t){for(int i = 0;i < TP.size();i ++)if(TP[i] == t)return i;};
-    void Create();
-    bool TPsort();
-    void Ans();
-    float dfs(int i);
-    friend void Show(Adj_list *g , int n);
+    int Find(const int &t){for(int i = 0;i < TP.size();i ++)if(TP[i] == t)return i;return TP.size();};//在拓扑排序中寻找t
+    void Create();//创建图
+    bool TPsort();//拓扑排序
+    void Ans();//显示结果
+    float dfs(int i);//dfs
+    friend void Show(Adj_list *g , int n);//显示图
 };
 
 void Show(Adj_list *g , int n) {
@@ -125,7 +125,7 @@ void Graph::Create()
 bool Graph::TPsort() {
     stack<int> s;
     int count = 0;
-    int In[100] = {};
+    int In[100] = {};//存储所有点的入度
     for(int i = 1;i <= n;i ++)
     {
         Node *p = g[i].list->next;
@@ -138,7 +138,7 @@ bool Graph::TPsort() {
     }
     for(int i = 1;i <= n;i ++)
     {
-        if(!In[i])
+        if(!In[i])//入度为0
         {
             s.push(i);
             TP.push_back(i);

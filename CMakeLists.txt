@@ -33,3 +33,4 @@ add_executable(X_5 X_5.cpp)
 
 add_executable(201803-4 201803-4.cpp)
 add_executable(X_1 X_1.cpp)
+add_executable(7 7.cpp)

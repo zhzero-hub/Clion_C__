@@ -473,6 +473,19 @@ X_1/fast:
 	$(MAKE) -f CMakeFiles\X_1.dir\build.make CMakeFiles/X_1.dir/build
 .PHONY : X_1/fast
 
+#=============================================================================
+# Target rules for targets named 7
+
+# Build rule for target.
+7 : cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 7
+.PHONY : 7
+
+# fast build rule for target.
+7/fast:
+	$(MAKE) -f CMakeFiles\7.dir\build.make CMakeFiles/7.dir/build
+.PHONY : 7/fast
+
 01.obj: 01.cpp.obj
 
 .PHONY : 01.obj
@@ -850,6 +863,33 @@ X_1/fast:
 6.cpp.s:
 	$(MAKE) -f CMakeFiles\6.dir\build.make CMakeFiles/6.dir/6.cpp.s
 .PHONY : 6.cpp.s
+
+7.obj: 7.cpp.obj
+
+.PHONY : 7.obj
+
+# target to build an object file
+7.cpp.obj:
+	$(MAKE) -f CMakeFiles\7.dir\build.make CMakeFiles/7.dir/7.cpp.obj
+.PHONY : 7.cpp.obj
+
+7.i: 7.cpp.i
+
+.PHONY : 7.i
+
+# target to preprocess a source file
+7.cpp.i:
+	$(MAKE) -f CMakeFiles\7.dir\build.make CMakeFiles/7.dir/7.cpp.i
+.PHONY : 7.cpp.i
+
+7.s: 7.cpp.s
+
+.PHONY : 7.s
+
+# target to generate assembly for a file
+7.cpp.s:
+	$(MAKE) -f CMakeFiles\7.dir\build.make CMakeFiles/7.dir/7.cpp.s
+.PHONY : 7.cpp.s
 
 Binary_tree.obj: Binary_tree.cpp.obj
 
@@ -1265,6 +1305,7 @@ help:
 	@echo ... X_5
 	@echo ... 201803-4
 	@echo ... X_1
+	@echo ... 7
 	@echo ... 01.obj
 	@echo ... 01.i
 	@echo ... 01.s
@@ -1307,6 +1348,9 @@ help:
 	@echo ... 6.obj
 	@echo ... 6.i
 	@echo ... 6.s
+	@echo ... 7.obj
+	@echo ... 7.i
+	@echo ... 7.s
 	@echo ... Binary_tree.obj
 	@echo ... Binary_tree.i
 	@echo ... Binary_tree.s

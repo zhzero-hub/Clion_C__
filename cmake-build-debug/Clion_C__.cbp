@@ -1213,6 +1213,48 @@
 					<DistClean command="D:/LLVM/bin/mingw32-make.exe -f &quot;C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="7">
+				<Option output="C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/7.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/LLVM/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/LLVM/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/LLVM/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/LLVM/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/LLVM/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/LLVM/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/LLVM/bin/mingw32-make.exe -f &quot;C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/Makefile&quot;  VERBOSE=1 7"/>
+					<CompileFile command="D:/LLVM/bin/mingw32-make.exe -f &quot;C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/LLVM/bin/mingw32-make.exe -f &quot;C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/LLVM/bin/mingw32-make.exe -f &quot;C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="7/fast">
+				<Option output="C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/7.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/LLVM/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/LLVM/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/LLVM/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/LLVM/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/LLVM/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/LLVM/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/LLVM/bin/mingw32-make.exe -f &quot;C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/Makefile&quot;  VERBOSE=1 7/fast"/>
+					<CompileFile command="D:/LLVM/bin/mingw32-make.exe -f &quot;C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/LLVM/bin/mingw32-make.exe -f &quot;C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/LLVM/bin/mingw32-make.exe -f &quot;C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
 		<Unit filename="C:/Users/Z_HAO/CLionProjects/Clion_C__/1.cpp">
 			<Option target="1"/>
@@ -1252,6 +1294,9 @@
 		</Unit>
 		<Unit filename="C:/Users/Z_HAO/CLionProjects/Clion_C__/6.cpp">
 			<Option target="6"/>
+		</Unit>
+		<Unit filename="C:/Users/Z_HAO/CLionProjects/Clion_C__/7.cpp">
+			<Option target="7"/>
 		</Unit>
 		<Unit filename="C:/Users/Z_HAO/CLionProjects/Clion_C__/Binary_tree.cpp">
 			<Option target="Binary_tree"/>

@@ -128,7 +128,7 @@ int main()
     }
     while(true)
     {
-        for(auto x: node)
+        for(auto x: node)//对每一个点计算它和哪个聚类欧氏距离最近，离哪个最近就加入哪个
         {
             double dis_min = max;
             int pos = 0;
@@ -143,14 +143,14 @@ int main()
             }
             Ans[pos].New(x);
         }
-        for(auto & An : Ans)
+        for(auto & An : Ans)//一轮结束之后进行check
         {
             An.Cal_aver();
             An.Check();
         }
-        if(is_ok(Ans))break;
-        iteration_time ++;
-        for(auto & An : Ans)An.Clear();
+        if(is_ok(Ans))break;//所有聚类全部完成就可以返回
+        iteration_time ++;//否则迭代次数+1
+        for(auto & An : Ans)An.Clear();//清空Ans
     }
     cout << "迭代次数为: " << iteration_time << endl;
     for(int i = 0;i < M;i ++)
