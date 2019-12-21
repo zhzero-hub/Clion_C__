@@ -1,5 +1,5 @@
 #include<iostream>
-#include<string.h>
+#include<cstring>
 #include<vector>
 #include<iterator>
 #include<fstream>
@@ -8,13 +8,13 @@ using namespace std;
 
 typedef struct student
 {
-    char name[20]{};
-    char number[20]{};
-    int score{};
-    struct student *next;
-    struct student *pre;
-    student(){next = pre = nullptr;};
-    student(char name[] , int score , char num[]){strcpy(name , name);strcpy(number , num);score = score;pre = next = NULL;};
+    char name[20]{};//姓名
+    char number[20]{};//学号
+    int score = 0;//成绩
+    struct student *next = nullptr;//下一个学生
+    struct student *pre = nullptr;//上一个学生
+    student(){next = pre = nullptr;};//构造函数
+    student(char name[] , int score , char num[]){strcpy(name , name);strcpy(number , num);score = score;pre = next = nullptr;};//重载构造函数
     friend istream &operator>>(istream &in , student &t){in >> t.name >> t.score >> t.number;};
 }ST;
 
@@ -54,17 +54,17 @@ void Create(student *a , student *b)
         exit(0);
     }
     istream_iterator<student> it(file) , eof;
-    vector<student> vec(it , eof);
-    sort(vec.begin() , vec.end() , compare);
+    vector<student> vec(it , eof);//读入所有学生信息到vec
+    sort(vec.begin() , vec.end() , compare);//对所有学生信息排序
     student *p = a;
     student *q = b;
     for(auto x: vec)
     {
-        student *temp = (student *)malloc(sizeof(student));
+        auto *temp = (student *)malloc(sizeof(student));//新建一个学生节点
         strcpy(temp->name , x.name);
         strcpy(temp->number , x.number);
         temp->score = x.score;
-        if(x.score >= 60)
+        if(x.score >= 60)//分为及格和不及格两个链表插入
         {
             p->next = temp;
             temp->pre = p;
@@ -77,21 +77,21 @@ void Create(student *a , student *b)
             q = q->next;
         }
     }
-    p->next = q->next = nullptr;
+    p->next = q->next = nullptr;//最后将尾节点置空
 }
 
-student *Find(student *p , char name[])
+student *Find(student *p , char name[])//从p节点开始寻找名为name的学生节点
 {
     if(p == nullptr)
     {
         return nullptr;
     }
     student *q = p;
-    while(q->next != nullptr && strcmp(q->name , name) < 0)q = q->next;
+    while(q != nullptr && strcmp(q->name , name) < 0)q = q->next;
     return q;
 }
 
-student *Find(student *p , char num[] , bool &check)
+student *Find(student *p , char num[] , bool &check)//从p节点开始寻找学号为num的学生节点
 {
     if(p == nullptr)return nullptr;
     student *q = p;
@@ -108,7 +108,7 @@ student *Find(student *p , char num[] , bool &check)
     }
 }
 
-void Show(student *p)
+void Show(student *p)//输出学生信息
 {
     cout << "姓名: " << p->name << endl;
     cout << "学号: " << p->number << endl;
@@ -117,14 +117,15 @@ void Show(student *p)
     cout << endl;
 }
 
-bool Check(const char num[] , int size)
+bool Check(const char num[] , int size)//检查学号信息
 {
-    if(size != 9)return false;
+    if(size != 9)return false;//学号不是9位错误
     for(int i = 0;i < size;i ++)
     {
         if(num[i] >= '0' && num[i] <= '9')continue;
-        else return false;
+        else return false;//含有不是数字的错误
     }
+    return true;
 }
 
 void Insert(student *a , student *b)
@@ -136,7 +137,7 @@ void Insert(student *a , student *b)
     cin >> name;
     cout << "请输入学生学号: ";
     cin >> num;
-    while(true)
+    while(true)//检查学号
     {
         int size = strlen(num);
         check = Check(num , size);
@@ -149,21 +150,21 @@ void Insert(student *a , student *b)
     }
     cout << "请输入学生成绩: ";
     cin >> score;
-    while(score > 100 || score < 0)
+    while(score > 100 || score < 0)//检查成绩
     {
         cout << "成绩输入有误, 请重新输入: ";
         cin >> score;
     }
-    student *temp = Find(a->next , num , check);
+    student *temp = Find(a->next , num , check);//查看这个学生是不是已经存在
     if(temp != nullptr)
     {
         cout << "该学生已存在! " << endl;
         Show(temp);
         return;
     }
-    else
+    else//不存在就新建节点插入
     {
-        student *t = (student *)malloc(sizeof(student));
+        auto *t = (student *)malloc(sizeof(student));
         strcpy(t->name , name);
         strcpy(t->number , num);
         t->score = score;
@@ -217,7 +218,7 @@ void Query(student *a , student *b)
     cout << "请输入查询学生的姓名: ";
     cin >> name;
     student *p = Find(a->next , name);
-    while(p != nullptr && strcmp(p->name , name) == 0)
+    while(p != nullptr && strcmp(p->name , name) == 0)//如果存在多个姓名相同的学生，那么他们在链表中的位置应该是相邻的
     {
         count ++;
         cout << "第" << count << "位学生的信息为: " << endl;
@@ -225,7 +226,7 @@ void Query(student *a , student *b)
         p = Find(p->next , name);
     }
     p = Find(b->next , name);
-    while(p != nullptr && strcmp(p->name , name) == 0)
+    while(p != nullptr && strcmp(p->name , name) == 0)//同理
     {
         count ++;
         cout << "第" << count << "位学生的信息为: " << endl;
@@ -242,16 +243,16 @@ void Del(student *a , student *b)
     cout << "请输入查询学生的姓名: ";
     cin >> name;
     student *p = Find(a->next , name);
-    while(p != nullptr && strcmp(p->name , name) == 0)
+    while(p != nullptr && strcmp(p->name , name) == 0)//同Query函数，先找到所有符合条件的学生
     {
         count ++;
         cout << "第" << count << "位学生的信息为: " << endl;
         Show(p);
-        vec.push_back(p);
+        vec.push_back(p);//加入预删除的数组中
         p = Find(p->next , name);
     }
     p = Find(b->next , name);
-    while(p != nullptr && strcmp(p->name , name) == 0)
+    while(p != nullptr && strcmp(p->name , name) == 0)//同上
     {
         count ++;
         cout << "第" << count << "位学生的信息为: " << endl;
@@ -259,7 +260,7 @@ void Del(student *a , student *b)
         vec.push_back(p);
         p = Find(p->next , name);
     }
-    for(int i = 0;i < count;i ++)
+    for(int i = 0;i < count;i ++)//一个一个确认
     {
         int choice;
         cout << "是否删除第" << i + 1 << "位学生? 输入1确认, 输入0取消: ";
@@ -296,7 +297,7 @@ void Show_all(student *a , student *b)
         Show(p);
         count ++;
         p = p->next;
-        if(count == 5)
+        if(count == 5)//每输出五个学生的信息就暂停一下
         {
             system("pause");
             count = 0;
