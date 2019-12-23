@@ -175,6 +175,19 @@ test/fast:
 .PHONY : test/fast
 
 #=============================================================================
+# Target rules for targets named X_6
+
+# Build rule for target.
+X_6: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 X_6
+.PHONY : X_6
+
+# fast build rule for target.
+X_6/fast:
+	$(MAKE) -f CMakeFiles\X_6.dir\build.make CMakeFiles/X_6.dir/build
+.PHONY : X_6/fast
+
+#=============================================================================
 # Target rules for targets named 01
 
 # Build rule for target.
@@ -1093,6 +1106,33 @@ X_5.cpp.s:
 	$(MAKE) -f CMakeFiles\X_5.dir\build.make CMakeFiles/X_5.dir/X_5.cpp.s
 .PHONY : X_5.cpp.s
 
+X_6.obj: X_6.cpp.obj
+
+.PHONY : X_6.obj
+
+# target to build an object file
+X_6.cpp.obj:
+	$(MAKE) -f CMakeFiles\X_6.dir\build.make CMakeFiles/X_6.dir/X_6.cpp.obj
+.PHONY : X_6.cpp.obj
+
+X_6.i: X_6.cpp.i
+
+.PHONY : X_6.i
+
+# target to preprocess a source file
+X_6.cpp.i:
+	$(MAKE) -f CMakeFiles\X_6.dir\build.make CMakeFiles/X_6.dir/X_6.cpp.i
+.PHONY : X_6.cpp.i
+
+X_6.s: X_6.cpp.s
+
+.PHONY : X_6.s
+
+# target to generate assembly for a file
+X_6.cpp.s:
+	$(MAKE) -f CMakeFiles\X_6.dir\build.make CMakeFiles/X_6.dir/X_6.cpp.s
+.PHONY : X_6.cpp.s
+
 asd.obj: asd.cpp.obj
 
 .PHONY : asd.obj
@@ -1320,6 +1360,7 @@ help:
 	@echo ... 2
 	@echo ... testtest
 	@echo ... test
+	@echo ... X_6
 	@echo ... 01
 	@echo ... 3
 	@echo ... Curriculum
@@ -1413,6 +1454,9 @@ help:
 	@echo ... X_5.obj
 	@echo ... X_5.i
 	@echo ... X_5.s
+	@echo ... X_6.obj
+	@echo ... X_6.i
+	@echo ... X_6.s
 	@echo ... asd.obj
 	@echo ... asd.i
 	@echo ... asd.s

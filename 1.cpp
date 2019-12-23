@@ -15,7 +15,7 @@ typedef struct student
     struct student *pre = nullptr;//上一个学生
     student(){next = pre = nullptr;};//构造函数
     student(char name[] , int score , char num[]){strcpy(name , name);strcpy(number , num);score = score;pre = next = nullptr;};//重载构造函数
-    friend istream &operator>>(istream &in , student &t){in >> t.name >> t.score >> t.number;};
+    friend istream &operator>>(istream &in , student &t){in >> t.name >> t.score >> t.number;return in;};//重载>>号，用于从文件读入
 }ST;
 
 int menu_select();
