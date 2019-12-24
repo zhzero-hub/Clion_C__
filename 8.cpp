@@ -107,7 +107,7 @@ void Graph::dfs(int pos , int end , float len , float *visit) {
     {
         if(g[pos][i] < maxx)
         {
-            if(len + g[pos][i] < visit[i])visit[i] = len + + g[pos][i];
+            if(len + g[pos][i] < visit[i])visit[i] = len + g[pos][i];
             dfs(i , end , len + g[pos][i] , visit);
         }
     }
@@ -141,7 +141,7 @@ void Graph::Flord() {
         for(int i = 1; i <= n;i ++)
             for(int j = 1; j <= n; j ++)
             {
-                if(D[i][j]>D[i][k] + D[k][j]) D[i][j] = D[i][k] + D[k][j];
+                if(D[i][j] > D[i][k] + D[k][j]) D[i][j] = D[i][k] + D[k][j];
             }
     }
     for(int i = 1;i <= n;i ++)

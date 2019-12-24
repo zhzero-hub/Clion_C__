@@ -110,7 +110,7 @@ void Graph::Create()
         sum ++;
         pos = Find_pos(a);
         temp = (Node *)malloc(sizeof(Node));
-        strcpy(temp->adj , a.c_str());
+        strcpy(temp->adj , h.c_str());
         temp->weight = data;
         temp->next = nullptr;
         g[pos].end->next = temp;
