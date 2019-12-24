@@ -69,6 +69,8 @@ public:
     void Ans();//显示结果
     float dfs(int i);//dfs
     friend void Show(Adj_list *g , int n);//显示图
+    void Print_ans(Adj_list *ans , int *visit , vector<char *> &pa);
+    void Print();
 };
 
 void Show(Adj_list *g , int n) {
@@ -196,9 +198,55 @@ void Graph::Ans() {
     dfs(0);
     for(auto &x: path)
     {
-        x.a = x.max - x.min;
-        if(x.a == 0)cout << x.pos << ' ';
+        x.a = x.min - x.max;
     }
+    cout << "顶点: \t\t";
+    for(const auto &x: path)cout << x.pos << "  ";
+    cout << endl;
+    cout << "最早开始时间:\t";
+    for(const auto &x: path)cout << x.max << "  ";
+    cout << endl;
+    cout << "最晚结束时间:\t";
+    for(const auto &x: path)cout << x.min << "  ";
+    cout << endl;
+    cout << "差值: \t\t";
+    for(const auto &x: path)cout << x.a << "  ";
+    cout << endl;
+}
+
+void Graph::Print_ans(Adj_list *a , int *visit , vector<char *> &pa) {
+    Node *p = a->list->next;
+    int time = 0;
+    while(p != nullptr)
+    {
+        int i = Find_pos(p->adj);//i是结点的标号
+        int j = Find(i);//j是标号为i的点在拓扑排序中的位置
+        if(!visit[i] && path[j].a == 0)
+        {
+            visit[i] = 1;
+            pa.push_back(p->adj);
+            Print_ans(&g[TP[i]] , visit , pa);
+            visit[i] = 0;
+            pa.pop_back();
+            time ++;
+        }
+        p = p->next;
+    }
+    if(time == 0)
+    {
+        for(const auto &x: pa)cout << x << ' ';
+        cout << endl;
+    }
+}
+
+void Graph::Print() {
+    int visit[10010] = {};
+    vector<char *> pa;
+    char ch[10];
+    strcpy(ch , g[TP[0]].head.c_str());
+    pa.push_back(ch);
+    visit[TP[0]] = 1;
+    Print_ans(&g[TP[0]] , visit , pa);
 }
 
 
@@ -209,6 +257,7 @@ int main()
     if(graph.TPsort())cout << "拓扑排序成功" << endl;
     else cout << "拓扑排序失败" << endl;
     graph.Ans();
+    //graph.Print();
 }
 
 
