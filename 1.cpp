@@ -95,7 +95,7 @@ student *Find(student *p , char num[] , bool &check)//从p节点开始寻找学�
 {
     if(p == nullptr)return nullptr;
     student *q = p;
-    while(q != nullptr && strcmp(q->number , num) != 0)q = q->next;
+    while(q != nullptr && strcmp(q->number , num) < 0)q = q->next;
     if(q == nullptr)
     {
         check = true;
