@@ -8,13 +8,13 @@ using namespace std;
 
 typedef struct student
 {
-    char name[20]{};//å§“å
-    char number[20]{};//å­¦å·
-    int score = 0;//æˆç»©
-    struct student *next = nullptr;//ä¸‹ä¸€ä¸ªå­¦ç”Ÿ
-    struct student *pre = nullptr;//ä¸Šä¸€ä¸ªå­¦ç”Ÿ
-    student(){next = pre = nullptr;};//æ„é€ å‡½æ•°
-    student(char name[] , int score , char num[]){strcpy(name , name);strcpy(number , num);score = score;pre = next = nullptr;};//é‡è½½æ„é€ å‡½æ•°
+    char name[20]{};//ĞÕÃû
+    char number[20]{};//Ñ§ºÅ
+    int score = 0;//³É¼¨
+    struct student *next = nullptr;//ÏÂÒ»¸öÑ§Éú
+    struct student *pre = nullptr;//ÉÏÒ»¸öÑ§Éú
+    student(){next = pre = nullptr;};//¹¹Ôìº¯Êı
+    student(char name[] , int score , char num[]){strcpy(name , name);strcpy(number , num);score = score;pre = next = nullptr;};//ÖØÔØ¹¹Ôìº¯Êı
     friend istream &operator>>(istream &in , student &t){in >> t.name >> t.score >> t.number;return in;};
 }ST;
 
@@ -27,14 +27,14 @@ int menu_select()
     char i;
     do{
         system("cls");
-        printf("1.åˆ›å»ºçºªå½•ï¼ˆä»æ–‡ä»¶è¯»å…¥ï¼‰\n");
-        printf("2.æ˜¾ç¤ºæ‰€æœ‰è®°å½•\n");
-        printf("3.æ’å…¥ä¸€æ¡è®°å½•\n");
-        printf("4.åˆ é™¤ä¸€æ¡è®°å½•\n");
-        printf("5.è¾“å…¥è¡¥è€ƒæˆç»©\n");
-        printf("6.æŸ¥è¯¢\n");
-        printf("0.é€€å‡º\n");
-        printf("è¯·è¾“å…¥é€‰æ‹©åºå·(0-6):");
+        printf("1.´´½¨¼ÍÂ¼£¨´ÓÎÄ¼ş¶ÁÈë£©\n");
+        printf("2.ÏÔÊ¾ËùÓĞ¼ÇÂ¼\n");
+        printf("3.²åÈëÒ»Ìõ¼ÇÂ¼\n");
+        printf("4.É¾³ıÒ»Ìõ¼ÇÂ¼\n");
+        printf("5.ÊäÈë²¹¿¼³É¼¨\n");
+        printf("6.²éÑ¯\n");
+        printf("0.ÍË³ö\n");
+        printf("ÇëÊäÈëÑ¡ÔñĞòºÅ(0-6):");
         cin >> i;
     }while(i<'0' || i>'6');
     return (i - '0');
@@ -50,21 +50,21 @@ void Create(student *a , student *b)
     ifstream file("01.txt");
     if(file.fail())
     {
-        cout << "æ–‡ä»¶ä¸å­˜åœ¨! ";
+        cout << "ÎÄ¼ş²»´æÔÚ! ";
         exit(0);
     }
     istream_iterator<student> it(file) , eof;
-    vector<student> vec(it , eof);//è¯»å…¥æ‰€æœ‰å­¦ç”Ÿä¿¡æ¯åˆ°vec
-    sort(vec.begin() , vec.end() , compare);//å¯¹æ‰€æœ‰å­¦ç”Ÿä¿¡æ¯æ’åº
+    vector<student> vec(it , eof);//¶ÁÈëËùÓĞÑ§ÉúĞÅÏ¢µ½vec
+    sort(vec.begin() , vec.end() , compare);//¶ÔËùÓĞÑ§ÉúĞÅÏ¢ÅÅĞò
     student *p = a;
     student *q = b;
     for(auto x: vec)
     {
-        auto *temp = (student *)malloc(sizeof(student));//æ–°å»ºä¸€ä¸ªå­¦ç”ŸèŠ‚ç‚¹
+        auto *temp = (student *)malloc(sizeof(student));//ĞÂ½¨Ò»¸öÑ§Éú½Úµã
         strcpy(temp->name , x.name);
         strcpy(temp->number , x.number);
         temp->score = x.score;
-        if(x.score >= 60)//åˆ†ä¸ºåŠæ ¼å’Œä¸åŠæ ¼ä¸¤ä¸ªé“¾è¡¨æ’å…¥
+        if(x.score >= 60)//·ÖÎª¼°¸ñºÍ²»¼°¸ñÁ½¸öÁ´±í²åÈë
         {
             p->next = temp;
             temp->pre = p;
@@ -77,10 +77,10 @@ void Create(student *a , student *b)
             q = q->next;
         }
     }
-    p->next = q->next = nullptr;//æœ€åå°†å°¾èŠ‚ç‚¹ç½®ç©º
+    p->next = q->next = nullptr;//×îºó½«Î²½ÚµãÖÃ¿Õ
 }
 
-student *Find(student *p , char name[])//ä»pèŠ‚ç‚¹å¼€å§‹å¯»æ‰¾åä¸ºnameçš„å­¦ç”ŸèŠ‚ç‚¹
+student *Find(student *p , char name[])//´Óp½Úµã¿ªÊ¼Ñ°ÕÒÃûÎªnameµÄÑ§Éú½Úµã
 {
     if(p == nullptr)
     {
@@ -91,11 +91,11 @@ student *Find(student *p , char name[])//ä»pèŠ‚ç‚¹å¼€å§‹å¯»æ‰¾åä¸ºnameçš„å­¦ç
     return q;
 }
 
-student *Find(student *p , char num[] , bool &check)//ä»pèŠ‚ç‚¹å¼€å§‹å¯»æ‰¾å­¦å·ä¸ºnumçš„å­¦ç”ŸèŠ‚ç‚¹
+student *Find(student *p , char num[] , bool &check)//´Óp½Úµã¿ªÊ¼Ñ°ÕÒÑ§ºÅÎªnumµÄÑ§Éú½Úµã
 {
     if(p == nullptr)return nullptr;
     student *q = p;
-    while(q != nullptr && strcmp(q->number , num) < 0)q = q->next;
+    while(q != nullptr && strcmp(q->number , num) != 0)q = q->next;
     if(q == nullptr)
     {
         check = true;
@@ -108,22 +108,22 @@ student *Find(student *p , char num[] , bool &check)//ä»pèŠ‚ç‚¹å¼€å§‹å¯»æ‰¾å­¦å
     }
 }
 
-void Show(student *p)//è¾“å‡ºå­¦ç”Ÿä¿¡æ¯
+void Show(student *p)//Êä³öÑ§ÉúĞÅÏ¢
 {
-    cout << "å§“å: " << p->name << endl;
-    cout << "å­¦å·: " << p->number << endl;
-    cout << "æˆç»©: " << p->score << endl;
+    cout << "ĞÕÃû: " << p->name << endl;
+    cout << "Ñ§ºÅ: " << p->number << endl;
+    cout << "³É¼¨: " << p->score << endl;
     cout << "---------------------------" << endl;
     cout << endl;
 }
 
-bool Check(const char num[] , int size)//æ£€æŸ¥å­¦å·ä¿¡æ¯
+bool Check(const char num[] , int size)//¼ì²éÑ§ºÅĞÅÏ¢
 {
-    if(size != 9)return false;//å­¦å·ä¸æ˜¯9ä½é”™è¯¯
+    if(size != 9)return false;//Ñ§ºÅ²»ÊÇ9Î»´íÎó
     for(int i = 0;i < size;i ++)
     {
         if(num[i] >= '0' && num[i] <= '9')continue;
-        else return false;//å«æœ‰ä¸æ˜¯æ•°å­—çš„é”™è¯¯
+        else return false;//º¬ÓĞ²»ÊÇÊı×ÖµÄ´íÎó
     }
     return true;
 }
@@ -133,36 +133,36 @@ void Insert(student *a , student *b)
     char name[20] , num[20];
     int score;
     bool check = false;
-    cout << "è¯·è¾“å…¥å­¦ç”Ÿå§“å: ";
+    cout << "ÇëÊäÈëÑ§ÉúĞÕÃû: ";
     cin >> name;
-    cout << "è¯·è¾“å…¥å­¦ç”Ÿå­¦å·: ";
+    cout << "ÇëÊäÈëÑ§ÉúÑ§ºÅ: ";
     cin >> num;
-    while(true)//æ£€æŸ¥å­¦å·
+    while(true)//¼ì²éÑ§ºÅ
     {
         int size = strlen(num);
         check = Check(num , size);
         if(check)break;
         else
         {
-            cout << "å­¦å·è¾“å…¥æœ‰è¯¯, è¯·é‡æ–°è¾“å…¥: ";
+            cout << "Ñ§ºÅÊäÈëÓĞÎó, ÇëÖØĞÂÊäÈë: ";
             cin >> num;
         }
     }
-    cout << "è¯·è¾“å…¥å­¦ç”Ÿæˆç»©: ";
+    cout << "ÇëÊäÈëÑ§Éú³É¼¨: ";
     cin >> score;
-    while(score > 100 || score < 0)//æ£€æŸ¥æˆç»©
+    while(score > 100 || score < 0)//¼ì²é³É¼¨
     {
-        cout << "æˆç»©è¾“å…¥æœ‰è¯¯, è¯·é‡æ–°è¾“å…¥: ";
+        cout << "³É¼¨ÊäÈëÓĞÎó, ÇëÖØĞÂÊäÈë: ";
         cin >> score;
     }
-    student *temp = Find(a->next , num , check);//æŸ¥çœ‹è¿™ä¸ªå­¦ç”Ÿæ˜¯ä¸æ˜¯å·²ç»å­˜åœ¨
+    student *temp = Find(a->next , num , check);//²é¿´Õâ¸öÑ§ÉúÊÇ²»ÊÇÒÑ¾­´æÔÚ
     if(temp != nullptr)
     {
-        cout << "è¯¥å­¦ç”Ÿå·²å­˜åœ¨! " << endl;
+        cout << "¸ÃÑ§ÉúÒÑ´æÔÚ! " << endl;
         Show(temp);
         return;
     }
-    else//ä¸å­˜åœ¨å°±æ–°å»ºèŠ‚ç‚¹æ’å…¥
+    else//²»´æÔÚ¾ÍĞÂ½¨½Úµã²åÈë
     {
         auto *t = (student *)malloc(sizeof(student));
         strcpy(t->name , name);
@@ -185,7 +185,7 @@ void Insert(student *a , student *b)
                 t->pre = pos;
                 t->next = nullptr;
             }
-            cout << "æ’å…¥æˆåŠŸ!" << endl;
+            cout << "²åÈë³É¹¦!" << endl;
             return;
         }
         else
@@ -205,7 +205,7 @@ void Insert(student *a , student *b)
                 t->pre = pos;
                 t->next = nullptr;
             }
-            cout << "æ’å…¥æˆåŠŸ!" << endl;
+            cout << "²åÈë³É¹¦!" << endl;
             return;
         }
     }
@@ -215,21 +215,21 @@ void Query(student *a , student *b)
 {
     char name[20];
     int count = 0;
-    cout << "è¯·è¾“å…¥æŸ¥è¯¢å­¦ç”Ÿçš„å§“å: ";
+    cout << "ÇëÊäÈë²éÑ¯Ñ§ÉúµÄĞÕÃû: ";
     cin >> name;
     student *p = Find(a->next , name);
-    while(p != nullptr && strcmp(p->name , name) == 0)//å¦‚æœå­˜åœ¨å¤šä¸ªå§“åç›¸åŒçš„å­¦ç”Ÿï¼Œé‚£ä¹ˆä»–ä»¬åœ¨é“¾è¡¨ä¸­çš„ä½ç½®åº”è¯¥æ˜¯ç›¸é‚»çš„
+    while(p != nullptr && strcmp(p->name , name) == 0)//Èç¹û´æÔÚ¶à¸öĞÕÃûÏàÍ¬µÄÑ§Éú£¬ÄÇÃ´ËûÃÇÔÚÁ´±íÖĞµÄÎ»ÖÃÓ¦¸ÃÊÇÏàÁÚµÄ
     {
         count ++;
-        cout << "ç¬¬" << count << "ä½å­¦ç”Ÿçš„ä¿¡æ¯ä¸º: " << endl;
+        cout << "µÚ" << count << "Î»Ñ§ÉúµÄĞÅÏ¢Îª: " << endl;
         Show(p);
         p = Find(p->next , name);
     }
     p = Find(b->next , name);
-    while(p != nullptr && strcmp(p->name , name) == 0)//åŒç†
+    while(p != nullptr && strcmp(p->name , name) == 0)//Í¬Àí
     {
         count ++;
-        cout << "ç¬¬" << count << "ä½å­¦ç”Ÿçš„ä¿¡æ¯ä¸º: " << endl;
+        cout << "µÚ" << count << "Î»Ñ§ÉúµÄĞÅÏ¢Îª: " << endl;
         Show(p);
         p = Find(p->next , name);
     }
@@ -240,30 +240,30 @@ void Del(student *a , student *b)
     char name[20];
     int count = 0;
     vector<student *> vec;
-    cout << "è¯·è¾“å…¥æŸ¥è¯¢å­¦ç”Ÿçš„å§“å: ";
+    cout << "ÇëÊäÈë²éÑ¯Ñ§ÉúµÄĞÕÃû: ";
     cin >> name;
     student *p = Find(a->next , name);
-    while(p != nullptr && strcmp(p->name , name) == 0)//åŒQueryå‡½æ•°ï¼Œå…ˆæ‰¾åˆ°æ‰€æœ‰ç¬¦åˆæ¡ä»¶çš„å­¦ç”Ÿ
+    while(p != nullptr && strcmp(p->name , name) == 0)//Í¬Queryº¯Êı£¬ÏÈÕÒµ½ËùÓĞ·ûºÏÌõ¼şµÄÑ§Éú
     {
         count ++;
-        cout << "ç¬¬" << count << "ä½å­¦ç”Ÿçš„ä¿¡æ¯ä¸º: " << endl;
+        cout << "µÚ" << count << "Î»Ñ§ÉúµÄĞÅÏ¢Îª: " << endl;
         Show(p);
-        vec.push_back(p);//åŠ å…¥é¢„åˆ é™¤çš„æ•°ç»„ä¸­
+        vec.push_back(p);//¼ÓÈëÔ¤É¾³ıµÄÊı×éÖĞ
         p = Find(p->next , name);
     }
     p = Find(b->next , name);
-    while(p != nullptr && strcmp(p->name , name) == 0)//åŒä¸Š
+    while(p != nullptr && strcmp(p->name , name) == 0)//Í¬ÉÏ
     {
         count ++;
-        cout << "ç¬¬" << count << "ä½å­¦ç”Ÿçš„ä¿¡æ¯ä¸º: " << endl;
-        Show(p);
+        cout << "µÚ" << count << "Î»Ñ§ÉúµÄĞÅÏ¢Îª: " << endl;
+        Show(p);//Ã¿ÕÒµ½Ò»¸öÑ§Éú£¬¾ÍÊä³öËûµÄĞÅÏ¢£¬È»ºó½«Æä½Úµã¼ÓÈëÊı×éÖĞ
         vec.push_back(p);
         p = Find(p->next , name);
     }
-    for(int i = 0;i < count;i ++)//ä¸€ä¸ªä¸€ä¸ªç¡®è®¤
+    for(int i = 0;i < count;i ++)//Ò»¸öÒ»¸öÈ·ÈÏ
     {
         int choice;
-        cout << "æ˜¯å¦åˆ é™¤ç¬¬" << i + 1 << "ä½å­¦ç”Ÿ? è¾“å…¥1ç¡®è®¤, è¾“å…¥0å–æ¶ˆ: ";
+        cout << "ÊÇ·ñÉ¾³ıµÚ" << i + 1 << "Î»Ñ§Éú? ÊäÈë1È·ÈÏ, ÊäÈë0È¡Ïû: ";
         cin >> choice;
         if(choice == 1)
         {
@@ -281,7 +281,7 @@ void Del(student *a , student *b)
                 l->next = r;
                 r->pre = l;
             }
-            cout << "åˆ é™¤æˆåŠŸ! " << endl;
+            cout << "É¾³ı³É¹¦! " << endl;
         }
     }
 }
@@ -290,23 +290,22 @@ void Show_all(student *a , student *b)
 {
     int count = 0;
     student *p = a->next;
-    cout << "åŠæ ¼åå•: " << endl;
+    cout << "¼°¸ñÃûµ¥: " << endl;
     cout << endl;
     while(p != nullptr)
     {
         Show(p);
         count ++;
         p = p->next;
-        if(count == 5)//æ¯è¾“å‡ºäº”ä¸ªå­¦ç”Ÿçš„ä¿¡æ¯å°±æš‚åœä¸€ä¸‹
+        if(count == 5)//Ã¿Êä³öÎå¸öÑ§ÉúµÄĞÅÏ¢¾ÍÔİÍ£Ò»ÏÂ
         {
             system("pause");
             count = 0;
         }
     }
-    cout << "ä¸åŠæ ¼åå•: " << endl;
+    cout << "²»¼°¸ñÃûµ¥: " << endl;
     cout << endl;
     student *q = b->next;
-    count = 0;
     while(q != nullptr)
     {
         Show(q);
@@ -318,7 +317,7 @@ void Show_all(student *a , student *b)
             count = 0;
         }
     }
-    cout << "æ˜¾ç¤ºå®Œæˆ!" << endl;
+    cout << "ÏÔÊ¾Íê³É!" << endl;
 }
 
 void Retest(student *a , student *b)
@@ -326,9 +325,9 @@ void Retest(student *a , student *b)
     char name[20] , num[20];
     int score;
     bool check = true;
-    cout << "è¯·è¾“å…¥è¡¥è€ƒå­¦ç”Ÿå§“å: ";
+    cout << "ÇëÊäÈë²¹¿¼Ñ§ÉúĞÕÃû: ";
     cin >> name;
-    cout << "è¯·è¾“å…¥å­¦ç”Ÿå­¦å·: ";
+    cout << "ÇëÊäÈëÑ§ÉúÑ§ºÅ: ";
     cin >> num;
     while(true)
     {
@@ -337,29 +336,29 @@ void Retest(student *a , student *b)
         if(check)break;
         else
         {
-            cout << "å­¦å·è¾“å…¥æœ‰è¯¯, è¯·é‡æ–°è¾“å…¥: ";
+            cout << "Ñ§ºÅÊäÈëÓĞÎó, ÇëÖØĞÂÊäÈë: ";
             cin >> num;
         }
     }
     student *pos = Find(a->next , num , check);
     if(!check)
     {
-        cout << "è¯¥ç”Ÿå·²åŠæ ¼, ä¸æ»¡è¶³è¡¥è€ƒæ¡ä»¶! " << endl;
-        cout << "è¯¥ç”Ÿä¿¡æ¯ä¸º: " << endl;
+        cout << "¸ÃÉúÒÑ¼°¸ñ, ²»Âú×ã²¹¿¼Ìõ¼ş! " << endl;
+        cout << "¸ÃÉúĞÅÏ¢Îª: " << endl;
         Show(pos);
         return;
     }
-    cout << "è¯·è¾“å…¥è¡¥è€ƒå­¦ç”Ÿçš„æˆç»©: ";
+    cout << "ÇëÊäÈë²¹¿¼Ñ§ÉúµÄ³É¼¨: ";
     cin >> score;
     while(score > 100 || score < 0)
     {
-        cout << "æˆç»©è¾“å…¥æœ‰è¯¯, è¯·é‡æ–°è¾“å…¥: ";
+        cout << "³É¼¨ÊäÈëÓĞÎó, ÇëÖØĞÂÊäÈë: ";
         cin >> score;
     }
     pos = Find(b->next , num , check);
     if(check)
     {
-        cout << "æœªæŸ¥è¯¢åˆ°è¯¥ç”Ÿ! " << endl;
+        cout << "Î´²éÑ¯µ½¸ÃÉú! " << endl;
         return;
     }
     else
@@ -367,12 +366,37 @@ void Retest(student *a , student *b)
         if(score >= pos->score)
         {
             pos->score = score;
-            cout << "ä¿®æ”¹å®Œæˆ! " << endl;
+            if(score >= 60)//²¹¿¼¼°¸ñ
+            {
+                student *temp_r = pos->next;//½«Õâ¸ö½ÚµãµÄÇ°ºóÁ½¸ö½ÚµãÁ¬ÆğÀ´
+                student *temp_l = pos->pre;
+                temp_l->next = temp_r;
+                if(temp_r != nullptr)
+                {
+                    temp_r->pre = temp_l;
+                }
+                student *p = Find(a->next , name);//½«Ëü²åÈëµ½¼°¸ñÁ´±íÖĞ
+                if((strcmp(p->name , name) > 0))
+                {
+                    student *l = p->pre;
+                    l->next = pos;
+                    pos->pre = l;
+                    pos->next = p;
+                    p->pre = pos;
+                }
+                else
+                {
+                    p->next = pos;
+                    pos->pre = p;
+                    pos->next = nullptr;
+                }
+            }
+            cout << "ĞŞ¸ÄÍê³É! " << endl;
             return;
         }
         else
         {
-            cout << "è¯¥ç”Ÿè¡¥è€ƒæˆç»©æœªè¶…è¿‡åŸæˆç»©, æˆç»©ä¸åšä¿®æ”¹! " << endl;
+            cout << "¸ÃÉú²¹¿¼³É¼¨Î´³¬¹ıÔ­³É¼¨, ³É¼¨²»×öĞŞ¸Ä! " << endl;
             return;
         }
     }
@@ -389,37 +413,37 @@ int main()
         switch(menu_select())
         {
             case 1:
-                printf("è°ƒç”¨åˆ›å»ºé“¾è¡¨å‡½æ•°\n");
+                printf("µ÷ÓÃ´´½¨Á´±íº¯Êı\n");
                 Create(A , B);
                 system("pause");
                 break;
             case 2:
-                printf("è°ƒç”¨æ˜¾ç¤ºå‡½æ•°\n");
+                printf("µ÷ÓÃÏÔÊ¾º¯Êı\n");
                 Show_all(A , B);
                 system("pause");
                 break;
             case 3:
-                printf("è°ƒç”¨æ’å…¥å‡½æ•°\n");
+                printf("µ÷ÓÃ²åÈëº¯Êı\n");
                 Insert(A , B);
                 system("pause");
                 break;
             case 4:
-                printf("è°ƒç”¨åˆ é™¤å‡½æ•° :\n");
+                printf("µ÷ÓÃÉ¾³ıº¯Êı :\n");
                 Del(A , B);
                 system("pause");
                 break;
             case 5:
-                printf("è°ƒç”¨è¾“å…¥è¡¥è€ƒæˆç»©å‡½æ•°:\n");
+                printf("µ÷ÓÃÊäÈë²¹¿¼³É¼¨º¯Êı:\n");
                 Retest(A , B);
                 system("pause");
                 break;
             case 6:
-                printf("è°ƒç”¨æŸ¥æ‰¾å‡½æ•° :\n");
+                printf("µ÷ÓÃ²éÕÒº¯Êı :\n");
                 Query(A , B);
                 system("pause");
                 break;
             case 0:
-                printf("å†è§\n");
+                printf("ÔÙ¼û\n");
                 system("pause");
                 exit(0);
 

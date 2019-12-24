@@ -38,19 +38,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "D:\Clion\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E remove -f
+RM = "D:\Clion\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "D:\Clion C++"
+CMAKE_SOURCE_DIR = C:\Users\Z_HAO\CLionProjects\Clion_C__
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "D:\Clion C++\cmake-build-debug"
+CMAKE_BINARY_DIR = C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -58,7 +58,7 @@ CMAKE_BINARY_DIR = "D:\Clion C++\cmake-build-debug"
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"D:\Clion\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -69,7 +69,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	"D:\Clion\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -79,9 +79,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Clion C++\cmake-build-debug\CMakeFiles" "D:\Clion C++\cmake-build-debug\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Clion C++\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -173,19 +173,6 @@ test: cmake_check_build_system
 test/fast:
 	$(MAKE) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/build
 .PHONY : test/fast
-
-#=============================================================================
-# Target rules for targets named X_6
-
-# Build rule for target.
-X_6: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 X_6
-.PHONY : X_6
-
-# fast build rule for target.
-X_6/fast:
-	$(MAKE) -f CMakeFiles\X_6.dir\build.make CMakeFiles/X_6.dir/build
-.PHONY : X_6/fast
 
 #=============================================================================
 # Target rules for targets named 01
@@ -1146,33 +1133,6 @@ X_5.cpp.s:
 	$(MAKE) -f CMakeFiles\X_5.dir\build.make CMakeFiles/X_5.dir/X_5.cpp.s
 .PHONY : X_5.cpp.s
 
-X_6.obj: X_6.cpp.obj
-
-.PHONY : X_6.obj
-
-# target to build an object file
-X_6.cpp.obj:
-	$(MAKE) -f CMakeFiles\X_6.dir\build.make CMakeFiles/X_6.dir/X_6.cpp.obj
-.PHONY : X_6.cpp.obj
-
-X_6.i: X_6.cpp.i
-
-.PHONY : X_6.i
-
-# target to preprocess a source file
-X_6.cpp.i:
-	$(MAKE) -f CMakeFiles\X_6.dir\build.make CMakeFiles/X_6.dir/X_6.cpp.i
-.PHONY : X_6.cpp.i
-
-X_6.s: X_6.cpp.s
-
-.PHONY : X_6.s
-
-# target to generate assembly for a file
-X_6.cpp.s:
-	$(MAKE) -f CMakeFiles\X_6.dir\build.make CMakeFiles/X_6.dir/X_6.cpp.s
-.PHONY : X_6.cpp.s
-
 asd.obj: asd.cpp.obj
 
 .PHONY : asd.obj
@@ -1400,7 +1360,6 @@ help:
 	@echo ... 2
 	@echo ... testtest
 	@echo ... test
-	@echo ... X_6
 	@echo ... 01
 	@echo ... 3
 	@echo ... Curriculum
@@ -1498,9 +1457,6 @@ help:
 	@echo ... X_5.obj
 	@echo ... X_5.i
 	@echo ... X_5.s
-	@echo ... X_6.obj
-	@echo ... X_6.i
-	@echo ... X_6.s
 	@echo ... asd.obj
 	@echo ... asd.i
 	@echo ... asd.s
