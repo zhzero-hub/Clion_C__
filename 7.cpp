@@ -69,7 +69,7 @@ public:
     void Ans();//显示结果
     float dfs(int i);//dfs
     friend void Show(Adj_list *g , int n);//显示图
-    void Print_ans(Adj_list *ans , int *visit , vector<char *> &pa);
+    void Print_ans(Adj_list *ans , int *visit , vector<pair<CPath , char *>> &pa);
     void Print();
 };
 
@@ -201,51 +201,54 @@ void Graph::Ans() {
         x.a = x.min - x.max;
     }
     cout << "顶点: \t\t";
-    for(const auto &x: path)cout << x.pos << "  ";
+    for(const auto &x: path)printf("%4d " , x.pos);
     cout << endl;
-    cout << "最早开始时间:\t";
-    for(const auto &x: path)cout << x.max << "  ";
+    cout << "最早开始时间:\t ";
+    for(const auto &x: path)printf("%4d " , x.max);
     cout << endl;
-    cout << "最晚结束时间:\t";
-    for(const auto &x: path)cout << x.min << "  ";
+    cout << "最晚结束时间:\t ";
+    for(const auto &x: path)printf("%4d " , x.min);
     cout << endl;
     cout << "差值: \t\t";
-    for(const auto &x: path)cout << x.a << "  ";
+    for(const auto &x: path)printf("%4d " , x.a);;
     cout << endl;
 }
 
-void Graph::Print_ans(Adj_list *a , int *visit , vector<char *> &pa) {
+void Graph::Print_ans(Adj_list *a , int *visit , vector<pair<CPath , char *>> &pa) {
     Node *p = a->list->next;
-    int time = 0;
+    int i = Find_pos(a->head);//i是结点的标号
+    if(i == TP[TP.size() - 1])
+    {
+        for(const auto &x: pa)
+        {
+            if(x.first.a != 0)return;
+        }
+        unsigned int size = pa.size() - 1;
+        for(unsigned int k = 0;k < size;k ++)cout << pa[k].second << "--->";
+        cout << pa[size].second << endl;
+    }
     while(p != nullptr)
     {
-        int i = Find_pos(p->adj);//i是结点的标号
-        int j = Find(i);//j是标号为i的点在拓扑排序中的位置
-        if(!visit[i] && path[j].a == 0)
+        i = Find_pos(p->adj);
+        if(!visit[i])
         {
             visit[i] = 1;
-            pa.push_back(p->adj);
-            Print_ans(&g[TP[i]] , visit , pa);
+            int j = Find(i);
+            pa.emplace_back(path[j] , p->adj);
+            Print_ans(&g[i] , visit , pa);
             visit[i] = 0;
             pa.pop_back();
-            time ++;
         }
         p = p->next;
     }
-    if(time == 0)
-    {
-        for(const auto &x: pa)cout << x << ' ';
-        cout << endl;
-    }
-
 }
 
 void Graph::Print() {
     int visit[10010] = {};
-    vector<char *> pa;
-    char ch[10];
+    vector<pair<CPath , char *>> pa;
+    char ch[100];
     strcpy(ch , g[TP[0]].head.c_str());
-    pa.push_back(ch);
+    pa.emplace_back(path[0] , ch);
     visit[TP[0]] = 1;
     Print_ans(&g[TP[0]] , visit , pa);
 }
@@ -258,7 +261,8 @@ int main()
     if(graph.TPsort())cout << "拓扑排序成功" << endl;
     else cout << "拓扑排序失败" << endl;
     graph.Ans();
-    //graph.Print();
+    cout << "关键路径为: " << endl;
+    graph.Print();
 }
 
 
