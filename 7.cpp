@@ -237,6 +237,7 @@ void Graph::Print_ans(Adj_list *a , int *visit , vector<char *> &pa) {
         for(const auto &x: pa)cout << x << ' ';
         cout << endl;
     }
+
 }
 
 void Graph::Print() {
