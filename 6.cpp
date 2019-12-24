@@ -35,11 +35,11 @@ struct node//Kruscal算法的节点数据结构
     friend bool operator>(const node &a , const node &b){return a.weight > b.weight;};//重载大于号，用于排序
 };
 
-struct Prim_node
+struct Prim_node//Prim算法的数组数据结构
 {
     string name;
-    string add;
-    float distance = D_max;
+    string add;//name是已经在最小生成树中的节点，add是和这个节点相邻且不在最小生成树中的节点
+    float distance = D_max;//distance表示距离
 };
 
 class Graph

@@ -343,6 +343,7 @@ int Query_Birth(CSNode * T)  //按照出生日期查询
 	}
 	else
 		Print(&p->data);
+	return 1;
 }
 
 void Query_Name(CSNode * T)  //按照姓名查询
@@ -409,7 +410,7 @@ void Add_Child(CSNode * &T)  //添加一个孩子
 		cin >> child->data.address;
 		child->data.health = 1;
 		child->data.marriage = 0;
-		strcpy(child->data.death , "\0");
+		strcpy(child->data.death , "");
 		if(!f->fir)
         {
 			f->fir = child;
