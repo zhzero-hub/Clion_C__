@@ -69,8 +69,8 @@ public:
     void Ans();//显示结果
     float dfs(int i);//dfs
     friend void Show(Adj_list *g , int n);//显示图
-    void Print_ans(Adj_list *ans , int *visit , vector<pair<CPath , char *>> &pa);
-    void Print();
+    void Print_ans(Adj_list *ans , int *visit , vector<pair<CPath , char *>> &pa);//输出关键路径函数，用于dfs
+    void Print();//输出关键路径函数，用于初始化
 };
 
 void Show(Adj_list *g , int n) {
@@ -174,7 +174,7 @@ bool Graph::TPsort() {
             p = p->next;
         }
     }
-    return count == n;
+    return count == n;//只有count等于n表示所有点都在拓扑排序中，拓扑排序成功才能找到关键路径
 }
 
 float Graph::dfs(int i) {//i表示的是拓扑排序中点的位置，即T[i]才是点
@@ -204,13 +204,13 @@ void Graph::Ans() {
     for(const auto &x: path)printf("%4d " , x.pos);
     cout << endl;
     cout << "最早开始时间:\t ";
-    for(const auto &x: path)printf("%4d " , x.max);
+    for(const auto &x: path)printf("%4.1f " , x.max);
     cout << endl;
-    cout << "最晚结束时间:\t ";
-    for(const auto &x: path)printf("%4d " , x.min);
+    cout << "最晚开始时间:\t ";
+    for(const auto &x: path)printf("%4.1f " , x.min);
     cout << endl;
     cout << "差值: \t\t";
-    for(const auto &x: path)printf("%4d " , x.a);;
+    for(const auto &x: path)printf("%4.1f " , x.a);;
     cout << endl;
 }
 
@@ -221,7 +221,7 @@ void Graph::Print_ans(Adj_list *a , int *visit , vector<pair<CPath , char *>> &p
     {
         for(const auto &x: pa)
         {
-            if(x.first.a != 0)return;
+            if(x.first.a != 0)return;//关键路径满足所有点的差值为0
         }
         unsigned int size = pa.size() - 1;
         for(unsigned int k = 0;k < size;k ++)cout << pa[k].second << "--->";
@@ -259,7 +259,10 @@ int main()
     Graph graph;
     graph.Create();
     if(graph.TPsort())cout << "拓扑排序成功" << endl;
-    else cout << "拓扑排序失败" << endl;
+    else {
+        cout << "拓扑排序失败" << endl;
+        return 0;
+    }
     graph.Ans();
     cout << "关键路径为: " << endl;
     graph.Print();
