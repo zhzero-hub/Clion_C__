@@ -38,19 +38,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "D:\Clion\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "D:\Clion\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe" -E remove -f
+RM = "C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Z_HAO\CLionProjects\Clion_C__
+CMAKE_SOURCE_DIR = "D:\Clion C++"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug
+CMAKE_BINARY_DIR = "D:\Clion C++\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -58,7 +58,7 @@ CMAKE_BINARY_DIR = C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"D:\Clion\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -69,7 +69,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"D:\Clion\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	"C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -79,9 +79,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Clion C++\cmake-build-debug\CMakeFiles" "D:\Clion C++\cmake-build-debug\CMakeFiles\progress.marks"
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Clion C++\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -446,6 +446,19 @@ qsort: cmake_check_build_system
 qsort/fast:
 	$(MAKE) -f CMakeFiles\qsort.dir\build.make CMakeFiles/qsort.dir/build
 .PHONY : qsort/fast
+
+#=============================================================================
+# Target rules for targets named 8
+
+# Build rule for target.
+8 : cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 8
+.PHONY : 8
+
+# fast build rule for target.
+8/fast:
+	$(MAKE) -f CMakeFiles\8.dir\build.make CMakeFiles/8.dir/build
+.PHONY : 8/fast
 
 #=============================================================================
 # Target rules for targets named X_5
@@ -904,6 +917,33 @@ X_1/fast:
 	$(MAKE) -f CMakeFiles\7.dir\build.make CMakeFiles/7.dir/7.cpp.s
 .PHONY : 7.cpp.s
 
+8.obj: 8.cpp.obj
+
+.PHONY : 8.obj
+
+# target to build an object file
+8.cpp.obj:
+	$(MAKE) -f CMakeFiles\8.dir\build.make CMakeFiles/8.dir/8.cpp.obj
+.PHONY : 8.cpp.obj
+
+8.i: 8.cpp.i
+
+.PHONY : 8.i
+
+# target to preprocess a source file
+8.cpp.i:
+	$(MAKE) -f CMakeFiles\8.dir\build.make CMakeFiles/8.dir/8.cpp.i
+.PHONY : 8.cpp.i
+
+8.s: 8.cpp.s
+
+.PHONY : 8.s
+
+# target to generate assembly for a file
+8.cpp.s:
+	$(MAKE) -f CMakeFiles\8.dir\build.make CMakeFiles/8.dir/8.cpp.s
+.PHONY : 8.cpp.s
+
 Binary_tree.obj: Binary_tree.cpp.obj
 
 .PHONY : Binary_tree.obj
@@ -1343,6 +1383,7 @@ help:
 	@echo ... X_2
 	@echo ... edit_cache
 	@echo ... qsort
+	@echo ... 8
 	@echo ... X_5
 	@echo ... 201803-4
 	@echo ... X_1
@@ -1392,6 +1433,9 @@ help:
 	@echo ... 7.obj
 	@echo ... 7.i
 	@echo ... 7.s
+	@echo ... 8.obj
+	@echo ... 8.i
+	@echo ... 8.s
 	@echo ... Binary_tree.obj
 	@echo ... Binary_tree.i
 	@echo ... Binary_tree.s
