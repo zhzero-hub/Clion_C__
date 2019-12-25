@@ -39,6 +39,19 @@ string Plus_2(string x)//字符串加法，+2，本质是两个+1
     return Plus_1(temp);
 }
 
+int to_int(const string &x)//因为公交线路最后有一个站，所以有时候需要提取线路的数字，O(n)
+{
+    int ans = 0;
+    int i = 0;
+    while(x[i] >= '0' && x[i] <= '9')
+    {
+        ans *= 10;
+        ans += x[i] - '0';
+        i ++;
+    }
+    return ans;
+}
+
 bool Check(const string& t , int n , int &flag , vector<string> &q , string &extra)//检查输入的字符串是否符合要求
 {//对字符串t，以n位分割字符串数字，flag表示过程中出现的漏掉数字的个数，q用来存储满足条件的字符串数字，extra为漏掉的数字
     int size = t.size();
@@ -48,6 +61,7 @@ bool Check(const string& t , int n , int &flag , vector<string> &q , string &ext
         string temp , temp1 , temp2;
         if(i + n >= size)temp = t.substr(i , size);//一次取n位，如果超过最后一位就取到最后一位结束
         else temp = t.substr(i , n);
+        if(temp != to_string(to_int(temp)))return false;
         temp1 = Plus_1(temp);//temp1是temp字符串+1的结果
         i += n;
         n = temp1.size();//如果出现了999……的情况，那么接下来取的n位应该变成n+1位

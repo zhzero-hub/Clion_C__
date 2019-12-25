@@ -167,7 +167,7 @@ int main()
     int choice = 1;
     while(choice != 0)
     {
-        cout << "1： Dijkstra算法输出两点之间的最短路径" << endl;
+        cout << "1: Dijkstra算法输出两点之间的最短路径" << endl;
         cout << "2: Flord算法输出所有点之间的最短路径" << endl;
         cout << "0: 退出" << endl;
         cout << "请输入选择: ";
