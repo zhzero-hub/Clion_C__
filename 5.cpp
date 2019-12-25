@@ -7,6 +7,7 @@
 #include <fstream>
 #include <set>
 #include <unordered_map>
+#include <algorithm>
 using namespace std;
 
 class Tree
@@ -24,11 +25,17 @@ public:
     friend bool operator>(const Tree &a , const Tree &b){return a.alphabet > b.alphabet;};//重载大于号，比较两个节点的大小就是比较两个字母的ASCII码
     struct cmp{bool operator()(const Tree *a , const Tree *b){ return  a->time > b->time;}};//结构体重载()，用于比较出现次数，用于排序
     friend bool operator<(const Tree &a , const Tree &b){return a.time < b.time;};
+    friend bool compare(const Tree &a , const Tree &b);
     friend Tree* Insert(Tree *p , Tree *q);//将两个节点作为左右孩子，新建一个节点作为它们的父亲
     static void Code(Tree *t , const string& str , unordered_map<char , string> &code);//用于编码
     void Show_ans();//显示编码结果
     friend void Decoding(Tree *base);//根据Huffman树译码
 };
+
+bool compare(const Tree &a , const Tree &b)
+{
+    return a.alphabet < b.alphabet;
+}
 
 Tree* Insert(Tree *p , Tree *q) {
     Tree* base = (Tree *)malloc(sizeof(Tree));
@@ -60,7 +67,7 @@ void Tree::Code(Tree *t , const string& str , unordered_map<char , string> &code
 
 void Tree::Show_ans() {//层序遍历二叉树，找到所有叶节点
     queue<Tree*> q;
-    set<Tree> ans;
+    vector<Tree> ans;
     q.push(this);
     while(!q.empty())
     {
@@ -70,9 +77,10 @@ void Tree::Show_ans() {//层序遍历二叉树，找到所有叶节点
         if(temp->r != nullptr)q.push(temp->r);
         if((temp->alphabet >= 'a' && temp->alphabet <= 'z') || temp->alphabet == '0' || temp->alphabet == '1')
         {
-            ans.insert(*temp);//插入的同时会进行排序，插入的时间复杂度为O(logn)
+            ans.push_back(*temp);//插入的同时会进行排序，插入的时间复杂度为O(logn)
         }
     }
+    sort(ans.begin() , ans.end() , compare);
     for(const auto &temp: ans)
         cout << temp.alphabet << "出现的次数为: " << temp.time << " 相应的编码为: " << temp.str << endl;
 }

@@ -93,6 +93,7 @@ int main()
             ans = Check(x , i , flag , q , extra);
             if(ans)
             {
+                cout << "序列为: ";
                 copy(q.begin() , --q.end() , ostream_iterator<string , char>(cout , ", "));
                 copy(--q.end() , q.end() , ostream_iterator<string , char>(cout , "\n"));
                 if(flag)cout << "漏掉的数字为: " << extra << endl;

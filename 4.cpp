@@ -155,6 +155,10 @@ int main()
     cout << "迭代次数为: " << iteration_time << endl;
     for(int i = 0;i < M;i ++)
     {
+        cout << "第" << i + 1 << "聚类的点的值为: ";
+        Node temp = Ans[i].Get_aver();
+        for(const auto &x: temp.data)cout << x << ' ';
+        cout << endl;
         cout << "第" << i + 1 << "聚类的点的序号为: ";
         Ans[i].Show();
         cout << endl;

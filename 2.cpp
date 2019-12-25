@@ -199,5 +199,5 @@ int main()
         cout << "请输入表达式: ";
         getline(cin , name);
     }
-    system("pause");
+    return 0;
 }
