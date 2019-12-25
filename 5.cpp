@@ -41,7 +41,8 @@ Tree* Insert(Tree *p , Tree *q) {
     Tree* base = (Tree *)malloc(sizeof(Tree));
     base->l = p;
     base->r = q;
-    base->time = p->time + q->time;
+    if(q != nullptr)base->time = p->time + q->time;
+    else base->time = p->time;
     return base;
 }
 
@@ -175,6 +176,15 @@ int main()
         if(x.Get_time() > 0)ans.push(&x);//所有出现过的字符进行编码
     }
     file.close();
+    Tree *Ans;
+    if(ans.size() == 1)
+    {
+        Tree *a = ans.top();
+        ans.pop();
+        Tree *b = nullptr;
+        Tree *t = Insert(a , b);
+        ans.push(t);
+    }
     while (ans.size() > 1)//最后剩下的就是根节点
     {
         Tree* a = ans.top();
@@ -184,7 +194,7 @@ int main()
         Tree* t = Insert(a , b);
         ans.push(t);
     }
-    Tree* Ans = ans.top();
+    Ans = ans.top();
     Ans->Code(Ans , "" , code);
     Ans->Show_ans();
     Coding(code);

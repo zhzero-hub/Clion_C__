@@ -42,6 +42,10 @@ int menu_select()
 
 bool compare(student &a , student &b)
 {
+    if(strcmp(a.name , b.name) == 0)
+    {
+        return a.number < b.number;
+    }
     return strcmp(a.name , b.name) < 0;
 }
 
@@ -171,6 +175,26 @@ void Insert(student *a , student *b)
         if(score >= 60)
         {
             student *pos = Find(a->next , name);
+            if(strcmp(pos->name , name) == 0)
+            {
+                while(strcmp(num , pos->number) < 0)pos = pos->next;
+                if(strcmp(pos->number , num) > 0)
+                {
+                    student *l = pos->pre;
+                    l->next = t;
+                    t->pre = l;
+                    t->next = pos;
+                    pos->pre = t;
+                }
+                else {
+                    student *r = pos->next;
+                    r->pre = t;
+                    t->next = r;
+                    t->pre = pos;
+                    pos->next = t;
+                }
+                return;
+            }
             if((strcmp(pos->name , name) > 0))
             {
                 student *l = pos->pre;

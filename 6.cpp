@@ -53,12 +53,14 @@ private:
     int n = 0;//邻接表个数
 public:
     Graph(){;};//默认构造函数
-    int Find_pos(const string &name){auto x = head.find(name);return x->second;};//O(1)的查找
+    int Find_pos(const string &name){auto x = head.find(name);if(x != head.end())return x->second;return 0;};//O(1)的查找
     void Create();//创建图
     void Prim();//Prim算法
     void Kruscal();//Kruscal算法
     void Clear_ans();//清楚图ans，即清除得到的最小生成树
     friend void Show(Adj_list *g , int n);//输出图
+    void dfs(Adj_list *a , int *visit , int &num);
+    bool isConnect();
 };
 
 
@@ -226,10 +228,41 @@ void Graph::Clear_ans() {
     }
 }
 
+bool Graph::isConnect()
+{
+    int visit[10010] = {};
+    visit[1] = 1;
+    int num = 1;
+    dfs(&g[1] , visit , num);
+    return num >= n;
+}
+
+void Graph::dfs(Adj_list *a , int *visit , int &num)
+{
+    Node *p = a->list->next;
+    while(p != nullptr)
+    {
+        int t = Find_pos(p->adj);
+        if(!visit[t])
+        {
+            visit[t] = 1;
+            num ++;
+            dfs(&g[t] , visit , num);
+            visit[t] = 0;
+        }
+        p = p->next;
+    }
+}
+
 int main()
 {
     Graph graph;
     graph.Create();
+    if(!graph.isConnect())
+    {
+        cout << "非连通图" << endl;
+        return 0;
+    }
     graph.Kruscal();
     graph.Clear_ans();
     graph.Prim();
