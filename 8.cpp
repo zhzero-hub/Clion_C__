@@ -122,6 +122,11 @@ void Graph::Find_min() {
     int s = Find_pos(start);
     int e = Find_pos(end);
     dfs(s , e , 0 , visit);
+    if(visit[e] == maxx)
+    {
+        cout << start << "和" << end << "间不存在路径" << endl;
+        return;
+    }
     cout << start << "和" << end << "间的最短距离为: " << visit[e] << endl;
 }
 
@@ -141,7 +146,7 @@ void Graph::Flord() {
         for(int i = 1; i <= n;i ++)
             for(int j = 1; j <= n; j ++)
             {
-                if(D[i][j] > D[i][k] + D[k][j]) D[i][j] = D[i][k] + D[k][j];
+                if(D[i][j] > D[i][k] + D[k][j])D[i][j] = D[i][k] + D[k][j];
             }
     }
     for(int i = 1;i <= n;i ++)
@@ -159,17 +164,30 @@ int main()
 {
     Graph graph;
     graph.Create();
-    graph.Flord();
+    int choice = 1;
+    while(choice != 0)
+    {
+        cout << "1： Dijkstra算法输出两点之间的最短路径" << endl;
+        cout << "2: Flord算法输出所有点之间的最短路径" << endl;
+        cout << "0: 退出" << endl;
+        cout << "请输入选择: ";
+        cin >> choice;
+        while(choice < 0 || choice > 2)
+        {
+            cout << "输入有误，请重新输入: ";
+            cin >> choice;
+        }
+        if(choice == 1)
+        {
+            graph.Find_min();
+        }
+        else if(choice == 2)
+        {
+            graph.Flord();
+        }
+        else
+        {
+            return 0;
+        }
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
