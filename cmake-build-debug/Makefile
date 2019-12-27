@@ -512,6 +512,19 @@ X_1/fast:
 	$(MAKE) -f CMakeFiles\7.dir\build.make CMakeFiles/7.dir/build
 .PHONY : 7/fast
 
+#=============================================================================
+# Target rules for targets named X_7
+
+# Build rule for target.
+X_7: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 X_7
+.PHONY : X_7
+
+# fast build rule for target.
+X_7/fast:
+	$(MAKE) -f CMakeFiles\X_7.dir\build.make CMakeFiles/X_7.dir/build
+.PHONY : X_7/fast
+
 01.obj: 01.cpp.obj
 
 .PHONY : 01.obj
@@ -1133,6 +1146,33 @@ X_5.cpp.s:
 	$(MAKE) -f CMakeFiles\X_5.dir\build.make CMakeFiles/X_5.dir/X_5.cpp.s
 .PHONY : X_5.cpp.s
 
+X_7.obj: X_7.cpp.obj
+
+.PHONY : X_7.obj
+
+# target to build an object file
+X_7.cpp.obj:
+	$(MAKE) -f CMakeFiles\X_7.dir\build.make CMakeFiles/X_7.dir/X_7.cpp.obj
+.PHONY : X_7.cpp.obj
+
+X_7.i: X_7.cpp.i
+
+.PHONY : X_7.i
+
+# target to preprocess a source file
+X_7.cpp.i:
+	$(MAKE) -f CMakeFiles\X_7.dir\build.make CMakeFiles/X_7.dir/X_7.cpp.i
+.PHONY : X_7.cpp.i
+
+X_7.s: X_7.cpp.s
+
+.PHONY : X_7.s
+
+# target to generate assembly for a file
+X_7.cpp.s:
+	$(MAKE) -f CMakeFiles\X_7.dir\build.make CMakeFiles/X_7.dir/X_7.cpp.s
+.PHONY : X_7.cpp.s
+
 asd.obj: asd.cpp.obj
 
 .PHONY : asd.obj
@@ -1388,6 +1428,7 @@ help:
 	@echo ... 201803-4
 	@echo ... X_1
 	@echo ... 7
+	@echo ... X_7
 	@echo ... 01.obj
 	@echo ... 01.i
 	@echo ... 01.s
@@ -1457,6 +1498,9 @@ help:
 	@echo ... X_5.obj
 	@echo ... X_5.i
 	@echo ... X_5.s
+	@echo ... X_7.obj
+	@echo ... X_7.i
+	@echo ... X_7.s
 	@echo ... asd.obj
 	@echo ... asd.i
 	@echo ... asd.s
