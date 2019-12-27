@@ -6,7 +6,7 @@
 #include <vector>
 #include <cmath>
 using namespace std;
-const int M = 3;
+const int M = 4;
 
 struct Node
 {
@@ -170,7 +170,7 @@ Node *Delete(Node *x , const int &t , int &flag)
         }
     }
     int size = x->data.size();
-    if(!flag)
+    if(flag)
     {
         if(pos == 0)
         {
@@ -190,7 +190,7 @@ Node *Delete(Node *x , const int &t , int &flag)
                 {
                     x->data[pos + 1].first->data.emplace_back(nullptr , x->data[pos + 1].second);
                     x->data[pos + 1].second = x->data[pos + 1].first->data[0].second;
-                    x->data[pos + 1].first->data.erase(x->end->data.begin());
+                    x->data[pos + 1].first->data.erase(x->data[pos + 1].first->data.begin());
                     flag = 0;
                     return x;
                 }
@@ -209,13 +209,31 @@ Node *Delete(Node *x , const int &t , int &flag)
                     return x;
                 }
             }
+            else {//倒数第二个删除，右兄弟在end上
+                if(!x->data[pos - 1].first && x->data[pos - 1].first->data.size() >= ceil(M))
+                {
+                    x->data[pos - 1].first->data.emplace_back(nullptr , x->data[pos - 1].second);
+                    x->data[pos - 1].second = x->data[pos - 1].first->data[x->data[pos - 1].first->data.size() - 1].second;
+                    x->data[pos - 1].first->data.pop_back();
+                    flag = 0;
+                    return x;
+                }
+                else if(!x->end && x->end->data.size() >= ceil(M))//在右兄弟end上找
+                {
+                    x->data[pos].first->data.emplace_back(nullptr , x->data[pos].second);
+                    x->data[pos].second = x->end->data[0].second;
+                    x->end->data.erase(x->end->data.begin());
+                    flag = 0;
+                    return x;
+                }
+            }
         }
         else {//左右都有兄弟
             if(!x->data[pos + 1].first && x->data[pos + 1].first->data.size() >= ceil(M))
             {
                 x->data[pos + 1].first->data.emplace_back(nullptr , x->data[pos + 1].second);
                 x->data[pos + 1].second = x->data[pos + 1].first->data[0].second;
-                x->data[pos + 1].first->data.erase(x->end->data.begin());
+                x->data[pos + 1].first->data.erase(x->data[pos + 1].first->data.begin());
                 flag = 0;
                 return x;
             }
@@ -229,12 +247,41 @@ Node *Delete(Node *x , const int &t , int &flag)
             }
         }
     }
-    if(!flag)//左右兄弟没有可以换的节点
+    if(flag)//左右兄弟没有可以换的节点，上面的拉下去合并
     {
-        if(pos == size)
+        if(pos == size - 1)//pos-1和end合并
         {
-
+            x->data[pos].first->data.emplace_back(x->data[pos].first->end , x->data[pos].second);
+            copy(x->end->data.begin() , x->end->data.end() , insert_iterator<vector<pair<Node * , int>>>(x->data[pos].first->data , x->data[pos].first->data.end()));
+            x->data[pos].first->end = x->end->end;
+            delete x->end;
+            x->end= x->data[pos].first;
+            x->data.erase(x->data.begin() + pos);
+            if(x->data.empty())//这里不剩元素了
+            {
+                Node *ret = x->data[pos].first;
+                flag = 0;
+                delete x;
+                return ret;
+            }
         }
+        else {//pos和pos+1合并
+            x->data[pos].first->data.emplace_back(x->data[pos].first->end , x->data[pos].second);
+            copy(x->data[pos + 1].first->data.begin() , x->data[pos + 1].first->data.end() , insert_iterator<vector<pair<Node * , int>>>(x->data[pos].first->data , x->data[pos].first->data.end()));
+            x->data[pos].first->end = x->data[pos + 1].first->end;
+            delete x->data[pos + 1].first;
+            x->data[pos + 1].first = x->data[pos].first;
+            x->data.erase(x->data.begin() + pos);
+            if(x->data.empty())//这里不剩元素了
+            {
+                Node *ret = x->data[pos].first;
+                flag = 0;
+                delete x;
+                return ret;
+            }
+        }
+        flag = 0;
+        return x;
     }
     //重新判断是否有下溢
     if(x->data.size() < ceil(M) - 1)//下溢
@@ -249,13 +296,16 @@ int main()
     Node *base = nullptr;
     pair<Node * , int> up;
     up.first = nullptr;
-    for(int i = 0;i < 100;i ++)
+    for(int i = 0;i < 10;i ++)
     {
         base = Insert(base , rand() % 100 , up , 0);
     }
     Show(base);
     cout << endl;
-
+    int del = 0;
+    int flag = 0;
+    base = Delete(base , del , flag);
+    Show(base);
     cout << "Succeed! " << endl;
 }
 
