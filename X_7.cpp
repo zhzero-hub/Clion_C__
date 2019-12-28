@@ -4,7 +4,6 @@
 
 #include <iostream>
 #include <vector>
-#include <cmath>
 using namespace std;
 const int M = 4;
 
@@ -42,18 +41,20 @@ unsigned long long int Binary_search(const vector<pair<Node * , int>> &x , const
     return ret;
 }
 
-void Show(Node *x)
+void Show(Node *x , int layer = 0)
 {
     if(x == nullptr)return;
+    cout << layer << "层: ";
     for(const auto &y: x->data)
     {
         cout << y.second << ' ';
     }
+    cout << endl;
     for(const auto &y: x->data)
     {
-        Show(y.first);
+        Show(y.first , layer + 1);
     }
-    Show(x->end);
+    Show(x->end , layer + 1);
 }
 
 Node *Insert(Node *x , const int &t , pair<Node * , int> &up , int layer)
@@ -153,7 +154,17 @@ Node *Delete(Node *x , const int &t , int &flag)
         }
         else {//非叶节点
             // 若该结点为非叶结点，且被删关键字为该结点中第i个关键字key[i]，则可从指针son[i]所指的子树中找出最小关键字Y，代替key[i]的位置，然后在叶结点中删去Y
-
+            if(pos < x->data.size() - 1)
+            {
+                int del = x->data[pos + 1].first->data.front().second;
+                x->data[pos].second = del;//如果不存在怎么办?
+                x->data[pos + 1].first = Delete(x->data[pos + 1].first , del , flag);
+            }
+            else {
+                int del = x->end->data.front().second;
+                x->data[pos].second = del;//如果不存在怎么办?
+                x->end = Delete(x->end , del , flag);
+            }
         }
     }
     else if(x->end == nullptr)
@@ -296,16 +307,22 @@ int main()
     Node *base = nullptr;
     pair<Node * , int> up;
     up.first = nullptr;
+    int a[10010] = {};
+    for(int i = 0;i < 10;i ++)a[i] = rand() % 1000;
     for(int i = 0;i < 10;i ++)
     {
-        base = Insert(base , rand() % 100 , up , 0);
+        base = Insert(base , a[i] , up , 0);
     }
     Show(base);
     cout << endl;
-    int del = 0;
     int flag = 0;
-    base = Delete(base , del , flag);
-    Show(base);
+    for(int i = 0;i < 10;i ++)
+    {
+        cout << "删除" << a[i] << endl;
+        base = Delete(base , a[i] , flag);
+        Show(base);
+        cout << endl;
+    }
     cout << "Succeed! " << endl;
 }
 
