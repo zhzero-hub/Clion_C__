@@ -1,40 +1,50 @@
 //
-// Created by Z_HAO on 2019/12/27.
+// Created by Z_HAO on 2019/11/27.
 //
 
 #include <iostream>
-#include <vector>
+#include <stack>
 using namespace std;
-
-int Binary_search(const vector<int> &x , const int &t , int l , int r)
-{
-    if(l == r)
-    {
-        return l;
-    }
-    int mid = (l + r) / 2;
-    int ret = 0;
-    if(t < x[mid])
-    {
-        ret = Binary_search(x , t , l , mid);
-    }
-    else if(t > x[mid])
-    {
-        ret = Binary_search(x , t , mid + 1, r);
-    }
-    else if(t == x[mid])
-    {
-        return mid;
-    }
-    return ret;
-}
 
 int main()
 {
-    vector<int> a;
-    for(int i = 0;i < 10;i ++)a.push_back(i);
-    auto it = a.erase(a.begin());
-    int t = *it;
-    a.erase(a.begin());
-    cout << t;
+    stack<int> a;
+    stack<int> b;
+    int l , r;
+    cin >> l >> r;
+    while(l > 0)
+    {
+        a.push(l);
+        l /= 2;
+    }
+    while(r > 0)
+    {
+        b.push(r);
+        r /= 2;
+    }
+    int ans = 1;
+    while(!a.empty() && !b.empty() && a.top() == b.top())
+    {
+        ans = a.top();
+        a.pop();
+        b.pop();
+    }
+    cout << ans;
+    return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

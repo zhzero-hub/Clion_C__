@@ -357,6 +357,19 @@ testgit/fast:
 .PHONY : 201909_5/fast
 
 #=============================================================================
+# Target rules for targets named BallanceTree
+
+# Build rule for target.
+BallanceTree: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 BallanceTree
+.PHONY : BallanceTree
+
+# fast build rule for target.
+BallanceTree/fast:
+	$(MAKE) -f CMakeFiles\BallanceTree.dir\build.make CMakeFiles/BallanceTree.dir/build
+.PHONY : BallanceTree/fast
+
+#=============================================================================
 # Target rules for targets named 201903_4
 
 # Build rule for target.
@@ -957,6 +970,33 @@ X_7/fast:
 	$(MAKE) -f CMakeFiles\8.dir\build.make CMakeFiles/8.dir/8.cpp.s
 .PHONY : 8.cpp.s
 
+BallanceTree.obj: BallanceTree.cpp.obj
+
+.PHONY : BallanceTree.obj
+
+# target to build an object file
+BallanceTree.cpp.obj:
+	$(MAKE) -f CMakeFiles\BallanceTree.dir\build.make CMakeFiles/BallanceTree.dir/BallanceTree.cpp.obj
+.PHONY : BallanceTree.cpp.obj
+
+BallanceTree.i: BallanceTree.cpp.i
+
+.PHONY : BallanceTree.i
+
+# target to preprocess a source file
+BallanceTree.cpp.i:
+	$(MAKE) -f CMakeFiles\BallanceTree.dir\build.make CMakeFiles/BallanceTree.dir/BallanceTree.cpp.i
+.PHONY : BallanceTree.cpp.i
+
+BallanceTree.s: BallanceTree.cpp.s
+
+.PHONY : BallanceTree.s
+
+# target to generate assembly for a file
+BallanceTree.cpp.s:
+	$(MAKE) -f CMakeFiles\BallanceTree.dir\build.make CMakeFiles/BallanceTree.dir/BallanceTree.cpp.s
+.PHONY : BallanceTree.cpp.s
+
 Binary_tree.obj: Binary_tree.cpp.obj
 
 .PHONY : Binary_tree.obj
@@ -1415,6 +1455,7 @@ help:
 	@echo ... 201909_2
 	@echo ... 201312_4
 	@echo ... 201909_5
+	@echo ... BallanceTree
 	@echo ... 201903_4
 	@echo ... Tree
 	@echo ... 201812_4
@@ -1477,6 +1518,9 @@ help:
 	@echo ... 8.obj
 	@echo ... 8.i
 	@echo ... 8.s
+	@echo ... BallanceTree.obj
+	@echo ... BallanceTree.i
+	@echo ... BallanceTree.s
 	@echo ... Binary_tree.obj
 	@echo ... Binary_tree.i
 	@echo ... Binary_tree.s

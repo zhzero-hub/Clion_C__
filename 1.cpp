@@ -177,22 +177,12 @@ void Insert(student *a , student *b)
             student *pos = Find(a->next , name);
             if(strcmp(pos->name , name) == 0)
             {
-                while(strcmp(num , pos->number) < 0)pos = pos->next;
-                if(strcmp(pos->number , num) > 0)
-                {
-                    student *l = pos->pre;
-                    l->next = t;
-                    t->pre = l;
-                    t->next = pos;
-                    pos->pre = t;
-                }
-                else {
-                    student *r = pos->next;
-                    r->pre = t;
-                    t->next = r;
-                    t->pre = pos;
-                    pos->next = t;
-                }
+                while(strcmp(pos->name , name) == 0 && strcmp(num , pos->number) < 0)pos = pos->next;//姓名相同的情况下根据学号插入
+                student *l = pos->pre;
+                l->next = t;
+                t->pre = l;
+                t->next = pos;
+                pos->pre = t;
                 return;
             }
             if((strcmp(pos->name , name) > 0))

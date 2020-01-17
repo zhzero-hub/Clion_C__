@@ -71,6 +71,7 @@ all: CMakeFiles/testgit.dir/all
 all: CMakeFiles/201909_2.dir/all
 all: CMakeFiles/201312_4.dir/all
 all: CMakeFiles/201909_5.dir/all
+all: CMakeFiles/BallanceTree.dir/all
 all: CMakeFiles/201903_4.dir/all
 all: CMakeFiles/Tree.dir/all
 all: CMakeFiles/201812_4.dir/all
@@ -107,6 +108,7 @@ clean: CMakeFiles/testgit.dir/clean
 clean: CMakeFiles/201909_2.dir/clean
 clean: CMakeFiles/201312_4.dir/clean
 clean: CMakeFiles/201909_5.dir/clean
+clean: CMakeFiles/BallanceTree.dir/clean
 clean: CMakeFiles/201903_4.dir/clean
 clean: CMakeFiles/Tree.dir/clean
 clean: CMakeFiles/201812_4.dir/clean
@@ -162,7 +164,7 @@ CMakeFiles/1.dir/clean:
 CMakeFiles/Clion_C__.dir/all:
 	$(MAKE) -f CMakeFiles\Clion_C__.dir\build.make CMakeFiles/Clion_C__.dir/depend
 	$(MAKE) -f CMakeFiles\Clion_C__.dir\build.make CMakeFiles/Clion_C__.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=33,34 "Built target Clion_C__"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=35,36 "Built target Clion_C__"
 .PHONY : CMakeFiles/Clion_C__.dir/all
 
 # Build rule for subdir invocation for target.
@@ -216,7 +218,7 @@ CMakeFiles/2.dir/clean:
 CMakeFiles/testtest.dir/all:
 	$(MAKE) -f CMakeFiles\testtest.dir\build.make CMakeFiles/testtest.dir/depend
 	$(MAKE) -f CMakeFiles\testtest.dir\build.make CMakeFiles/testtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=63,64 "Built target testtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=65,66 "Built target testtest"
 .PHONY : CMakeFiles/testtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -243,7 +245,7 @@ CMakeFiles/testtest.dir/clean:
 CMakeFiles/test.dir/all:
 	$(MAKE) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/depend
 	$(MAKE) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=59,60 "Built target test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=61,62 "Built target test"
 .PHONY : CMakeFiles/test.dir/all
 
 # Build rule for subdir invocation for target.
@@ -324,7 +326,7 @@ CMakeFiles/3.dir/clean:
 CMakeFiles/Curriculum.dir/all:
 	$(MAKE) -f CMakeFiles\Curriculum.dir\build.make CMakeFiles/Curriculum.dir/depend
 	$(MAKE) -f CMakeFiles\Curriculum.dir\build.make CMakeFiles/Curriculum.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=35,36 "Built target Curriculum"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=37,38 "Built target Curriculum"
 .PHONY : CMakeFiles/Curriculum.dir/all
 
 # Build rule for subdir invocation for target.
@@ -351,7 +353,7 @@ CMakeFiles/Curriculum.dir/clean:
 CMakeFiles/asd.dir/all:
 	$(MAKE) -f CMakeFiles\asd.dir\build.make CMakeFiles/asd.dir/depend
 	$(MAKE) -f CMakeFiles\asd.dir\build.make CMakeFiles/asd.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=51,52 "Built target asd"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=53,54 "Built target asd"
 .PHONY : CMakeFiles/asd.dir/all
 
 # Build rule for subdir invocation for target.
@@ -405,7 +407,7 @@ CMakeFiles/5.dir/clean:
 CMakeFiles/matrix.dir/all:
 	$(MAKE) -f CMakeFiles\matrix.dir\build.make CMakeFiles/matrix.dir/depend
 	$(MAKE) -f CMakeFiles\matrix.dir\build.make CMakeFiles/matrix.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=53,54 "Built target matrix"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=55,56 "Built target matrix"
 .PHONY : CMakeFiles/matrix.dir/all
 
 # Build rule for subdir invocation for target.
@@ -432,7 +434,7 @@ CMakeFiles/matrix.dir/clean:
 CMakeFiles/new.dir/all:
 	$(MAKE) -f CMakeFiles\new.dir\build.make CMakeFiles/new.dir/depend
 	$(MAKE) -f CMakeFiles\new.dir\build.make CMakeFiles/new.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=55,56 "Built target new"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=57,58 "Built target new"
 .PHONY : CMakeFiles/new.dir/all
 
 # Build rule for subdir invocation for target.
@@ -459,7 +461,7 @@ CMakeFiles/new.dir/clean:
 CMakeFiles/Binary_tree.dir/all:
 	$(MAKE) -f CMakeFiles\Binary_tree.dir\build.make CMakeFiles/Binary_tree.dir/depend
 	$(MAKE) -f CMakeFiles\Binary_tree.dir\build.make CMakeFiles/Binary_tree.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=31,32 "Built target Binary_tree"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=33,34 "Built target Binary_tree"
 .PHONY : CMakeFiles/Binary_tree.dir/all
 
 # Build rule for subdir invocation for target.
@@ -540,7 +542,7 @@ CMakeFiles/201909_4.dir/clean:
 CMakeFiles/testgit.dir/all:
 	$(MAKE) -f CMakeFiles\testgit.dir\build.make CMakeFiles/testgit.dir/depend
 	$(MAKE) -f CMakeFiles\testgit.dir\build.make CMakeFiles/testgit.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=61,62 "Built target testgit"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=63,64 "Built target testgit"
 .PHONY : CMakeFiles/testgit.dir/all
 
 # Build rule for subdir invocation for target.
@@ -642,6 +644,33 @@ CMakeFiles/201909_5.dir/clean:
 .PHONY : CMakeFiles/201909_5.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/BallanceTree.dir
+
+# All Build rule for target.
+CMakeFiles/BallanceTree.dir/all:
+	$(MAKE) -f CMakeFiles\BallanceTree.dir\build.make CMakeFiles/BallanceTree.dir/depend
+	$(MAKE) -f CMakeFiles\BallanceTree.dir\build.make CMakeFiles/BallanceTree.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=31,32 "Built target BallanceTree"
+.PHONY : CMakeFiles/BallanceTree.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/BallanceTree.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles 2
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/BallanceTree.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles/BallanceTree.dir/rule
+
+# Convenience name for target.
+BallanceTree: CMakeFiles/BallanceTree.dir/rule
+
+.PHONY : BallanceTree
+
+# clean rule for target.
+CMakeFiles/BallanceTree.dir/clean:
+	$(MAKE) -f CMakeFiles\BallanceTree.dir\build.make CMakeFiles/BallanceTree.dir/clean
+.PHONY : CMakeFiles/BallanceTree.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/201903_4.dir
 
 # All Build rule for target.
@@ -675,7 +704,7 @@ CMakeFiles/201903_4.dir/clean:
 CMakeFiles/Tree.dir/all:
 	$(MAKE) -f CMakeFiles\Tree.dir\build.make CMakeFiles/Tree.dir/depend
 	$(MAKE) -f CMakeFiles\Tree.dir\build.make CMakeFiles/Tree.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=37,38 "Built target Tree"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=39,40 "Built target Tree"
 .PHONY : CMakeFiles/Tree.dir/all
 
 # Build rule for subdir invocation for target.
@@ -729,7 +758,7 @@ CMakeFiles/201812_4.dir/clean:
 CMakeFiles/X_4.dir/all:
 	$(MAKE) -f CMakeFiles\X_4.dir\build.make CMakeFiles/X_4.dir/depend
 	$(MAKE) -f CMakeFiles\X_4.dir\build.make CMakeFiles/X_4.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=45,46 "Built target X_4"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=47,48 "Built target X_4"
 .PHONY : CMakeFiles/X_4.dir/all
 
 # Build rule for subdir invocation for target.
@@ -756,7 +785,7 @@ CMakeFiles/X_4.dir/clean:
 CMakeFiles/X_3.dir/all:
 	$(MAKE) -f CMakeFiles\X_3.dir\build.make CMakeFiles/X_3.dir/depend
 	$(MAKE) -f CMakeFiles\X_3.dir\build.make CMakeFiles/X_3.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=43,44 "Built target X_3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=45,46 "Built target X_3"
 .PHONY : CMakeFiles/X_3.dir/all
 
 # Build rule for subdir invocation for target.
@@ -783,7 +812,7 @@ CMakeFiles/X_3.dir/clean:
 CMakeFiles/X_2.dir/all:
 	$(MAKE) -f CMakeFiles\X_2.dir\build.make CMakeFiles/X_2.dir/depend
 	$(MAKE) -f CMakeFiles\X_2.dir\build.make CMakeFiles/X_2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=41,42 "Built target X_2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=43,44 "Built target X_2"
 .PHONY : CMakeFiles/X_2.dir/all
 
 # Build rule for subdir invocation for target.
@@ -810,7 +839,7 @@ CMakeFiles/X_2.dir/clean:
 CMakeFiles/qsort.dir/all:
 	$(MAKE) -f CMakeFiles\qsort.dir\build.make CMakeFiles/qsort.dir/depend
 	$(MAKE) -f CMakeFiles\qsort.dir\build.make CMakeFiles/qsort.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=57,58 "Built target qsort"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=59,60 "Built target qsort"
 .PHONY : CMakeFiles/qsort.dir/all
 
 # Build rule for subdir invocation for target.
@@ -864,7 +893,7 @@ CMakeFiles/8.dir/clean:
 CMakeFiles/X_5.dir/all:
 	$(MAKE) -f CMakeFiles\X_5.dir\build.make CMakeFiles/X_5.dir/depend
 	$(MAKE) -f CMakeFiles\X_5.dir\build.make CMakeFiles/X_5.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=47,48 "Built target X_5"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=49,50 "Built target X_5"
 .PHONY : CMakeFiles/X_5.dir/all
 
 # Build rule for subdir invocation for target.
@@ -918,7 +947,7 @@ CMakeFiles/201803-4.dir/clean:
 CMakeFiles/X_1.dir/all:
 	$(MAKE) -f CMakeFiles\X_1.dir\build.make CMakeFiles/X_1.dir/depend
 	$(MAKE) -f CMakeFiles\X_1.dir\build.make CMakeFiles/X_1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=39,40 "Built target X_1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=41,42 "Built target X_1"
 .PHONY : CMakeFiles/X_1.dir/all
 
 # Build rule for subdir invocation for target.
@@ -972,7 +1001,7 @@ CMakeFiles/7.dir/clean:
 CMakeFiles/X_7.dir/all:
 	$(MAKE) -f CMakeFiles\X_7.dir\build.make CMakeFiles/X_7.dir/depend
 	$(MAKE) -f CMakeFiles\X_7.dir\build.make CMakeFiles/X_7.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=49,50 "Built target X_7"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=51,52 "Built target X_7"
 .PHONY : CMakeFiles/X_7.dir/all
 
 # Build rule for subdir invocation for target.

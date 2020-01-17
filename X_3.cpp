@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+using namespace std;
 
 struct Node
 {
@@ -183,7 +184,7 @@ Node *Delete(Node *x , int t)
             {
                 Node *temp = Findmax(x->l);
                 x->data = temp->data;
-                x->r = Delete(x->l , x->data);
+                x->l = Delete(x->l , x->data);
             }
         }
         else if (x->l == nullptr)
@@ -198,8 +199,8 @@ Node *Delete(Node *x , int t)
             x = x->l;
             free(temp);
         }
-        return x;
     }
+    return x;
 }
 
 void in_order(Node *node)
@@ -207,7 +208,7 @@ void in_order(Node *node)
     if(node != nullptr)
     {
         in_order(node->l);
-        printf("%d " , node->data);
+        cout << node->data << ' ';
         in_order(node->r);
     }
 }
@@ -223,6 +224,9 @@ int main()
     {
         tree.base = Ballance_insert(tree.base , a[i]);
     }
-    Delete(tree.base , 3);
-    in_order(tree.base);
+    for(int i = 0;i < size;i ++) {
+        tree.base = Delete(tree.base, a[i]);
+        in_order(tree.base);
+        cout << endl;
+    }
 }

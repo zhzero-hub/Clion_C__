@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Z_HAO/CLionProjects/Clion_C__/X_4.cpp
+iostream
+-
+fstream
+-
+string
+-
+vector
+-
+queue
+-
+set
+-
+unordered_map
+-
+unordered_set
+-
+algorithm
+-
+

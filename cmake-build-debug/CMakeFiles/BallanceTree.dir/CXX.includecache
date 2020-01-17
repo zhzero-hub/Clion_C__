@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Z_HAO/CLionProjects/Clion_C__/BallanceTree.cpp
+iostream
+-
+vector
+-
+algorithm
+-
+graphics.h
+C:/Users/Z_HAO/CLionProjects/Clion_C__/graphics.h
+conio.h
+-
+iterator
+-
+
+C:/Users/Z_HAO/CLionProjects/Clion_C__/easyx.h
+windows.h
+-
+tchar.h
+-
+
+C:/Users/Z_HAO/CLionProjects/Clion_C__/graphics.h
+easyx.h
+C:/Users/Z_HAO/CLionProjects/Clion_C__/easyx.h
+

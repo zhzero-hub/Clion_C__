@@ -327,48 +327,18 @@ void Draw(Node *base , int nodes[][4], int radius, int k = 1)
 	}
 }
 
-void DisplayTree(Node *T , int depth)
-{
-	int width = 640 / (pow(2, depth - 1) + 1);
-	int height = 0.85 * 480 / depth - 1;	//作图区的宽640，高480
-	int radius = 0.125 * width;
-	int nodes[1024][4] = { 0 };		//最多可以输出10层的树
-	for (int i = depth; i >= 1; i--)
-	{
-		int first;			//每一层中，首结点的横坐标
-		if (i == depth)
-			first = width;
-		else
-			first = (int)(pow(2, depth - i - 1)*width + width / 2);
-		int w;				//每一层中，相邻两结点的距离
-		w = (int)(pow(2, depth - i) * width);
-		for (int j = (int)(pow(2, i - 1)); j <= (int)(pow(2, i) - 1); j++)
-		{
-			if (nodes[j][2] == 1)
-			{
-				nodes[j][0] = (int)(first + (j - pow(2, i - 1)) * w);
-				nodes[j][1] = height * (i - 1) + radius;
-			}
-		}
-	}
-
-	Draw(T, nodes, radius);
-
-}
-
 void show_node(int left, int top, int right, Node *t)//在指定位置输出一个节点
 {
-	TCHAR s[5];//用于临时存储
-	// ttextstyle(6, 5, _T("黑体"));
+	TCHAR s[5];//用于输出
 	int y = top + 20;
-	int x = (left + right) / 2 - (3 * t->data.size() + 1) * 7.5;//总宽度
+	int x = (left + right) / 2 - (3 * t->data.size() + 1) * 7.5;//起始位置
 	rectangle(x, y, x + (3 * t->data.size() + 1) * 15, y + 20);
 	int i = 0;
 	while (i < t->data.size())
 	{
 		_stprintf_s(s, _T("%d"), t->data[i].second);
 		outtextxy(x + 21 + 45 * i, y + 4, s);
-		i++;
+		i ++;
 	}
 }
 
@@ -387,7 +357,7 @@ void show(Node *head, int left, int top, int right)
 		int size = 1;
 		for (const auto &x : T->data)
 		{
-			if (x.first != nullptr)size++;
+			if (x.first != nullptr)size++;//size只表示接下来仍有需要输出的节点的个数
 		}
 		step = (right - left) / size;
 		x = (left + right + 1) / 2 - (3 * size + 1) * 7.5;//起始位置
@@ -395,12 +365,12 @@ void show(Node *head, int left, int top, int right)
 		{
 			if (y.first != nullptr)
 			{
-				show(y.first, left + i * step, top + 60, left + (i + 1)*step);
+				show(y.first, left + i * step, top + 60, left + (i + 1)*step);//输出当前节点
 				line(x + 30 + i * 45, top + 30, left + (2 * i + 1)*step / 2, top + 80);//画线
 				i ++;
 			}
 		}
-		show(T->end, left + i * step, top + 60, left + (i + 1)*step);
+		show(T->end, left + i * step, top + 60, left + (i + 1)*step);//输出当前节点
 		line(x + 30 + i * 45, top + 30, left + (2 * i + 1)*step / 2, top + 80);//画线
 	}
 }
