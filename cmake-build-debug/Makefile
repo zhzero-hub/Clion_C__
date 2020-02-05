@@ -357,6 +357,19 @@ testgit/fast:
 .PHONY : 201909_5/fast
 
 #=============================================================================
+# Target rules for targets named zero
+
+# Build rule for target.
+zero: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 zero
+.PHONY : zero
+
+# fast build rule for target.
+zero/fast:
+	$(MAKE) -f CMakeFiles\zero.dir\build.make CMakeFiles/zero.dir/build
+.PHONY : zero/fast
+
+#=============================================================================
 # Target rules for targets named BallanceTree
 
 # Build rule for target.
@@ -1429,6 +1442,33 @@ testtest.cpp.s:
 	$(MAKE) -f CMakeFiles\testtest.dir\build.make CMakeFiles/testtest.dir/testtest.cpp.s
 .PHONY : testtest.cpp.s
 
+zero.obj: zero.cpp.obj
+
+.PHONY : zero.obj
+
+# target to build an object file
+zero.cpp.obj:
+	$(MAKE) -f CMakeFiles\zero.dir\build.make CMakeFiles/zero.dir/zero.cpp.obj
+.PHONY : zero.cpp.obj
+
+zero.i: zero.cpp.i
+
+.PHONY : zero.i
+
+# target to preprocess a source file
+zero.cpp.i:
+	$(MAKE) -f CMakeFiles\zero.dir\build.make CMakeFiles/zero.dir/zero.cpp.i
+.PHONY : zero.cpp.i
+
+zero.s: zero.cpp.s
+
+.PHONY : zero.s
+
+# target to generate assembly for a file
+zero.cpp.s:
+	$(MAKE) -f CMakeFiles\zero.dir\build.make CMakeFiles/zero.dir/zero.cpp.s
+.PHONY : zero.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -1455,6 +1495,7 @@ help:
 	@echo ... 201909_2
 	@echo ... 201312_4
 	@echo ... 201909_5
+	@echo ... zero
 	@echo ... BallanceTree
 	@echo ... 201903_4
 	@echo ... Tree
@@ -1569,6 +1610,9 @@ help:
 	@echo ... testtest.obj
 	@echo ... testtest.i
 	@echo ... testtest.s
+	@echo ... zero.obj
+	@echo ... zero.i
+	@echo ... zero.s
 .PHONY : help
 
 

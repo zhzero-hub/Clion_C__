@@ -18,6 +18,7 @@ C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/CMakeFiles/testgit.dir
 C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/CMakeFiles/201909_2.dir
 C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/CMakeFiles/201312_4.dir
 C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/CMakeFiles/201909_5.dir
+C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/CMakeFiles/zero.dir
 C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/CMakeFiles/BallanceTree.dir
 C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/CMakeFiles/201903_4.dir
 C:/Users/Z_HAO/CLionProjects/Clion_C__/cmake-build-debug/CMakeFiles/Tree.dir

@@ -71,6 +71,7 @@ all: CMakeFiles/testgit.dir/all
 all: CMakeFiles/201909_2.dir/all
 all: CMakeFiles/201312_4.dir/all
 all: CMakeFiles/201909_5.dir/all
+all: CMakeFiles/zero.dir/all
 all: CMakeFiles/BallanceTree.dir/all
 all: CMakeFiles/201903_4.dir/all
 all: CMakeFiles/Tree.dir/all
@@ -108,6 +109,7 @@ clean: CMakeFiles/testgit.dir/clean
 clean: CMakeFiles/201909_2.dir/clean
 clean: CMakeFiles/201312_4.dir/clean
 clean: CMakeFiles/201909_5.dir/clean
+clean: CMakeFiles/zero.dir/clean
 clean: CMakeFiles/BallanceTree.dir/clean
 clean: CMakeFiles/201903_4.dir/clean
 clean: CMakeFiles/Tree.dir/clean
@@ -642,6 +644,33 @@ CMakeFiles/201909_5.dir/rule: cmake_check_build_system
 CMakeFiles/201909_5.dir/clean:
 	$(MAKE) -f CMakeFiles\201909_5.dir\build.make CMakeFiles/201909_5.dir/clean
 .PHONY : CMakeFiles/201909_5.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/zero.dir
+
+# All Build rule for target.
+CMakeFiles/zero.dir/all:
+	$(MAKE) -f CMakeFiles\zero.dir\build.make CMakeFiles/zero.dir/depend
+	$(MAKE) -f CMakeFiles\zero.dir\build.make CMakeFiles/zero.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles --progress-num=67,68 "Built target zero"
+.PHONY : CMakeFiles/zero.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/zero.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles 2
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/zero.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Z_HAO\CLionProjects\Clion_C__\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles/zero.dir/rule
+
+# Convenience name for target.
+zero: CMakeFiles/zero.dir/rule
+
+.PHONY : zero
+
+# clean rule for target.
+CMakeFiles/zero.dir/clean:
+	$(MAKE) -f CMakeFiles\zero.dir\build.make CMakeFiles/zero.dir/clean
+.PHONY : CMakeFiles/zero.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/BallanceTree.dir
