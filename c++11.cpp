@@ -11,6 +11,10 @@
 #include <regex>
 using namespace std;
 
+enum class Enum {//强枚举
+    Val1 , Val2 , Val3
+};
+
 template <typename T>
 class func
 {
@@ -29,6 +33,7 @@ public:
     Node() {
         cout << "Default constructor" << endl;
     }
+
     Node(const initializer_list<int> &t): Node() { //初始化列表 + 委托构造函数
         cout << "Initializer list constructor" << endl;
         for(const auto &x: t) {
@@ -37,6 +42,26 @@ public:
         }
         cout << endl;
         size = a.size();
+    }
+
+    Node(int x[] , int n) {
+        for(int i = 0;i < n;i ++) {
+            a.push_back(x[i]);
+        }
+        this->size = n;
+    }
+
+    Node(Node && other) noexcept {//右值引用
+        cout << "R constructor" << endl;
+        this->a.swap(other.a);
+        this->size = a.size();
+    }
+
+    Node &operator =(Node &&other) noexcept {
+        cout << "R copy" << endl;
+        this->a.swap(other.a);
+        this->size = a.size();
+        return *this;
     }
 
     auto begin()-> decltype(a.begin()) {//decltype推断返回类型
@@ -68,11 +93,26 @@ public:
             return this->size % value == 0;
         };
     }
+
+    void swap(Node &t) {
+        Node temp(move(*this));
+        *this = move(t);
+        t = move(temp);
+    }
 };
 
 template <typename T = int , typename U = int>//默认模板参数
 auto add(T t , U u)-> decltype(t + u) {
     return t + u;
+}
+
+bool is_r_value(int &&) { cout << "is rvalue" << endl; return true; }
+bool is_r_value(const int &) { cout << "is lvalue" << endl; return false; }
+
+void test(int && i)
+{
+    is_r_value(i); // i為具名變數，即使被宣告成右值引用类型，i作为实参表达式也不會被認定是右值表达式。
+    is_r_value(move<int &>(i)); // 使用std::move<T>()取得右值。
 }
 
 int main(int argc , char **argv)
@@ -96,4 +136,8 @@ int main(int argc , char **argv)
     regex txt_regex("[a-z]+\\.txt");
     for (const auto &fname: fnames)
         std::cout << fname << ": " << std::regex_match(fname, txt_regex) << std::endl;
+    test(1);
+    int arr[] = {1,2,5,80,81,8,24,15,52,26};
+    Node y{1,2,3,3,5,5,6};
+    x.swap(y);
 }

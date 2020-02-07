@@ -1253,6 +1253,33 @@ asd.cpp.s:
 	$(MAKE) -f CMakeFiles\asd.dir\build.make CMakeFiles/asd.dir/asd.cpp.s
 .PHONY : asd.cpp.s
 
+c++11.obj: c++11.cpp.obj
+
+.PHONY : c++11.obj
+
+# target to build an object file
+c++11.cpp.obj:
+	$(MAKE) -f CMakeFiles\zero.dir\build.make CMakeFiles/zero.dir/c++11.cpp.obj
+.PHONY : c++11.cpp.obj
+
+c++11.i: c++11.cpp.i
+
+.PHONY : c++11.i
+
+# target to preprocess a source file
+c++11.cpp.i:
+	$(MAKE) -f CMakeFiles\zero.dir\build.make CMakeFiles/zero.dir/c++11.cpp.i
+.PHONY : c++11.cpp.i
+
+c++11.s: c++11.cpp.s
+
+.PHONY : c++11.s
+
+# target to generate assembly for a file
+c++11.cpp.s:
+	$(MAKE) -f CMakeFiles\zero.dir\build.make CMakeFiles/zero.dir/c++11.cpp.s
+.PHONY : c++11.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -1442,33 +1469,6 @@ testtest.cpp.s:
 	$(MAKE) -f CMakeFiles\testtest.dir\build.make CMakeFiles/testtest.dir/testtest.cpp.s
 .PHONY : testtest.cpp.s
 
-zero.obj: zero.cpp.obj
-
-.PHONY : zero.obj
-
-# target to build an object file
-zero.cpp.obj:
-	$(MAKE) -f CMakeFiles\zero.dir\build.make CMakeFiles/zero.dir/zero.cpp.obj
-.PHONY : zero.cpp.obj
-
-zero.i: zero.cpp.i
-
-.PHONY : zero.i
-
-# target to preprocess a source file
-zero.cpp.i:
-	$(MAKE) -f CMakeFiles\zero.dir\build.make CMakeFiles/zero.dir/zero.cpp.i
-.PHONY : zero.cpp.i
-
-zero.s: zero.cpp.s
-
-.PHONY : zero.s
-
-# target to generate assembly for a file
-zero.cpp.s:
-	$(MAKE) -f CMakeFiles\zero.dir\build.make CMakeFiles/zero.dir/zero.cpp.s
-.PHONY : zero.cpp.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -1589,6 +1589,9 @@ help:
 	@echo ... asd.obj
 	@echo ... asd.i
 	@echo ... asd.s
+	@echo ... c++11.obj
+	@echo ... c++11.i
+	@echo ... c++11.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
@@ -1610,9 +1613,6 @@ help:
 	@echo ... testtest.obj
 	@echo ... testtest.i
 	@echo ... testtest.s
-	@echo ... zero.obj
-	@echo ... zero.i
-	@echo ... zero.s
 .PHONY : help
 
 
